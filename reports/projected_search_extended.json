@@ -1,0 +1,63 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "baseline_score": 22.28505109932975,
+  "candidate_score": 22.28505109932975,
+  "seed": 20261028,
+  "trials": 60,
+  "angle_evaluations": 60,
+  "trust": 0.12,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "before_side": 7.690355937295182,
+      "after_side": 7.690355937295182,
+      "gain": 0.0,
+      "repaired_proposals": 41,
+      "angle_improvements": 0,
+      "n": 51,
+      "accepted": false,
+      "seconds": 0.3558674579835497
+    },
+    {
+      "before_side": 8.944071557578258,
+      "after_side": 8.944071557578258,
+      "gain": 0.0,
+      "repaired_proposals": 41,
+      "angle_improvements": 0,
+      "n": 71,
+      "accepted": false,
+      "seconds": 0.27279020799323916
+    },
+    {
+      "before_side": 9.742640687128027,
+      "after_side": 9.742640687128027,
+      "gain": 0.0,
+      "repaired_proposals": 38,
+      "angle_improvements": 0,
+      "n": 85,
+      "accepted": false,
+      "seconds": 0.3121794580074493
+    },
+    {
+      "before_side": 9.94974746831478,
+      "after_side": 9.94974746831478,
+      "gain": 0.0,
+      "repaired_proposals": 40,
+      "angle_improvements": 0,
+      "n": 89,
+      "accepted": false,
+      "seconds": 0.34214345799409784
+    },
+    {
+      "before_side": 10.949747468315783,
+      "after_side": 10.949747468315783,
+      "gain": 0.0,
+      "repaired_proposals": 42,
+      "angle_improvements": 0,
+      "n": 109,
+      "accepted": false,
+      "seconds": 0.3983407079940662
+    }
+  ]
+}
