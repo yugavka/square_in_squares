@@ -18,6 +18,11 @@ import json
 import math
 from pathlib import Path
 from collections.abc import Iterable, Iterator
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from fault_line_dp import Gadget
 
 from optimal_locks import (SAFETY_SCALE, SQRT2, check_locked_sides,
                            fixed_packing, five_square_seed, proven_optimal,
@@ -33,6 +38,13 @@ PUBLIC_PORTFOLIO = (Path(__file__).with_name("published_sources") /
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
                    (1, 1), (1, -1), (-1, 1), (-1, -1))
 MAX_TRIM = 4
+
+
+@dataclass(frozen=True)
+class FaultTrace:
+    source_n: int
+    gadgets: tuple[Gadget, ...]
+    steps: tuple[str, ...] = ()
 
 
 def goebel_strip_seed(k: int) -> Packing:
@@ -209,7 +221,9 @@ def slab_candidates(squares: list[SquarePlacement],
 def improved_packings(max_n: int = 1000,
                       portfolio_paths: Iterable[Path] = (),
                       include_public: bool = True,
-                      include_fault_dp: bool = True) -> dict[int, Packing]:
+                      include_fault_dp: bool = True,
+                      trace: dict[int, FaultTrace] | None = None
+                      ) -> dict[int, Packing]:
     """Select the best seed, portfolio, fault, slab and trimmed layout per n."""
     candidates = [(2, five_square_seed()),
                   (5, goebel_strip_seed(5)),
@@ -253,11 +267,20 @@ def improved_packings(max_n: int = 1000,
         donors.extend(source_packings.values())
         locked = (n for n in range(1, max_n + 1)
                   if proven_optimal(n) is not None)
-        improved.update(fault_line_compositions(donors, improved, max_n, locked))
+        provenance: dict[int, tuple[Gadget, ...]] | None = ({}
+            if trace is not None else None)
+        compositions = fault_line_compositions(donors, improved, max_n,
+                                                locked, provenance)
+        improved.update(compositions)
+        if trace is not None and provenance is not None:
+            trace.update({n: FaultTrace(n, chain)
+                          for n, chain in provenance.items()})
 
     # A unit-wide strip can be removed from a larger packing and the two
     # remaining pieces can be joined without creating a new intersection.
-    for _, (_, donor_squares) in list(improved.items()):
+    slab_donors = [(n, squares, trace.get(n) if trace is not None else None)
+                   for n, (_, squares) in improved.items()]
+    for donor_n, donor_squares, donor_trace in slab_donors:
         for n, candidate in slab_candidates(donor_squares):
             if n > max_n or proven_optimal(n) is not None:
                 continue
@@ -271,12 +294,21 @@ def improved_packings(max_n: int = 1000,
                 if abs(measured - side) > 1e-8:
                     raise AssertionError("slab side changed during validation")
                 improved[n] = candidate
+                if trace is not None:
+                    if donor_trace is None:
+                        trace.pop(n, None)
+                    else:
+                        trace[n] = FaultTrace(donor_trace.source_n,
+                                              donor_trace.gadgets,
+                                              donor_trace.steps +
+                                              (f"slab {donor_n}->{n}",))
 
     # Neighbor transfer: a good (n+d)-square packing can improve n after
     # removing d squares. Explore several directions because equal one-step
     # sides can lead to different later reductions.
-    donors = list(improved.items())
-    for donor_n, (_, donor_squares) in donors:
+    trim_donors = [(n, squares, trace.get(n) if trace is not None else None)
+                   for n, (_, squares) in improved.items()]
+    for donor_n, donor_squares, donor_trace in trim_donors:
         for direction in TRIM_DIRECTIONS:
             squares = donor_squares
             for _ in range(min(MAX_TRIM, donor_n - 1)):
@@ -288,6 +320,14 @@ def improved_packings(max_n: int = 1000,
                 grid_side = math.isqrt(n - 1) + 1
                 if side < grid_side and (previous is None or side < previous[0] - 1e-9):
                     improved[n] = side, squares
+                    if trace is not None:
+                        if donor_trace is None:
+                            trace.pop(n, None)
+                        else:
+                            trace[n] = FaultTrace(donor_trace.source_n,
+                                                  donor_trace.gadgets,
+                                                  donor_trace.steps +
+                                                  (f"trim {donor_n}->{n}",))
     return improved
 
 

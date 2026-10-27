@@ -173,7 +173,9 @@ def has_empty_upper_tip(gadget: Gadget) -> bool:
 def fault_line_compositions(donors: Iterable[Packing],
                             incumbents: dict[int, Packing],
                             max_n: int = 1000,
-                            locked: Iterable[int] = ()) -> dict[int, Packing]:
+                            locked: Iterable[int] = (),
+                            provenance: dict[int, tuple[Gadget, ...]] | None = None
+                            ) -> dict[int, Packing]:
     """Minimax DP over diagonal chains of rectangular gadgets.
 
     Every nonterminal gadget has an empty upper seam, so any terminal gadget
@@ -249,5 +251,7 @@ def fault_line_compositions(donors: Iterable[Packing],
                 continue
             if candidate[0] < limit - 1e-9:
                 improved[n] = candidate
+                if provenance is not None:
+                    provenance[n] = tuple(gadgets[index] for index in chain) + (final,)
                 break
     return improved
