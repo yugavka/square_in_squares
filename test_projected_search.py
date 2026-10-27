@@ -2,7 +2,8 @@ import random
 import unittest
 
 from projected_search import (propose, restore_lp, strict_side,
-                              write_partial)
+                              normalized, write_partial)
+from joint_polish import polish
 from validate_submission import validate_submission
 
 
@@ -33,6 +34,16 @@ class ProjectedSearchTests(unittest.TestCase):
                                      (1.50000001, 0.5, 0.0)]})
             results = validate_submission(path, max_n=2, allow_partial=True)
             self.assertEqual([result.n for result in results], [2])
+
+    def test_joint_polish_changes_angles_and_reduces_side(self):
+        tilted = [(0.6, 0.6, 0.08), (1.7, 0.6, 0.08)]
+        compact = restore_lp(tilted, 2.3, 0.3, random.Random(1))
+        before = strict_side(compact)
+        polished, improvements = polish(compact, 20, strict_side, normalized)
+        self.assertGreater(improvements, 0)
+        self.assertLess(strict_side(polished), before - 1e-6)
+        self.assertTrue(any(abs(a[2] - b[2]) > 1e-7
+                            for a, b in zip(compact, polished)))
 
 
 if __name__ == "__main__":

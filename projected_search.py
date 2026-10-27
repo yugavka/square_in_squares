@@ -1,8 +1,9 @@
 """Bounded overlap-and-repair search for selected square packings.
 
 Compressed and contact-kicked proposals may overlap. A fixed-angle LP moves
-centres inside a trust region to restore a valid packing; a small independent
-angle search then repeats the LP. Only strictly verified gains are exported.
+centres inside a trust region to restore a valid packing; independent angle
+proposals and a joint centre-angle LP then refine it. Only strictly verified
+gains are exported.
 SciPy is needed for this optional experiment, not for packing_solution.py.
 """
 
@@ -211,7 +212,10 @@ def load_selected(path: Path, selected: set[int]) -> dict[int, list[Placement]]:
 
 
 def search_one(base: list[Placement], trials: int, seed: int,
-               angle_evaluations: int, trust: float) -> tuple[list[Placement], dict]:
+               angle_evaluations: int, trust: float,
+               joint_rounds: int = 16) -> tuple[list[Placement], dict]:
+    from joint_polish import polish
+
     rng = random.Random(seed)
     initial = strict_side(base)
     best = normalized(base)
@@ -238,11 +242,24 @@ def search_one(base: list[Placement], trials: int, seed: int,
             best, best_side = candidate, side
     best, angle_gains = polish_angles(best, best_side - 1e-9, rng,
                                      angle_evaluations, trust / 2)
+    best_side = strict_side(best)
+    before_joint = best_side
+    joint_gains = 0
+    starts = [best] + sorted(archive, key=strict_side)[:2]
+    for start in starts:
+        candidate, gained = polish(start, joint_rounds, strict_side,
+                                   normalized)
+        joint_gains += gained
+        side = strict_side(candidate)
+        if side < best_side - 1e-9:
+            best, best_side = candidate, side
     final_side = strict_side(best)
     return best, {"before_side": initial, "after_side": final_side,
                   "gain": (initial - final_side) / math.sqrt(len(base)),
                   "repaired_proposals": repairs,
-                  "angle_improvements": angle_gains}
+                  "angle_improvements": angle_gains,
+                  "joint_improvements": joint_gains,
+                  "before_joint_side": before_joint}
 
 
 def write_partial(path: Path, improved: dict[int, list[Placement]]) -> None:
@@ -266,6 +283,7 @@ def main() -> None:
                         default=ROOT / "submission_improved.csv")
     parser.add_argument("--trials", type=int, default=16)
     parser.add_argument("--angle-evaluations", type=int, default=24)
+    parser.add_argument("--joint-rounds", type=int, default=16)
     parser.add_argument("--trust", type=float, default=0.12)
     parser.add_argument("--seed", type=int, default=20261027)
     parser.add_argument("--output", type=Path,
@@ -276,6 +294,7 @@ def main() -> None:
     selected = set(args.n)
     if (not all(1 <= n <= 1000 and proven_optimal(n) is None for n in selected)
             or args.trials < 1 or args.angle_evaluations < 0
+            or args.joint_rounds < 0
             or not 0 < args.trust <= 0.5):
         parser.error("choose unlocked n in 1..1000, positive trials and 0<trust<=0.5")
     results = validate_submission(args.input)
@@ -287,7 +306,7 @@ def main() -> None:
         started = time.monotonic()
         candidate, record = search_one(layouts[n], args.trials,
                                        args.seed + n, args.angle_evaluations,
-                                       args.trust)
+                                       args.trust, args.joint_rounds)
         if record["gain"] > 1e-8:
             improved[n] = candidate
         record.update(n=n, accepted=n in improved,
@@ -295,7 +314,8 @@ def main() -> None:
         records.append(record)
         print(f"n={n}: gain={record['gain']:.12g}, "
               f"repairs={record['repaired_proposals']}, "
-              f"angles={record['angle_improvements']}", flush=True)
+              f"angles={record['angle_improvements']}, "
+              f"joint={record['joint_improvements']}", flush=True)
     if improved:
         write_partial(args.output, improved)
     report = {"input": str(args.input), "baseline_score": baseline_score,
@@ -303,6 +323,7 @@ def main() -> None:
                   row["gain"] for row in records if row["accepted"]),
               "seed": args.seed, "trials": args.trials,
               "angle_evaluations": args.angle_evaluations,
+              "joint_rounds": args.joint_rounds,
               "trust": args.trust, "accepted_n": sorted(improved),
               "candidate_csv": str(args.output) if improved else None,
               "records": records}
