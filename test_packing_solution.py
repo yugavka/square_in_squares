@@ -1,4 +1,5 @@
 import math
+import csv
 import sys
 import tempfile
 import unittest
@@ -11,9 +12,10 @@ from area_gap_report import ranked_gaps
 from import_published_packings import checked_side, import_entries
 from optimal_locks import check_locked_sides, fixed_packing, proven_optimal
 from packing_solution import (five_square_seed, goebel_strip_seed,
-                              improved_packings, record_seeds,
+                              improved_packings, portfolio_packings, record_seeds,
+                              slab_candidates,
                               write_submission)
-from validate_submission import Result
+from validate_submission import Result, make_square, measure_packing
 
 
 class ConstructivePackingTests(unittest.TestCase):
@@ -35,6 +37,60 @@ class ConstructivePackingTests(unittest.TestCase):
             self.assertIn(n, packings)
             self.assertEqual(len(packings[n][1]), n)
             self.assertLess(packings[n][0], math.isqrt(n - 1) + 1)
+
+    def test_neighbor_transfer_improves_selected_layouts(self):
+        packings = improved_packings(300)
+        for n, upper_bound in ((84, 9.69806), (125, 11.75),
+                               (130, 11.90869), (204, 14.81),
+                               (227, 15.57), (229, 15.66),
+                               (260, 16.65), (293, 17.65)):
+            side, squares = packings[n]
+            self.assertLess(side, upper_bound)
+            self.assertEqual(len(squares), n)
+            measured = measure_packing(
+                n, [make_square(i, *placement)
+                    for i, placement in enumerate(squares)]
+            )
+            self.assertAlmostEqual(measured.side, side)
+
+    def test_slab_cut_closes_empty_gap_and_removes_occupied_strip(self):
+        separated = [(x + 0.5, y + 0.5, 0.0)
+                     for x in (0, 1, 3, 4) for y in (0, 1)]
+        candidates = list(slab_candidates(separated))
+        closed = [packing for n, packing in candidates
+                  if n == 8 and abs(packing[0] - 4) < 1e-9]
+        self.assertTrue(closed)
+        side, squares = closed[0]
+        self.assertAlmostEqual(
+            measure_packing(8, [make_square(i, *row)
+                                for i, row in enumerate(squares)]).side, side)
+
+        grid = [(x + 0.5, y + 0.5, 0.0)
+                for x in range(3) for y in range(3)]
+        reduced = [(side, squares) for n, (side, squares) in slab_candidates(grid)
+                   if n == 6 and abs(side - 3) < 1e-9]
+        self.assertTrue(reduced)
+        measure_packing(6, [make_square(i, *row)
+                            for i, row in enumerate(reduced[0][1])])
+
+    def test_portfolio_selects_best_valid_layout_per_n(self):
+        seed = next(squares for _, squares in record_seeds()
+                    if len(squares) == 11)
+        with tempfile.TemporaryDirectory() as temp:
+            paths = [Path(temp) / name for name in ('wide.csv', 'tight.csv')]
+            for path, spacing in zip(paths, (1.01, 1.0)):
+                with path.open('w', newline='') as target:
+                    writer = csv.writer(target)
+                    writer.writerow(('id', 'n', 'square_id', 'x', 'y', 'angle'))
+                    for i, (x, y, angle) in enumerate(seed):
+                        writer.writerow((i, 11, i, x * spacing,
+                                         y * spacing, angle))
+            chosen = portfolio_packings(paths, max_n=11)
+            expected = measure_packing(
+                11, [make_square(i, *row) for i, row in enumerate(seed)]
+            ).side
+            self.assertAlmostEqual(chosen[11][0], expected)
+            self.assertEqual(len(chosen[11][1]), 11)
 
     def test_proof_registry_does_not_assume_k_squared_minus_2(self):
         for n in (23, 34, 47, 62):
@@ -66,10 +122,11 @@ class ConstructivePackingTests(unittest.TestCase):
 
     def test_record_seeds_are_valid_and_normalized(self):
         seeds = record_seeds()
-        self.assertEqual(len(seeds), 40)
+        self.assertEqual(len(seeds), 44)
         sizes = {len(squares) for _, squares in seeds}
         self.assertTrue({11, 17, 18, 19, 26, 28, 29, 37, 39, 40, 41,
-                         50, 51, 54, 55, 68, 70, 295} <= sizes)
+                         50, 51, 54, 55, 68, 70, 204, 227, 229,
+                         260, 295} <= sizes)
         for side, squares in seeds:
             self.assertGreater(side, 0)
             self.assertTrue(all(x >= 0 and y >= 0 for x, y, _ in squares))

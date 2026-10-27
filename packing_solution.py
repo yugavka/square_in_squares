@@ -2,17 +2,21 @@
 
 The starting layouts are classical Goebel 5/27/52-square constructions and
 selected catalog layouts in record_seeds.json. Each can be extended by one
-outer row and column. Other puzzle sizes retain the grid baseline. No
-optimization libraries or network access are required.
+outer row and column, cut along a unit-wide strip, or trimmed by removing
+boundary squares. Optional validated CSVs form a per-n portfolio. Other puzzle
+sizes retain the grid baseline. No optimization libraries or network access
+are required.
 """
 
 from __future__ import annotations
 
 import argparse
+from bisect import bisect_left, bisect_right
 import csv
 import json
 import math
 from pathlib import Path
+from collections.abc import Iterable, Iterator
 
 from optimal_locks import (SAFETY_SCALE, SQRT2, check_locked_sides,
                            fixed_packing, five_square_seed, proven_optimal,
@@ -23,6 +27,11 @@ from validate_submission import (make_square, measure_packing, total_score,
 
 SquarePlacement = tuple[float, float, float]
 Packing = tuple[float, list[SquarePlacement]]
+PUBLIC_PORTFOLIO = (Path(__file__).with_name("published_sources") /
+                    "malyshev_replay_v34.csv")
+TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
+                   (1, 1), (1, -1), (-1, 1), (-1, -1))
+MAX_TRIM = 4
 
 
 def goebel_strip_seed(k: int) -> Packing:
@@ -79,8 +88,127 @@ def record_seeds() -> list[Packing]:
     return seeds
 
 
-def improved_packings(max_n: int = 1000) -> dict[int, Packing]:
-    """Select the best valid construction or record-derived extension for each n."""
+def trim_one_square(squares: list[SquarePlacement],
+                    direction: tuple[int, int]) -> Packing:
+    """Remove the square giving the smallest remaining bounding square.
+
+    A directional tie break explores different boundary regions over several
+    successive removals. Any subset remains nonoverlapping by construction.
+    """
+    geometry = [make_square(i, *placement)
+                for i, placement in enumerate(squares)]
+    if len(geometry) < 2:
+        raise ValueError("cannot trim a one-square packing")
+    min_x = sorted((square.min_x, i) for i, square in enumerate(geometry))
+    max_x = sorted((square.max_x, i) for i, square in enumerate(geometry))
+    min_y = sorted((square.min_y, i) for i, square in enumerate(geometry))
+    max_y = sorted((square.max_y, i) for i, square in enumerate(geometry))
+
+    best_key = None
+    best_index = -1
+    for i, square in enumerate(geometry):
+        left = min_x[1][0] if min_x[0][1] == i else min_x[0][0]
+        right = max_x[-2][0] if max_x[-1][1] == i else max_x[-1][0]
+        bottom = min_y[1][0] if min_y[0][1] == i else min_y[0][0]
+        top = max_y[-2][0] if max_y[-1][1] == i else max_y[-1][0]
+        side = max(right - left, top - bottom)
+        # Round only for the tie break: floating point noise must not decide
+        # which boundary region is searched next.
+        key = (round(side, 9), -(direction[0] * square.x +
+                                 direction[1] * square.y), i)
+        if best_key is None or key < best_key:
+            best_key, best_index = key, i
+
+    remaining = squares[:best_index] + squares[best_index + 1:]
+    remaining_geometry = geometry[:best_index] + geometry[best_index + 1:]
+    side = max(
+        max(square.max_x for square in remaining_geometry) -
+        min(square.min_x for square in remaining_geometry),
+        max(square.max_y for square in remaining_geometry) -
+        min(square.min_y for square in remaining_geometry),
+    )
+    return side, remaining
+
+
+def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
+    """Select the best independently validated layout for each n in CSV inputs."""
+    best: dict[int, Packing] = {}
+    for path in paths:
+        measured = {result.n: result.side for result in
+                    validate_submission(path, max_n=max_n, allow_partial=True)}
+        groups: dict[int, list[SquarePlacement | None]] = {
+            n: [None] * n for n in measured
+        }
+        with path.open(newline="", encoding="utf-8-sig") as source:
+            for row in csv.DictReader(source):
+                n = int(row["n"])
+                groups[n][int(row["square_id"])] = (
+                    float(row["x"]), float(row["y"]), float(row["angle"])
+                )
+        for n, rows in groups.items():
+            side = measured[n]
+            if (proven_optimal(n) is not None or
+                    side >= math.isqrt(n - 1) + 1 - 1e-9):
+                continue
+            previous = best.get(n)
+            if previous is None or side < previous[0] - 1e-9:
+                best[n] = side, [row for row in rows if row is not None]
+    return best
+
+
+def slab_candidates(squares: list[SquarePlacement],
+                    max_removed: int | None = None) -> Iterator[tuple[int, Packing]]:
+    """Remove a unit-wide vertical or horizontal strip and close the gap.
+
+    Every square touching the strip is removed; squares on opposite sides are
+    separated by at least one unit before the translation. Candidate positions
+    come from square edges, including strips flush with tilted blocks.
+    """
+    n = len(squares)
+    if max_removed is None:
+        max_removed = 2 * math.isqrt(n) + 6
+    geometry = [make_square(i, *row) for i, row in enumerate(squares)]
+    for axis in ("x", "y"):
+        lower = [getattr(square, f"min_{axis}") for square in geometry]
+        upper = [getattr(square, f"max_{axis}") for square in geometry]
+        sorted_lower, sorted_upper = sorted(lower), sorted(upper)
+        positions = sorted(set(lower) | set(upper) |
+                           {value - 1 for value in lower} |
+                           {value - 1 for value in upper})
+        for cut in positions:
+            if cut <= sorted_lower[0] or cut + 1 >= sorted_upper[-1]:
+                continue
+            left_count = bisect_right(sorted_upper, cut)
+            right_count = n - bisect_left(sorted_lower, cut + 1)
+            kept = left_count + right_count
+            if kept < 2 or n - kept > max_removed:
+                continue
+            packed: list[SquarePlacement] = []
+            min_x = min_y = math.inf
+            max_x = max_y = -math.inf
+            for i, (x, y, angle) in enumerate(squares):
+                shift_x = shift_y = 0
+                if upper[i] <= cut:
+                    packed.append((x, y, angle))
+                elif lower[i] >= cut + 1:
+                    shift_x, shift_y = (1, 0) if axis == "x" else (0, 1)
+                    packed.append((x - shift_x, y - shift_y, angle))
+                else:
+                    continue
+                square = geometry[i]
+                min_x = min(min_x, square.min_x - shift_x)
+                max_x = max(max_x, square.max_x - shift_x)
+                min_y = min(min_y, square.min_y - shift_y)
+                max_y = max(max_y, square.max_y - shift_y)
+            if len(packed) != kept:
+                raise AssertionError("slab classification disagrees with counts")
+            yield kept, (max(max_x - min_x, max_y - min_y), packed)
+
+
+def improved_packings(max_n: int = 1000,
+                      portfolio_paths: Iterable[Path] = (),
+                      include_public: bool = True) -> dict[int, Packing]:
+    """Select the best seed, portfolio, slab-cut and trimmed layout for each n."""
     candidates = [(2, five_square_seed()),
                   (5, goebel_strip_seed(5)),
                   (7, goebel_strip_seed(7))]
@@ -106,12 +234,56 @@ def improved_packings(max_n: int = 1000) -> dict[int, Packing]:
                     improved[n] = measured, safe_squares
             side, squares = extend_by_outer_l(side, squares, k)
             k += 1
+
+    sources = list(portfolio_paths)
+    if include_public and max_n == 1000:
+        sources.insert(0, PUBLIC_PORTFOLIO)
+    for n, candidate in portfolio_packings(sources, max_n).items():
+        previous = improved.get(n)
+        if previous is None or candidate[0] < previous[0] - 1e-9:
+            improved[n] = candidate
+
+    # A unit-wide strip can be removed from a larger packing and the two
+    # remaining pieces can be joined without creating a new intersection.
+    for _, (_, donor_squares) in list(improved.items()):
+        for n, candidate in slab_candidates(donor_squares):
+            if n > max_n or proven_optimal(n) is not None:
+                continue
+            side = candidate[0]
+            previous = improved.get(n)
+            grid_side = math.isqrt(n - 1) + 1
+            if side < grid_side and (previous is None or side < previous[0] - 1e-9):
+                measured = measure_packing(
+                    n, [make_square(i, *row) for i, row in enumerate(candidate[1])]
+                ).side
+                if abs(measured - side) > 1e-8:
+                    raise AssertionError("slab side changed during validation")
+                improved[n] = candidate
+
+    # Neighbor transfer: a good (n+d)-square packing can improve n after
+    # removing d squares. Explore several directions because equal one-step
+    # sides can lead to different later reductions.
+    donors = list(improved.items())
+    for donor_n, (_, donor_squares) in donors:
+        for direction in TRIM_DIRECTIONS:
+            squares = donor_squares
+            for _ in range(min(MAX_TRIM, donor_n - 1)):
+                side, squares = trim_one_square(squares, direction)
+                n = len(squares)
+                if proven_optimal(n) is not None:
+                    continue
+                previous = improved.get(n)
+                grid_side = math.isqrt(n - 1) + 1
+                if side < grid_side and (previous is None or side < previous[0] - 1e-9):
+                    improved[n] = side, squares
     return improved
 
 
-def write_submission(path: Path, max_n: int = 1000) -> int:
+def write_submission(path: Path, max_n: int = 1000,
+                     portfolio_paths: Iterable[Path] = (),
+                     include_public: bool = True) -> int:
     """Write a complete submission, always preserving proof-backed layouts."""
-    improved = improved_packings(max_n)
+    improved = improved_packings(max_n, portfolio_paths, include_public)
     with path.open("w", newline="", encoding="utf-8") as target:
         writer = csv.writer(target)
         writer.writerow(["id", "n", "square_id", "x", "y", "angle"])
@@ -141,8 +313,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path,
                         default=Path(__file__).with_name("submission_improved.csv"))
+    parser.add_argument("--portfolio", action="append", type=Path, default=[],
+                        help="validated full or partial submission CSV; repeat for multiple inputs")
+    parser.add_argument("--no-public-portfolio", action="store_true",
+                        help="exclude the bundled public replay for ablation")
     args = parser.parse_args()
-    improved_count = write_submission(args.output)
+    if args.output.resolve() in {path.resolve() for path in args.portfolio}:
+        parser.error("--output must differ from every --portfolio input")
+    improved_count = write_submission(args.output, portfolio_paths=args.portfolio,
+                                      include_public=not args.no_public_portfolio)
     lock_count = write_lock_manifest(Path(__file__).with_name("locked_optimal.csv"))
     results = validate_submission(args.output)
     check_locked_sides(results)
