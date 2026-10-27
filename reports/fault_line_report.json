@@ -1,7 +1,7 @@
 {
   "baseline_score": 23.59976656530248,
-  "final_score": 22.933201492927946,
-  "score_gain": 0.6665650723745377,
+  "final_score": 22.933179036778732,
+  "score_gain": 0.6665875285237531,
   "affected_n": 269,
   "direct_n": 267,
   "derived_n": 2,
@@ -502,9 +502,32 @@
         985
       ],
       "occurrences": 7,
-      "allocated_gain": 0.0067398380291524935,
-      "associated_gain": 0.015997084517172626,
+      "allocated_gain": 0.0067414419347782036,
+      "associated_gain": 0.016000292328424048,
       "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 22,
+      "h": 10,
+      "surplus": 15,
+      "overhang": 0.9172080599673258,
+      "uses": 10,
+      "n": [
+        810,
+        867,
+        868,
+        869,
+        926,
+        927,
+        928,
+        988,
+        989,
+        991
+      ],
+      "occurrences": 10,
+      "allocated_gain": 0.006722124400619979,
+      "associated_gain": 0.01432223302154848,
+      "unique_bottleneck_uses": 7
     },
     {
       "w": 9,
@@ -562,28 +585,6 @@
       "allocated_gain": 0.005994828467448622,
       "associated_gain": 0.013704256113768012,
       "unique_bottleneck_uses": 0
-    },
-    {
-      "w": 22,
-      "h": 10,
-      "surplus": 15,
-      "overhang": 0.9173056744586159,
-      "uses": 9,
-      "n": [
-        810,
-        867,
-        868,
-        869,
-        926,
-        927,
-        928,
-        989,
-        991
-      ],
-      "occurrences": 9,
-      "allocated_gain": 0.005834464871055549,
-      "associated_gain": 0.011668929742111098,
-      "unique_bottleneck_uses": 6
     },
     {
       "w": 8,
@@ -699,29 +700,6 @@
       "allocated_gain": 0.004962653636707663,
       "associated_gain": 0.013076747528894046,
       "unique_bottleneck_uses": 0
-    },
-    {
-      "w": 17,
-      "h": 7,
-      "surplus": 10,
-      "overhang": 0.8994485911384125,
-      "uses": 10,
-      "n": [
-        596,
-        645,
-        646,
-        647,
-        697,
-        751,
-        752,
-        809,
-        986,
-        988
-      ],
-      "occurrences": 10,
-      "allocated_gain": 0.004829417129266257,
-      "associated_gain": 0.01171381858387411,
-      "unique_bottleneck_uses": 1
     },
     {
       "w": 25,
@@ -943,6 +921,28 @@
       "unique_bottleneck_uses": 1
     },
     {
+      "w": 17,
+      "h": 7,
+      "surplus": 10,
+      "overhang": 0.8994485911384125,
+      "uses": 9,
+      "n": [
+        596,
+        645,
+        646,
+        647,
+        697,
+        751,
+        752,
+        809,
+        986
+      ],
+      "occurrences": 9,
+      "allocated_gain": 0.003952468085858969,
+      "associated_gain": 0.009082971453652246,
+      "unique_bottleneck_uses": 1
+    },
+    {
       "w": 10,
       "h": 8,
       "surplus": 4,
@@ -1145,6 +1145,25 @@
       "occurrences": 2,
       "allocated_gain": 0.0033346740185622925,
       "associated_gain": 0.006669348037124585,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 17,
+      "surplus": 10,
+      "overhang": 0.8994485911384125,
+      "uses": 6,
+      "n": [
+        596,
+        697,
+        751,
+        865,
+        986,
+        988
+      ],
+      "occurrences": 6,
+      "allocated_gain": 0.0032820978906105895,
+      "associated_gain": 0.00966192650604157,
       "unique_bottleneck_uses": 0
     },
     {
@@ -1449,24 +1468,6 @@
       "allocated_gain": 0.002471243407783749,
       "associated_gain": 0.007413730223351247,
       "unique_bottleneck_uses": 3
-    },
-    {
-      "w": 7,
-      "h": 17,
-      "surplus": 10,
-      "overhang": 0.8994485911384125,
-      "uses": 5,
-      "n": [
-        596,
-        697,
-        751,
-        865,
-        986
-      ],
-      "occurrences": 5,
-      "allocated_gain": 0.0024041136703020676,
-      "associated_gain": 0.007027973845116004,
-      "unique_bottleneck_uses": 0
     },
     {
       "w": 9,
@@ -1900,8 +1901,8 @@
         867
       ],
       "occurrences": 1,
-      "allocated_gain": 0.0014042183575773627,
-      "associated_gain": 0.0028084367151547255,
+      "allocated_gain": 0.0014058759385593696,
+      "associated_gain": 0.002811751877118739,
       "unique_bottleneck_uses": 0
     },
     {
@@ -2048,8 +2049,8 @@
         989
       ],
       "occurrences": 1,
-      "allocated_gain": 0.0013147583698395148,
-      "associated_gain": 0.0026295167396790295,
+      "allocated_gain": 0.0013163103499749553,
+      "associated_gain": 0.0026326206999499105,
       "unique_bottleneck_uses": 0
     },
     {
@@ -2448,8 +2449,8 @@
       "unique_bottleneck_uses": 0
     },
     {
-      "w": 4,
-      "h": 2,
+      "w": 2,
+      "h": 4,
       "surplus": 2,
       "overhang": 0.8939549425000002,
       "uses": 1,
@@ -2457,23 +2458,9 @@
         988
       ],
       "occurrences": 1,
-      "allocated_gain": 0.000876949043407288,
-      "associated_gain": 0.002630847130221864,
+      "allocated_gain": 0.0008779842203085218,
+      "associated_gain": 0.0026339526609255653,
       "unique_bottleneck_uses": 0
-    },
-    {
-      "w": 10,
-      "h": 22,
-      "surplus": 15,
-      "overhang": 0.9173056744586159,
-      "uses": 1,
-      "n": [
-        988
-      ],
-      "occurrences": 1,
-      "allocated_gain": 0.000876949043407288,
-      "associated_gain": 0.002630847130221864,
-      "unique_bottleneck_uses": 1
     },
     {
       "w": 13,
@@ -2681,8 +2668,8 @@
         868
       ],
       "occurrences": 1,
-      "allocated_gain": 0.0006939770704641325,
-      "associated_gain": 0.001387954140928265,
+      "allocated_gain": 0.0006956336963432183,
+      "associated_gain": 0.0013912673926864366,
       "unique_bottleneck_uses": 0
     },
     {
@@ -3735,8 +3722,8 @@
         928
       ],
       "occurrences": 1,
-      "allocated_gain": 1.2727247221654236e-06,
-      "associated_gain": 2.5454494443308473e-06,
+      "allocated_gain": 2.874901069070052e-06,
+      "associated_gain": 5.749802138140104e-06,
       "unique_bottleneck_uses": 0
     },
     {
@@ -3749,8 +3736,8 @@
         927
       ],
       "occurrences": 1,
-      "allocated_gain": 1.2704692908742205e-06,
-      "associated_gain": 2.540938581748441e-06,
+      "allocated_gain": 2.8735095776350575e-06,
+      "associated_gain": 5.747019155270115e-06,
       "unique_bottleneck_uses": 0
     },
     {
@@ -8967,8 +8954,8 @@
     {
       "n": 867,
       "baseline_side": 30,
-      "final_side": 29.917305963631673,
-      "score_gain": 0.0028084367151547255,
+      "final_side": 29.917208349139404,
+      "score_gain": 0.002811751877118739,
       "source_n": 867,
       "steps": [],
       "gadgets": [
@@ -8987,8 +8974,8 @@
     {
       "n": 868,
       "baseline_side": 29.958197646077785,
-      "final_side": 29.917305963631673,
-      "score_gain": 0.001387954140928265,
+      "final_side": 29.917208349139404,
+      "score_gain": 0.0013912673926864366,
       "source_n": 868,
       "steps": [],
       "gadgets": [
@@ -9397,8 +9384,8 @@
     {
       "n": 926,
       "baseline_side": 30.917382284444617,
-      "final_side": 30.917305973631674,
-      "score_gain": 2.507728910687397e-06,
+      "final_side": 30.917208359139405,
+      "score_gain": 5.715540162107597e-06,
       "source_n": 926,
       "steps": [],
       "gadgets": [
@@ -9417,8 +9404,8 @@
     {
       "n": 927,
       "baseline_side": 30.917383336762093,
-      "final_side": 30.917305973631674,
-      "score_gain": 2.540938581748441e-06,
+      "final_side": 30.917208359139405,
+      "score_gain": 5.747019155270115e-06,
       "source_n": 927,
       "steps": [],
       "gadgets": [
@@ -9437,8 +9424,8 @@
     {
       "n": 928,
       "baseline_side": 30.917383515893356,
-      "final_side": 30.917305973631674,
-      "score_gain": 2.5454494443308473e-06,
+      "final_side": 30.917208359139405,
+      "score_gain": 5.749802138140104e-06,
       "source_n": 928,
       "steps": [],
       "gadgets": [
@@ -10054,24 +10041,24 @@
     {
       "n": 988,
       "baseline_side": 32,
-      "final_side": 31.91730598363167,
-      "score_gain": 0.002630847130221864,
+      "final_side": 31.917208369139406,
+      "score_gain": 0.0026339526609255653,
       "source_n": 988,
       "steps": [],
       "gadgets": [
         [
-          17,
           7,
+          17,
           10
         ],
         [
-          10,
           22,
+          10,
           15
         ],
         [
-          4,
           2,
+          4,
           2
         ]
       ]
@@ -10079,8 +10066,8 @@
     {
       "n": 989,
       "baseline_side": 32,
-      "final_side": 31.91730598363167,
-      "score_gain": 0.0026295167396790295,
+      "final_side": 31.917208369139406,
+      "score_gain": 0.0026326206999499105,
       "source_n": 989,
       "steps": [],
       "gadgets": [
