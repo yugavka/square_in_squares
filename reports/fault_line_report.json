@@ -1,0 +1,10180 @@
+{
+  "baseline_score": 23.59976656530248,
+  "final_score": 22.933201492927946,
+  "score_gain": 0.6665650723745377,
+  "affected_n": 269,
+  "direct_n": 267,
+  "derived_n": 2,
+  "gadgets": [
+    {
+      "w": 2,
+      "h": 3,
+      "surplus": 1,
+      "overhang": 0.7426406871999998,
+      "uses": 35,
+      "n": [
+        106,
+        149,
+        151,
+        177,
+        178,
+        234,
+        266,
+        369,
+        371,
+        372,
+        373,
+        408,
+        412,
+        454,
+        498,
+        543,
+        591,
+        694,
+        701,
+        742,
+        743,
+        795,
+        796,
+        799,
+        813,
+        853,
+        860,
+        862,
+        865,
+        912,
+        916,
+        931,
+        932,
+        973,
+        978
+      ],
+      "occurrences": 39,
+      "allocated_gain": 0.04368737497277157,
+      "associated_gain": 0.11003202626070861,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 2,
+      "surplus": 1,
+      "overhang": 0.7426406871999998,
+      "uses": 32,
+      "n": [
+        104,
+        149,
+        150,
+        202,
+        231,
+        335,
+        369,
+        371,
+        408,
+        410,
+        413,
+        451,
+        454,
+        539,
+        586,
+        589,
+        592,
+        636,
+        687,
+        690,
+        691,
+        694,
+        700,
+        742,
+        796,
+        797,
+        799,
+        853,
+        866,
+        914,
+        916,
+        977
+      ],
+      "occurrences": 39,
+      "allocated_gain": 0.038392385900749386,
+      "associated_gain": 0.11204196870349085,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 2,
+      "h": 2,
+      "surplus": 1,
+      "overhang": 0.7071067811865475,
+      "uses": 43,
+      "n": [
+        104,
+        125,
+        126,
+        149,
+        150,
+        174,
+        200,
+        202,
+        231,
+        298,
+        333,
+        369,
+        407,
+        408,
+        409,
+        410,
+        448,
+        450,
+        451,
+        491,
+        492,
+        493,
+        536,
+        537,
+        539,
+        583,
+        585,
+        586,
+        633,
+        636,
+        644,
+        687,
+        697,
+        795,
+        796,
+        853,
+        854,
+        912,
+        913,
+        923,
+        972,
+        973,
+        974
+      ],
+      "occurrences": 43,
+      "allocated_gain": 0.03239480522352104,
+      "associated_gain": 0.13450877872237965,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 6,
+      "surplus": 2,
+      "overhang": 0.7071067811865479,
+      "uses": 22,
+      "n": [
+        104,
+        174,
+        201,
+        230,
+        262,
+        331,
+        407,
+        448,
+        491,
+        492,
+        536,
+        583,
+        585,
+        633,
+        634,
+        685,
+        686,
+        740,
+        852,
+        914,
+        915,
+        972
+      ],
+      "occurrences": 32,
+      "allocated_gain": 0.025939323682089014,
+      "associated_gain": 0.07069982146628004,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 5,
+      "surplus": 2,
+      "overhang": 0.7071067811865479,
+      "uses": 22,
+      "n": [
+        125,
+        148,
+        173,
+        174,
+        201,
+        230,
+        262,
+        331,
+        449,
+        491,
+        492,
+        536,
+        537,
+        583,
+        584,
+        585,
+        634,
+        635,
+        685,
+        740,
+        852,
+        972
+      ],
+      "occurrences": 31,
+      "allocated_gain": 0.025932448244812258,
+      "associated_gain": 0.06887340648951387,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 10,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 11,
+      "n": [
+        409,
+        450,
+        451,
+        539,
+        586,
+        636,
+        741,
+        854,
+        912,
+        913,
+        975
+      ],
+      "occurrences": 11,
+      "allocated_gain": 0.015013435271915974,
+      "associated_gain": 0.053348010051909714,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 4,
+      "surplus": 1,
+      "overhang": 0.7071067811865479,
+      "uses": 13,
+      "n": [
+        125,
+        148,
+        173,
+        200,
+        448,
+        492,
+        538,
+        583,
+        633,
+        635,
+        797,
+        798,
+        977
+      ],
+      "occurrences": 14,
+      "allocated_gain": 0.01280492101841679,
+      "associated_gain": 0.04102593237159254,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 7,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 18,
+      "n": [
+        292,
+        532,
+        533,
+        579,
+        583,
+        628,
+        629,
+        680,
+        732,
+        736,
+        788,
+        847,
+        904,
+        905,
+        906,
+        907,
+        965,
+        966
+      ],
+      "occurrences": 22,
+      "allocated_gain": 0.012364492823525437,
+      "associated_gain": 0.03015302906649542,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 9,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 11,
+      "n": [
+        126,
+        297,
+        370,
+        587,
+        636,
+        687,
+        796,
+        853,
+        854,
+        913,
+        976
+      ],
+      "occurrences": 11,
+      "allocated_gain": 0.011939317287141512,
+      "associated_gain": 0.038659586385427165,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 22,
+      "surplus": 11,
+      "overhang": 0.769355572409598,
+      "uses": 4,
+      "n": [
+        742,
+        797,
+        914,
+        976
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.011780061911066831,
+      "associated_gain": 0.03164881654739284,
+      "unique_bottleneck_uses": 4
+    },
+    {
+      "w": 4,
+      "h": 9,
+      "surplus": 5,
+      "overhang": 0.9511500449000003,
+      "uses": 17,
+      "n": [
+        207,
+        237,
+        238,
+        270,
+        304,
+        305,
+        338,
+        339,
+        340,
+        341,
+        376,
+        377,
+        378,
+        379,
+        417,
+        418,
+        419
+      ],
+      "occurrences": 17,
+      "allocated_gain": 0.01147149198579473,
+      "associated_gain": 0.024668421241970256,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 10,
+      "n": [
+        150,
+        265,
+        298,
+        452,
+        453,
+        497,
+        589,
+        640,
+        691,
+        745
+      ],
+      "occurrences": 10,
+      "allocated_gain": 0.01146283177477178,
+      "associated_gain": 0.027925792796201998,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 8,
+      "surplus": 5,
+      "overhang": 0.8700138505000004,
+      "uses": 8,
+      "n": [
+        128,
+        152,
+        337,
+        374,
+        546,
+        804,
+        864,
+        987
+      ],
+      "occurrences": 8,
+      "allocated_gain": 0.011073537491833057,
+      "associated_gain": 0.022147074983666113,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 9,
+      "h": 21,
+      "surplus": 10,
+      "overhang": 0.8349195304708203,
+      "uses": 5,
+      "n": [
+        692,
+        693,
+        746,
+        860,
+        984
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.010292191877879681,
+      "associated_gain": 0.022458619739274047,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 6,
+      "h": 3,
+      "surplus": 1,
+      "overhang": 0.6903559372884915,
+      "uses": 13,
+      "n": [
+        83,
+        448,
+        491,
+        631,
+        632,
+        683,
+        684,
+        735,
+        791,
+        849,
+        969,
+        970,
+        971
+      ],
+      "occurrences": 18,
+      "allocated_gain": 0.009969594489808347,
+      "associated_gain": 0.024376077965416406,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 4,
+      "h": 3,
+      "surplus": 1,
+      "overhang": 0.7071067811865479,
+      "uses": 8,
+      "n": [
+        368,
+        407,
+        538,
+        633,
+        689,
+        972,
+        979,
+        980
+      ],
+      "occurrences": 10,
+      "allocated_gain": 0.007717933322658942,
+      "associated_gain": 0.02100125415322098,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 20,
+      "surplus": 11,
+      "overhang": 0.8834135171571589,
+      "uses": 7,
+      "n": [
+        643,
+        805,
+        806,
+        923,
+        924,
+        926,
+        985
+      ],
+      "occurrences": 7,
+      "allocated_gain": 0.0067398380291524935,
+      "associated_gain": 0.015997084517172626,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 9,
+      "h": 10,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 6,
+      "n": [
+        202,
+        332,
+        369,
+        494,
+        796,
+        974
+      ],
+      "occurrences": 6,
+      "allocated_gain": 0.006706443121380155,
+      "associated_gain": 0.026294768417015515,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 9,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 4,
+      "n": [
+        493,
+        539,
+        741,
+        975
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.006546146002140327,
+      "associated_gain": 0.020165045182040684,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 8,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 8,
+      "n": [
+        403,
+        582,
+        628,
+        680,
+        787,
+        844,
+        845,
+        848
+      ],
+      "occurrences": 9,
+      "allocated_gain": 0.005994828467448622,
+      "associated_gain": 0.013704256113768012,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 22,
+      "h": 10,
+      "surplus": 15,
+      "overhang": 0.9173056744586159,
+      "uses": 9,
+      "n": [
+        810,
+        867,
+        868,
+        869,
+        926,
+        927,
+        928,
+        989,
+        991
+      ],
+      "occurrences": 9,
+      "allocated_gain": 0.005834464871055549,
+      "associated_gain": 0.011668929742111098,
+      "unique_bottleneck_uses": 6
+    },
+    {
+      "w": 8,
+      "h": 7,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 6,
+      "n": [
+        176,
+        298,
+        410,
+        451,
+        496,
+        690
+      ],
+      "occurrences": 7,
+      "allocated_gain": 0.005789859768525533,
+      "associated_gain": 0.01605744828846311,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 17,
+      "h": 5,
+      "surplus": 7,
+      "overhang": 0.8351095452016501,
+      "uses": 2,
+      "n": [
+        643,
+        693
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.00543068643236464,
+      "associated_gain": 0.01086137286472928,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 11,
+      "surplus": 2,
+      "overhang": 0.5913781457000002,
+      "uses": 6,
+      "n": [
+        327,
+        364,
+        629,
+        680,
+        788,
+        845
+      ],
+      "occurrences": 6,
+      "allocated_gain": 0.005302127966934537,
+      "associated_gain": 0.012977805950668575,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 16,
+      "h": 12,
+      "surplus": 5,
+      "overhang": 0.7406234265999991,
+      "uses": 4,
+      "n": [
+        795,
+        911,
+        912,
+        973
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.005292049993223956,
+      "associated_gain": 0.023438084235581094,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 9,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 2,
+      "n": [
+        203,
+        590
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.005202965168783055,
+      "associated_gain": 0.007804469559651022,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 18,
+      "h": 17,
+      "surplus": 11,
+      "overhang": 0.8249506963622402,
+      "uses": 2,
+      "n": [
+        412,
+        640
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.005029715194897278,
+      "associated_gain": 0.010059430389794555,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 9,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 2,
+      "n": [
+        332,
+        741
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.004962653636707663,
+      "associated_gain": 0.013076747528894046,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 17,
+      "h": 7,
+      "surplus": 10,
+      "overhang": 0.8994485911384125,
+      "uses": 10,
+      "n": [
+        596,
+        645,
+        646,
+        647,
+        697,
+        751,
+        752,
+        809,
+        986,
+        988
+      ],
+      "occurrences": 10,
+      "allocated_gain": 0.004829417129266257,
+      "associated_gain": 0.01171381858387411,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 25,
+      "h": 24,
+      "surplus": 13,
+      "overhang": 0.7811457186753223,
+      "uses": 3,
+      "n": [
+        743,
+        798,
+        915
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.004805617346098199,
+      "associated_gain": 0.009611234692196397,
+      "unique_bottleneck_uses": 3
+    },
+    {
+      "w": 12,
+      "h": 10,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 5,
+      "n": [
+        444,
+        487,
+        732,
+        788,
+        964
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.004675442621390618,
+      "associated_gain": 0.011331889049764322,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 22,
+      "h": 13,
+      "surplus": 12,
+      "overhang": 0.8654309287003663,
+      "uses": 2,
+      "n": [
+        803,
+        861
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0046674607055671655,
+      "associated_gain": 0.009334921411134331,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 10,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 6,
+      "n": [
+        630,
+        679,
+        844,
+        845,
+        903,
+        964
+      ],
+      "occurrences": 7,
+      "allocated_gain": 0.004663536236096659,
+      "associated_gain": 0.010639590019683695,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 20,
+      "h": 8,
+      "surplus": 11,
+      "overhang": 0.8834135171571589,
+      "uses": 5,
+      "n": [
+        805,
+        806,
+        863,
+        923,
+        985
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.0045060863141295655,
+      "associated_gain": 0.011529581087126772,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 5,
+      "surplus": 4,
+      "overhang": 0.7691156376032655,
+      "uses": 3,
+      "n": [
+        540,
+        637,
+        688
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.004283772079316176,
+      "associated_gain": 0.008567544158632352,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 11,
+      "h": 21,
+      "surplus": 8,
+      "overhang": 0.7757340527062517,
+      "uses": 1,
+      "n": [
+        688
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.004275024628619774,
+      "associated_gain": 0.008550049257239548,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 25,
+      "h": 28,
+      "surplus": 8,
+      "overhang": 0.6913591287910492,
+      "uses": 2,
+      "n": [
+        969,
+        970
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.004251470601159154,
+      "associated_gain": 0.008502941202318308,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 17,
+      "h": 16,
+      "surplus": 11,
+      "overhang": 0.8388662230056276,
+      "uses": 1,
+      "n": [
+        373
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.004171590481187117,
+      "associated_gain": 0.008343180962374235,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 17,
+      "h": 16,
+      "surplus": 3,
+      "overhang": 0.6212286967434721,
+      "uses": 4,
+      "n": [
+        445,
+        734,
+        789,
+        968
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.004119635124060171,
+      "associated_gain": 0.008239270248120342,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 22,
+      "h": 10,
+      "surplus": 13,
+      "overhang": 0.865430928550337,
+      "uses": 2,
+      "n": [
+        924,
+        984
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.004062649671037047,
+      "associated_gain": 0.008125299342074094,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 5,
+      "h": 18,
+      "surplus": 7,
+      "overhang": 0.8070058241189564,
+      "uses": 1,
+      "n": [
+        588
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003979467926683518,
+      "associated_gain": 0.007958935853367035,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 19,
+      "h": 6,
+      "surplus": 5,
+      "overhang": 0.7914416428847773,
+      "uses": 1,
+      "n": [
+        588
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003979467926683518,
+      "associated_gain": 0.007958935853367035,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 22,
+      "h": 23,
+      "surplus": 12,
+      "overhang": 0.7915453555712197,
+      "uses": 1,
+      "n": [
+        689
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003970739826098289,
+      "associated_gain": 0.007941479652196578,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 4,
+      "n": [
+        264,
+        409,
+        854,
+        974
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.003930497577086479,
+      "associated_gain": 0.014136422504413807,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 11,
+      "h": 10,
+      "surplus": 8,
+      "overhang": 0.8720298492000005,
+      "uses": 2,
+      "n": [
+        178,
+        337
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.003833174362929369,
+      "associated_gain": 0.007666348725858738,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 10,
+      "h": 11,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 5,
+      "n": [
+        231,
+        408,
+        493,
+        853,
+        974
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.0037687800229815743,
+      "associated_gain": 0.015242112715032577,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 3,
+      "surplus": 1,
+      "overhang": 0.7071067811865479,
+      "uses": 4,
+      "n": [
+        148,
+        201,
+        584,
+        634
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.0036957862004984385,
+      "associated_gain": 0.014860656516162175,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 11,
+      "h": 9,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 2,
+      "n": [
+        450,
+        913
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.003640864598081126,
+      "associated_gain": 0.013051928860747158,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 6,
+      "surplus": 1,
+      "overhang": 0.6903559372884915,
+      "uses": 9,
+      "n": [
+        83,
+        491,
+        537,
+        584,
+        631,
+        684,
+        735,
+        736,
+        791
+      ],
+      "occurrences": 11,
+      "allocated_gain": 0.0036037816265974965,
+      "associated_gain": 0.014750582551901837,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 21,
+      "surplus": 14,
+      "overhang": 0.8249545129886791,
+      "uses": 1,
+      "n": [
+        591
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0036001996980046494,
+      "associated_gain": 0.007200399396009299,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 5,
+      "surplus": 4,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        336
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0035456580385278837,
+      "associated_gain": 0.0070913160770557674,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 11,
+      "h": 13,
+      "surplus": 8,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        336
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0035456580385278837,
+      "associated_gain": 0.0070913160770557674,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 22,
+      "h": 6,
+      "surplus": 8,
+      "overhang": 0.8096920692032548,
+      "uses": 3,
+      "n": [
+        744,
+        859,
+        981
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0035056409865289557,
+      "associated_gain": 0.0070112819730579114,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 5,
+      "surplus": 4,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        642
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.003420089530480919,
+      "associated_gain": 0.0051301342957213785,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 12,
+      "h": 11,
+      "surplus": 8,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        374
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003360707010089151,
+      "associated_gain": 0.006721414020178302,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 3,
+      "surplus": 2,
+      "overhang": 0.8388319610999986,
+      "uses": 2,
+      "n": [
+        641,
+        925
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0033346740185622925,
+      "associated_gain": 0.006669348037124585,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 20,
+      "h": 22,
+      "surplus": 14,
+      "overhang": 0.8388661740948038,
+      "uses": 1,
+      "n": [
+        641
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003182196832118579,
+      "associated_gain": 0.006364393664237158,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 14,
+      "surplus": 8,
+      "overhang": 0.808642840591494,
+      "uses": 2,
+      "n": [
+        371,
+        589
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.003150717888513511,
+      "associated_gain": 0.009452153665540534,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 8,
+      "surplus": 6,
+      "overhang": 0.8700138504999995,
+      "uses": 4,
+      "n": [
+        235,
+        301,
+        414,
+        593
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.0031444484460527353,
+      "associated_gain": 0.006288896892105471,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 17,
+      "h": 5,
+      "surplus": 6,
+      "overhang": 0.7811454109969649,
+      "uses": 1,
+      "n": [
+        692
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003137704011009348,
+      "associated_gain": 0.006275408022018696,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 10,
+      "surplus": 2,
+      "overhang": 0.6058286964999997,
+      "uses": 3,
+      "n": [
+        292,
+        966,
+        967
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.003120168719755415,
+      "associated_gain": 0.0068575998611532015,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 6,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 3,
+      "n": [
+        334,
+        411,
+        690
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0030536304850632716,
+      "associated_gain": 0.010193470517754181,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 23,
+      "surplus": 10,
+      "overhang": 0.8218277969411787,
+      "uses": 1,
+      "n": [
+        859
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.003039573642342888,
+      "associated_gain": 0.006079147284685776,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 21,
+      "h": 22,
+      "surplus": 15,
+      "overhang": 0.8545753886284295,
+      "uses": 1,
+      "n": [
+        592
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.002988452452760159,
+      "associated_gain": 0.005976904905520318,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 12,
+      "surplus": 2,
+      "overhang": 0.5837822774999992,
+      "uses": 2,
+      "n": [
+        403,
+        487
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0029476716499874413,
+      "associated_gain": 0.0058953432999748825,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 7,
+      "surplus": 8,
+      "overhang": 0.8985125144842847,
+      "uses": 2,
+      "n": [
+        375,
+        594
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0028242718615257307,
+      "associated_gain": 0.005648543723051461,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 4,
+      "h": 4,
+      "surplus": 1,
+      "overhang": 0.6755300936045519,
+      "uses": 3,
+      "n": [
+        173,
+        230,
+        685
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.002688211182312981,
+      "associated_gain": 0.010077853274342345,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 4,
+      "surplus": 5,
+      "overhang": 0.9511500449000003,
+      "uses": 3,
+      "n": [
+        269,
+        338,
+        376
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0026628602959523017,
+      "associated_gain": 0.007051157862285403,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 4,
+      "h": 12,
+      "surplus": 6,
+      "overhang": 0.8878295265391687,
+      "uses": 1,
+      "n": [
+        375
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0026203907287639934,
+      "associated_gain": 0.005240781457527987,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 12,
+      "h": 6,
+      "surplus": 6,
+      "overhang": 0.8104319736756036,
+      "uses": 1,
+      "n": [
+        590
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.002601460777915087,
+      "associated_gain": 0.00780438233374526,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 7,
+      "surplus": 3,
+      "overhang": 0.7071067811865479,
+      "uses": 3,
+      "n": [
+        331,
+        852,
+        911
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.002601321233197996,
+      "associated_gain": 0.009609131407255016,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 10,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 4,
+      "n": [
+        579,
+        628,
+        732,
+        965
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.0025841488400002383,
+      "associated_gain": 0.008190067860449781,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 14,
+      "h": 16,
+      "surplus": 11,
+      "overhang": 0.8743693906725625,
+      "uses": 1,
+      "n": [
+        593
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.002579510490985996,
+      "associated_gain": 0.005159020981971992,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 25,
+      "h": 25,
+      "surplus": 14,
+      "overhang": 0.7811457186797632,
+      "uses": 2,
+      "n": [
+        916,
+        977
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0025534647097912254,
+      "associated_gain": 0.007660394129373676,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 13,
+      "h": 12,
+      "surplus": 6,
+      "overhang": 0.7688992765999991,
+      "uses": 2,
+      "n": [
+        494,
+        975
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0024773054898034786,
+      "associated_gain": 0.007421656507033123,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "surplus": 7,
+      "overhang": 0.7406234265999991,
+      "uses": 3,
+      "n": [
+        538,
+        635,
+        740
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.002471243407783749,
+      "associated_gain": 0.007413730223351247,
+      "unique_bottleneck_uses": 3
+    },
+    {
+      "w": 7,
+      "h": 17,
+      "surplus": 10,
+      "overhang": 0.8994485911384125,
+      "uses": 5,
+      "n": [
+        596,
+        697,
+        751,
+        865,
+        986
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.0024041136703020676,
+      "associated_gain": 0.007027973845116004,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 11,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 2,
+      "n": [
+        687,
+        973
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0023841131381575195,
+      "associated_gain": 0.011920565690787595,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 12,
+      "h": 16,
+      "surplus": 4,
+      "overhang": 0.6421487652952038,
+      "uses": 3,
+      "n": [
+        489,
+        534,
+        581
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0023808393834986136,
+      "associated_gain": 0.004761678766997227,
+      "unique_bottleneck_uses": 3
+    },
+    {
+      "w": 6,
+      "h": 15,
+      "surplus": 7,
+      "overhang": 0.859809086343148,
+      "uses": 1,
+      "n": [
+        803
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0023744147836390235,
+      "associated_gain": 0.004748829567278047,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 25,
+      "h": 28,
+      "surplus": 9,
+      "overhang": 0.6913591668595949,
+      "uses": 1,
+      "n": [
+        971
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0023663581516943926,
+      "associated_gain": 0.004732716303388785,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 16,
+      "surplus": 8,
+      "overhang": 0.8654309284003414,
+      "uses": 1,
+      "n": [
+        861
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0022930459219281424,
+      "associated_gain": 0.004586091843856285,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 27,
+      "h": 26,
+      "surplus": 20,
+      "overhang": 0.8654309294004143,
+      "uses": 1,
+      "n": [
+        862
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0022917154509897574,
+      "associated_gain": 0.004583430901979515,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "surplus": 10,
+      "overhang": 0.824946139293985,
+      "uses": 1,
+      "n": [
+        691
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.002219784293832635,
+      "associated_gain": 0.006659352881497905,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 27,
+      "h": 25,
+      "surplus": 15,
+      "overhang": 0.8072156706653288,
+      "uses": 1,
+      "n": [
+        978
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00205485107921562,
+      "associated_gain": 0.00616455323764686,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 7,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 3,
+      "n": [
+        535,
+        579,
+        629
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0020262591310505488,
+      "associated_gain": 0.005528520454384617,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 14,
+      "h": 15,
+      "surplus": 4,
+      "overhang": 0.6501615138764318,
+      "uses": 2,
+      "n": [
+        630,
+        968
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0020239581329995404,
+      "associated_gain": 0.004047916265999081,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 9,
+      "h": 21,
+      "surplus": 11,
+      "overhang": 0.8834287866263644,
+      "uses": 1,
+      "n": [
+        863
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0019840602096205112,
+      "associated_gain": 0.0039681204192410224,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 18,
+      "h": 5,
+      "surplus": 8,
+      "overhang": 0.8351095468739409,
+      "uses": 1,
+      "n": [
+        860
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0018742359835146832,
+      "associated_gain": 0.00562270795054405,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 6,
+      "h": 11,
+      "surplus": 5,
+      "overhang": 0.809861259326004,
+      "uses": 1,
+      "n": [
+        690
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0018096120810002334,
+      "associated_gain": 0.0072384483240009335,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 5,
+      "h": 6,
+      "surplus": 3,
+      "overhang": 0.8246033907776669,
+      "uses": 1,
+      "n": [
+        176
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0017874955857685383,
+      "associated_gain": 0.0035749911715370767,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 16,
+      "surplus": 9,
+      "overhang": 0.8985759345930582,
+      "uses": 5,
+      "n": [
+        547,
+        548,
+        595,
+        644,
+        696
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.0017719150168785348,
+      "associated_gain": 0.004892404270913349,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 21,
+      "surplus": 18,
+      "overhang": 0.8993800243381571,
+      "uses": 1,
+      "n": [
+        864
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0017115756278849265,
+      "associated_gain": 0.003423151255769853,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 15,
+      "surplus": 9,
+      "overhang": 0.8681129810654298,
+      "uses": 1,
+      "n": [
+        642
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0017100447652404595,
+      "associated_gain": 0.0051301342957213785,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 5,
+      "surplus": 6,
+      "overhang": 0.8743693898300808,
+      "uses": 1,
+      "n": [
+        207
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0016976484457053875,
+      "associated_gain": 0.003395296891410775,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 21,
+      "h": 21,
+      "surplus": 16,
+      "overhang": 0.8681130388391516,
+      "uses": 1,
+      "n": [
+        694
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.001668783587916756,
+      "associated_gain": 0.005006350763750268,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 15,
+      "h": 16,
+      "surplus": 6,
+      "overhang": 0.7406234265999991,
+      "uses": 2,
+      "n": [
+        368,
+        449
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0016051054757646088,
+      "associated_gain": 0.0032102109515292176,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 6,
+      "h": 4,
+      "surplus": 1,
+      "overhang": 0.7071067811865479,
+      "uses": 3,
+      "n": [
+        200,
+        536,
+        633
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0015903667241592072,
+      "associated_gain": 0.007996285908017105,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 7,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 2,
+      "n": [
+        327,
+        488
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0015903636284928658,
+      "associated_gain": 0.0031807272569857317,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 16,
+      "h": 7,
+      "surplus": 9,
+      "overhang": 0.8985759345930582,
+      "uses": 3,
+      "n": [
+        547,
+        644,
+        696
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0015613846778467946,
+      "associated_gain": 0.004471343592849869,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 26,
+      "h": 27,
+      "surplus": 24,
+      "overhang": 0.908106758885932,
+      "uses": 1,
+      "n": [
+        866
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.001561324812871261,
+      "associated_gain": 0.003122649625742522,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 15,
+      "h": 15,
+      "surplus": 7,
+      "overhang": 0.7637778682761027,
+      "uses": 1,
+      "n": [
+        587
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0015489512613034021,
+      "associated_gain": 0.0030979025226068042,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 6,
+      "surplus": 7,
+      "overhang": 0.9550037936602083,
+      "uses": 1,
+      "n": [
+        237
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0014614039860237152,
+      "associated_gain": 0.0029228079720474303,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 24,
+      "h": 23,
+      "surplus": 21,
+      "overhang": 0.9084507823846302,
+      "uses": 1,
+      "n": [
+        987
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0014570169325511522,
+      "associated_gain": 0.0029140338651023044,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 21,
+      "surplus": 15,
+      "overhang": 0.9173235656611816,
+      "uses": 1,
+      "n": [
+        809
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0014533694103932362,
+      "associated_gain": 0.0029067388207864725,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 8,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 1,
+      "n": [
+        364
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0014250589398304967,
+      "associated_gain": 0.0028501178796609935,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 19,
+      "surplus": 11,
+      "overhang": 0.8995675349308989,
+      "uses": 1,
+      "n": [
+        867
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0014042183575773627,
+      "associated_gain": 0.0028084367151547255,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 10,
+      "surplus": 1,
+      "overhang": 0.6058286964999997,
+      "uses": 3,
+      "n": [
+        733,
+        847,
+        904
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0013871949863513222,
+      "associated_gain": 0.0044935748760682485,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 11,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 2,
+      "n": [
+        844,
+        964
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0013764190414008721,
+      "associated_gain": 0.004129257124202616,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 9,
+      "surplus": 6,
+      "overhang": 0.838216947254498,
+      "uses": 1,
+      "n": [
+        151
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0013758709577427971,
+      "associated_gain": 0.0027517419154855943,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 7,
+      "surplus": 5,
+      "overhang": 0.8466671928434906,
+      "uses": 2,
+      "n": [
+        413,
+        986
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0013736638842833091,
+      "associated_gain": 0.004120991652849928,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 3,
+      "surplus": 2,
+      "overhang": 0.877083590022814,
+      "uses": 3,
+      "n": [
+        696,
+        751,
+        985
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0013599133508353611,
+      "associated_gain": 0.004079740052506083,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 14,
+      "h": 14,
+      "surplus": 2,
+      "overhang": 0.6212280879143908,
+      "uses": 3,
+      "n": [
+        580,
+        790,
+        966
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0013502532124979394,
+      "associated_gain": 0.00331776884663825,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 22,
+      "h": 21,
+      "surplus": 4,
+      "overhang": 0.6212288065458971,
+      "uses": 1,
+      "n": [
+        967
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0013346585501313893,
+      "associated_gain": 0.0026693171002627786,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 17,
+      "h": 17,
+      "surplus": 6,
+      "overhang": 0.7042327915000008,
+      "uses": 1,
+      "n": [
+        684
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00133076895317261,
+      "associated_gain": 0.00399230685951783,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 9,
+      "surplus": 10,
+      "overhang": 0.9515173911575179,
+      "uses": 1,
+      "n": [
+        339
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0013166020540168561,
+      "associated_gain": 0.0026332041080337123,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 21,
+      "surplus": 13,
+      "overhang": 0.9080928770617831,
+      "uses": 1,
+      "n": [
+        989
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0013147583698395148,
+      "associated_gain": 0.0026295167396790295,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 11,
+      "surplus": 2,
+      "overhang": 0.5913781457000002,
+      "uses": 1,
+      "n": [
+        444
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0012903082418269467,
+      "associated_gain": 0.0025806164836538934,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 10,
+      "surplus": 5,
+      "overhang": 0.7906765753999991,
+      "uses": 1,
+      "n": [
+        370
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0012517837315343988,
+      "associated_gain": 0.0025035674630687977,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 12,
+      "h": 8,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 2,
+      "n": [
+        581,
+        733
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0012514800225549988,
+      "associated_gain": 0.002994538592007898,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 16,
+      "h": 14,
+      "surplus": 6,
+      "overhang": 0.7406234265999991,
+      "uses": 1,
+      "n": [
+        686
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0012499026987615434,
+      "associated_gain": 0.00374970809628463,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 16,
+      "surplus": 5,
+      "overhang": 0.6787798754000001,
+      "uses": 4,
+      "n": [
+        535,
+        582,
+        849,
+        907
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.0012256612651415071,
+      "associated_gain": 0.0026077592031742572,
+      "unique_bottleneck_uses": 3
+    },
+    {
+      "w": 8,
+      "h": 23,
+      "surplus": 15,
+      "overhang": 0.9521632435284992,
+      "uses": 4,
+      "n": [
+        870,
+        930,
+        992,
+        993
+      ],
+      "occurrences": 4,
+      "allocated_gain": 0.001168576077644353,
+      "associated_gain": 0.002337152155288706,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 23,
+      "surplus": 5,
+      "overhang": 0.6212288156133923,
+      "uses": 1,
+      "n": [
+        906
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.001164957509702,
+      "associated_gain": 0.002329915019404,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 20,
+      "surplus": 14,
+      "overhang": 0.9268743234012735,
+      "uses": 1,
+      "n": [
+        990
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0011620383678997263,
+      "associated_gain": 0.0023240767357994526,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 24,
+      "h": 11,
+      "surplus": 15,
+      "overhang": 0.9173235656611816,
+      "uses": 1,
+      "n": [
+        990
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0011620383678997263,
+      "associated_gain": 0.0023240767357994526,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 3,
+      "h": 7,
+      "surplus": 1,
+      "overhang": 0.6903559372884915,
+      "uses": 5,
+      "n": [
+        632,
+        683,
+        735,
+        848,
+        849
+      ],
+      "occurrences": 5,
+      "allocated_gain": 0.0011569712821696307,
+      "associated_gain": 0.0034980164804756233,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 7,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 2,
+      "n": [
+        534,
+        904
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0011246256712021223,
+      "associated_gain": 0.002913231176432808,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 11,
+      "surplus": 3,
+      "overhang": 0.7406234265999991,
+      "uses": 1,
+      "n": [
+        911
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010846276388641076,
+      "associated_gain": 0.003253882916592323,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 11,
+      "surplus": 2,
+      "overhang": 0.5913781457000002,
+      "uses": 1,
+      "n": [
+        734
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010621707067711569,
+      "associated_gain": 0.0021243414135423138,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 20,
+      "h": 9,
+      "surplus": 13,
+      "overhang": 0.908086772321596,
+      "uses": 1,
+      "n": [
+        865
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010417112225775602,
+      "associated_gain": 0.0031251336677326808,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 13,
+      "h": 12,
+      "surplus": 8,
+      "overhang": 0.838517443066884,
+      "uses": 1,
+      "n": [
+        234
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010295360367930638,
+      "associated_gain": 0.0020590720735861275,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 12,
+      "surplus": 2,
+      "overhang": 0.5837822774999992,
+      "uses": 1,
+      "n": [
+        789
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010244824603904672,
+      "associated_gain": 0.0020489649207809345,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 14,
+      "h": 13,
+      "surplus": 8,
+      "overhang": 0.8249363606590912,
+      "uses": 1,
+      "n": [
+        453
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0010143037596393259,
+      "associated_gain": 0.0020286075192786517,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 6,
+      "surplus": 13,
+      "overhang": 0.9581911481355121,
+      "uses": 2,
+      "n": [
+        811,
+        812
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0010130777865139313,
+      "associated_gain": 0.0020261555730278625,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 10,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 1,
+      "n": [
+        586
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0009934283920494007,
+      "associated_gain": 0.003973713568197603,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 11,
+      "h": 11,
+      "surplus": 2,
+      "overhang": 0.5913781457000002,
+      "uses": 1,
+      "n": [
+        846
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000989369189380338,
+      "associated_gain": 0.001978738378760676,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 18,
+      "h": 18,
+      "surplus": 3,
+      "overhang": 0.6212287159748158,
+      "uses": 1,
+      "n": [
+        846
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000989369189380338,
+      "associated_gain": 0.001978738378760676,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 6,
+      "h": 6,
+      "surplus": 1,
+      "overhang": 0.5986196092443601,
+      "uses": 2,
+      "n": [
+        904,
+        905
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0009697081567840457,
+      "associated_gain": 0.003241114387366419,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 18,
+      "surplus": 11,
+      "overhang": 0.9448601755766024,
+      "uses": 1,
+      "n": [
+        810
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0009687030625869982,
+      "associated_gain": 0.0019374061251739964,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 10,
+      "surplus": 7,
+      "overhang": 0.8700138504999995,
+      "uses": 3,
+      "n": [
+        177,
+        205,
+        695
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0009538526499342059,
+      "associated_gain": 0.0019077052998684118,
+      "unique_bottleneck_uses": 2
+    },
+    {
+      "w": 7,
+      "h": 12,
+      "surplus": 8,
+      "overhang": 0.9692500787561347,
+      "uses": 1,
+      "n": [
+        269
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0009374230255715022,
+      "associated_gain": 0.0018748460511430044,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 9,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 2,
+      "n": [
+        333,
+        410
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0009242361830757513,
+      "associated_gain": 0.0031454641955696947,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 5,
+      "surplus": 4,
+      "overhang": 0.9338334626769296,
+      "uses": 1,
+      "n": [
+        338
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0008856925020017922,
+      "associated_gain": 0.002657077506005377,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 4,
+      "h": 2,
+      "surplus": 2,
+      "overhang": 0.8939549425000002,
+      "uses": 1,
+      "n": [
+        988
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000876949043407288,
+      "associated_gain": 0.002630847130221864,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 22,
+      "surplus": 15,
+      "overhang": 0.9173056744586159,
+      "uses": 1,
+      "n": [
+        988
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000876949043407288,
+      "associated_gain": 0.002630847130221864,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 13,
+      "h": 8,
+      "surplus": 10,
+      "overhang": 0.9701402707159836,
+      "uses": 1,
+      "n": [
+        304
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0008562815968371729,
+      "associated_gain": 0.0017125631936743457,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 11,
+      "surplus": 4,
+      "overhang": 0.7426406871999998,
+      "uses": 1,
+      "n": [
+        795
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0008529104528104753,
+      "associated_gain": 0.0034116418112419013,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 6,
+      "surplus": 5,
+      "overhang": 0.9266930944688028,
+      "uses": 1,
+      "n": [
+        376
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0008397447683790071,
+      "associated_gain": 0.0025192343051370215,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 6,
+      "surplus": 1,
+      "overhang": 0.6058286964999997,
+      "uses": 1,
+      "n": [
+        489
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0008283021536536747,
+      "associated_gain": 0.0016566043073073494,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 10,
+      "surplus": 11,
+      "overhang": 0.9692979526018224,
+      "uses": 1,
+      "n": [
+        377
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007906130593715018,
+      "associated_gain": 0.0015812261187430035,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 9,
+      "surplus": 1,
+      "overhang": 0.5913781457000002,
+      "uses": 1,
+      "n": [
+        532
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007858493871155227,
+      "associated_gain": 0.002357548161346568,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 9,
+      "h": 12,
+      "surplus": 6,
+      "overhang": 0.8104319736756036,
+      "uses": 1,
+      "n": [
+        334
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007770330184358661,
+      "associated_gain": 0.0015540660368717322,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 21,
+      "surplus": 15,
+      "overhang": 0.9516627045446047,
+      "uses": 1,
+      "n": [
+        991
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007677374811554963,
+      "associated_gain": 0.0015354749623109926,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 11,
+      "surplus": 12,
+      "overhang": 0.9695728873919052,
+      "uses": 1,
+      "n": [
+        417
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007450061679435174,
+      "associated_gain": 0.0014900123358870347,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 12,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 1,
+      "n": [
+        787
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007363717772638617,
+      "associated_gain": 0.002209115331791585,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 22,
+      "surplus": 14,
+      "overhang": 0.94891387810857,
+      "uses": 1,
+      "n": [
+        811
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000734048768422677,
+      "associated_gain": 0.001468097536845354,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 16,
+      "h": 15,
+      "surplus": 12,
+      "overhang": 0.8743693906725625,
+      "uses": 1,
+      "n": [
+        546
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007309774609865781,
+      "associated_gain": 0.0014619549219731561,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 15,
+      "h": 16,
+      "surplus": 2,
+      "overhang": 0.5639734752999992,
+      "uses": 1,
+      "n": [
+        679
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007185293682191657,
+      "associated_gain": 0.0014370587364383315,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 14,
+      "h": 13,
+      "surplus": 7,
+      "overhang": 0.808642840591494,
+      "uses": 1,
+      "n": [
+        452
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0007100325065415415,
+      "associated_gain": 0.001420065013083083,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 19,
+      "surplus": 12,
+      "overhang": 0.9081062882612905,
+      "uses": 1,
+      "n": [
+        868
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006939770704641325,
+      "associated_gain": 0.001387954140928265,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 5,
+      "surplus": 2,
+      "overhang": 0.7071067811865479,
+      "uses": 1,
+      "n": [
+        262
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006902509369539007,
+      "associated_gain": 0.0020707528108617024,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 3,
+      "n": [
+        233,
+        264,
+        496
+      ],
+      "occurrences": 3,
+      "allocated_gain": 0.0006875583668485586,
+      "associated_gain": 0.002062587660993379,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 10,
+      "surplus": 1,
+      "overhang": 0.5837822774999992,
+      "uses": 1,
+      "n": [
+        903
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006874512206966234,
+      "associated_gain": 0.00206235366208987,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 7,
+      "h": 19,
+      "surplus": 13,
+      "overhang": 0.9180311022528294,
+      "uses": 1,
+      "n": [
+        869
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006812734709636605,
+      "associated_gain": 0.001362546941927321,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 12,
+      "h": 7,
+      "surplus": 9,
+      "overhang": 0.9778054759136907,
+      "uses": 1,
+      "n": [
+        270
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006753529989510566,
+      "associated_gain": 0.0013507059979021132,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 15,
+      "surplus": 5,
+      "overhang": 0.6787798754000001,
+      "uses": 1,
+      "n": [
+        632
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006665406518565515,
+      "associated_gain": 0.0019996219555696543,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 14,
+      "surplus": 9,
+      "overhang": 0.824943226105491,
+      "uses": 1,
+      "n": [
+        497
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006645867846335107,
+      "associated_gain": 0.0013291735692670214,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 17,
+      "surplus": 3,
+      "overhang": 0.6212286967434721,
+      "uses": 1,
+      "n": [
+        905
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0006377182397697641,
+      "associated_gain": 0.0019131547193092923,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 4,
+      "h": 5,
+      "surplus": 1,
+      "overhang": 0.6213203435596419,
+      "uses": 1,
+      "n": [
+        445
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005791594821962558,
+      "associated_gain": 0.0011583189643925116,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 12,
+      "surplus": 4,
+      "overhang": 0.6421487652952038,
+      "uses": 1,
+      "n": [
+        847
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005636265224391399,
+      "associated_gain": 0.0016908795673174198,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 7,
+      "surplus": 4,
+      "overhang": 0.808642840591494,
+      "uses": 2,
+      "n": [
+        233,
+        333
+      ],
+      "occurrences": 2,
+      "allocated_gain": 0.0005515241933235785,
+      "associated_gain": 0.0016545289233804675,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 7,
+      "surplus": 5,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        106
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005316532570608992,
+      "associated_gain": 0.0010633065141217985,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 15,
+      "h": 16,
+      "surplus": 3,
+      "overhang": 0.6212286657948773,
+      "uses": 1,
+      "n": [
+        533
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005311829872091029,
+      "associated_gain": 0.0010623659744182059,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 10,
+      "surplus": 2,
+      "overhang": 0.6058286964999997,
+      "uses": 1,
+      "n": [
+        580
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005092201619972546,
+      "associated_gain": 0.0010184403239945092,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 18,
+      "surplus": 10,
+      "overhang": 0.8833827283137801,
+      "uses": 1,
+      "n": [
+        645
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005042910283633395,
+      "associated_gain": 0.001008582056726679,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 18,
+      "surplus": 11,
+      "overhang": 0.8995512884743313,
+      "uses": 1,
+      "n": [
+        646
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0005019139174890794,
+      "associated_gain": 0.0010038278349781588,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 9,
+      "surplus": 2,
+      "overhang": 0.6058286964999997,
+      "uses": 1,
+      "n": [
+        733
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004915785468979006,
+      "associated_gain": 0.0014747356406937017,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 16,
+      "surplus": 12,
+      "overhang": 0.8743693906725625,
+      "uses": 1,
+      "n": [
+        695
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004836530223275507,
+      "associated_gain": 0.0009673060446551014,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 5,
+      "h": 2,
+      "surplus": 1,
+      "overhang": 0.7426406871999998,
+      "uses": 1,
+      "n": [
+        411
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004669853856271718,
+      "associated_gain": 0.0014009561568815155,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 6,
+      "h": 12,
+      "surplus": 6,
+      "overhang": 0.8104319736756036,
+      "uses": 1,
+      "n": [
+        411
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004669853856271718,
+      "associated_gain": 0.0014009561568815155,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 5,
+      "h": 21,
+      "surplus": 7,
+      "overhang": 0.8070645900707021,
+      "uses": 1,
+      "n": [
+        744
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004659203125479792,
+      "associated_gain": 0.0009318406250959584,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 17,
+      "h": 16,
+      "surplus": 5,
+      "overhang": 0.7042327915000008,
+      "uses": 1,
+      "n": [
+        683
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004641792040770277,
+      "associated_gain": 0.001392537612231083,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "surplus": 11,
+      "overhang": 0.8388319610999986,
+      "uses": 1,
+      "n": [
+        454
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00045807309657528925,
+      "associated_gain": 0.0013742192897258677,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 22,
+      "h": 7,
+      "surplus": 15,
+      "overhang": 0.9730031715105447,
+      "uses": 1,
+      "n": [
+        930
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00044262552592290265,
+      "associated_gain": 0.0008852510518458053,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 23,
+      "h": 8,
+      "surplus": 16,
+      "overhang": 0.9730225319365999,
+      "uses": 1,
+      "n": [
+        992
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004282628168022341,
+      "associated_gain": 0.0008565256336044682,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 8,
+      "surplus": 5,
+      "overhang": 0.8248985442229486,
+      "uses": 1,
+      "n": [
+        265
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0004280052854260149,
+      "associated_gain": 0.0008560105708520297,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 9,
+      "surplus": 11,
+      "overhang": 0.9849956452975803,
+      "uses": 1,
+      "n": [
+        340
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00040685781499203116,
+      "associated_gain": 0.0008137156299840623,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 3,
+      "h": 4,
+      "surplus": 2,
+      "overhang": 0.8388319610999986,
+      "uses": 1,
+      "n": [
+        205
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00039439021763767166,
+      "associated_gain": 0.0007887804352753433,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 10,
+      "surplus": 12,
+      "overhang": 0.9850082103264146,
+      "uses": 1,
+      "n": [
+        378
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0003855423456763628,
+      "associated_gain": 0.0007710846913527256,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 9,
+      "surplus": 6,
+      "overhang": 0.8939549425000006,
+      "uses": 1,
+      "n": [
+        301
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00038354812559689594,
+      "associated_gain": 0.0007670962511937919,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 11,
+      "surplus": 13,
+      "overhang": 0.9850193520244019,
+      "uses": 1,
+      "n": [
+        418
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00036635883431039405,
+      "associated_gain": 0.0007327176686207881,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 11,
+      "h": 6,
+      "surplus": 8,
+      "overhang": 0.988762759998802,
+      "uses": 1,
+      "n": [
+        238
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00036419618267540373,
+      "associated_gain": 0.0007283923653508075,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 17,
+      "h": 16,
+      "surplus": 10,
+      "overhang": 0.824946139293985,
+      "uses": 1,
+      "n": [
+        372
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00036001711861872716,
+      "associated_gain": 0.0007200342372374543,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 20,
+      "h": 19,
+      "surplus": 13,
+      "overhang": 0.8388663388014237,
+      "uses": 1,
+      "n": [
+        498
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00035196478434199047,
+      "associated_gain": 0.0007039295686839809,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 11,
+      "surplus": 7,
+      "overhang": 0.8700138504999995,
+      "uses": 1,
+      "n": [
+        413
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0003062640937275108,
+      "associated_gain": 0.0009187922811825324,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 4,
+      "h": 6,
+      "surplus": 1,
+      "overhang": 0.7071067811865479,
+      "uses": 1,
+      "n": [
+        536
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0002895574003521994,
+      "associated_gain": 0.001447787001760997,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.7987961402600998,
+      "uses": 1,
+      "n": [
+        297
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00028572564509191567,
+      "associated_gain": 0.0005714512901838313,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 6,
+      "h": 22,
+      "surplus": 15,
+      "overhang": 0.9730031715105447,
+      "uses": 1,
+      "n": [
+        812
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00027902901809125427,
+      "associated_gain": 0.0005580580361825085,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 23,
+      "h": 24,
+      "surplus": 23,
+      "overhang": 0.9448606644763338,
+      "uses": 1,
+      "n": [
+        700
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0002562263489471485,
+      "associated_gain": 0.000512452697894297,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 6,
+      "h": 10,
+      "surplus": 8,
+      "overhang": 0.9932712505171146,
+      "uses": 1,
+      "n": [
+        180
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0002507608451487066,
+      "associated_gain": 0.0005015216902974132,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 3,
+      "surplus": 3,
+      "overhang": 0.8824510306000004,
+      "uses": 1,
+      "n": [
+        180
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0002507608451487066,
+      "associated_gain": 0.0005015216902974132,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 21,
+      "h": 20,
+      "surplus": 15,
+      "overhang": 0.8681130393789154,
+      "uses": 1,
+      "n": [
+        804
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0002385942005498085,
+      "associated_gain": 0.000477188401099617,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 27,
+      "h": 28,
+      "surplus": 17,
+      "overhang": 0.8072291854080653,
+      "uses": 1,
+      "n": [
+        979
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00023553807588546822,
+      "associated_gain": 0.00047107615177093644,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 27,
+      "h": 28,
+      "surplus": 18,
+      "overhang": 0.807229223795126,
+      "uses": 1,
+      "n": [
+        980
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00023542366222884895,
+      "associated_gain": 0.0004708473244576979,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 4,
+      "h": 8,
+      "surplus": 4,
+      "overhang": 0.9048247851000006,
+      "uses": 1,
+      "n": [
+        208
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00023327256486280095,
+      "associated_gain": 0.0004665451297256019,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 6,
+      "surplus": 8,
+      "overhang": 0.9932712505171146,
+      "uses": 1,
+      "n": [
+        208
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00023327256486280095,
+      "associated_gain": 0.0004665451297256019,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 14,
+      "surplus": 4,
+      "overhang": 0.6787798754000001,
+      "uses": 1,
+      "n": [
+        790
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00022377062885831368,
+      "associated_gain": 0.00044754125771662737,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 17,
+      "surplus": 10,
+      "overhang": 0.8681129810654298,
+      "uses": 1,
+      "n": [
+        594
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00020388113276173725,
+      "associated_gain": 0.0004077622655234745,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 17,
+      "h": 8,
+      "surplus": 10,
+      "overhang": 0.8886803110591508,
+      "uses": 1,
+      "n": [
+        595
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00020240974653086094,
+      "associated_gain": 0.0004048194930617219,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 28,
+      "h": 27,
+      "surplus": 30,
+      "overhang": 0.9876855932219861,
+      "uses": 1,
+      "n": [
+        931
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00020178927654932472,
+      "associated_gain": 0.00040357855309864943,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 23,
+      "h": 8,
+      "surplus": 17,
+      "overhang": 0.9876848469593771,
+      "uses": 1,
+      "n": [
+        993
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00019539986769489694,
+      "associated_gain": 0.00039079973538979387,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 20,
+      "h": 19,
+      "surplus": 12,
+      "overhang": 0.8249522044048412,
+      "uses": 1,
+      "n": [
+        745
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0001860634588238808,
+      "associated_gain": 0.0003721269176477616,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 23,
+      "h": 23,
+      "surplus": 13,
+      "overhang": 0.7915453787785509,
+      "uses": 1,
+      "n": [
+        799
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00018493004433599956,
+      "associated_gain": 0.0005547901330079987,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 13,
+      "h": 8,
+      "surplus": 11,
+      "overhang": 0.9935423750988743,
+      "uses": 1,
+      "n": [
+        305
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00018487639786338096,
+      "associated_gain": 0.0003697527957267619,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 28,
+      "h": 27,
+      "surplus": 31,
+      "overhang": 0.9889051909826705,
+      "uses": 1,
+      "n": [
+        932
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00018170636478566975,
+      "associated_gain": 0.0003634127295713395,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 12,
+      "surplus": 8,
+      "overhang": 0.8813062182000007,
+      "uses": 1,
+      "n": [
+        414
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00018134617889614294,
+      "associated_gain": 0.0003626923577922859,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 9,
+      "surplus": 12,
+      "overhang": 0.9935423928944473,
+      "uses": 1,
+      "n": [
+        341
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00017484464335243034,
+      "associated_gain": 0.0003496892867048607,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 15,
+      "h": 10,
+      "surplus": 13,
+      "overhang": 0.9935424114425029,
+      "uses": 1,
+      "n": [
+        379
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.000165847143606499,
+      "associated_gain": 0.000331694287212998,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 11,
+      "surplus": 14,
+      "overhang": 0.9936696905114122,
+      "uses": 1,
+      "n": [
+        419
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00015462304408821878,
+      "associated_gain": 0.00030924608817643756,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 25,
+      "h": 27,
+      "surplus": 23,
+      "overhang": 0.908106758885932,
+      "uses": 1,
+      "n": [
+        925
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0001524771864437134,
+      "associated_gain": 0.0003049543728874268,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 18,
+      "surplus": 12,
+      "overhang": 0.9184458824148027,
+      "uses": 1,
+      "n": [
+        647
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.0001301317496816995,
+      "associated_gain": 0.000260263499363399,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 7,
+      "h": 7,
+      "surplus": 2,
+      "overhang": 0.6903559372884915,
+      "uses": 1,
+      "n": [
+        631
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00011050347210974822,
+      "associated_gain": 0.0005525173605487411,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 21,
+      "h": 6,
+      "surplus": 14,
+      "overhang": 0.9488939858458032,
+      "uses": 1,
+      "n": [
+        870
+      ],
+      "occurrences": 1,
+      "allocated_gain": 0.00010228786722431905,
+      "associated_gain": 0.0002045757344486381,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 4,
+      "h": 3,
+      "surplus": 2,
+      "overhang": 0.8388319610999986,
+      "uses": 1,
+      "n": [
+        128
+      ],
+      "occurrences": 1,
+      "allocated_gain": 8.913864110202077e-05,
+      "associated_gain": 0.00017827728220404154,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 12,
+      "h": 15,
+      "surplus": 3,
+      "overhang": 0.6419182780347974,
+      "uses": 1,
+      "n": [
+        488
+      ],
+      "occurrences": 1,
+      "allocated_gain": 8.684461818832801e-05,
+      "associated_gain": 0.00017368923637665602,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 26,
+      "h": 25,
+      "surplus": 28,
+      "overhang": 0.9851221897034108,
+      "uses": 1,
+      "n": [
+        813
+      ],
+      "occurrences": 1,
+      "allocated_gain": 6.63640814215473e-05,
+      "associated_gain": 0.0001327281628430946,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 14,
+      "surplus": 5,
+      "overhang": 0.6787798754000001,
+      "uses": 2,
+      "n": [
+        736,
+        848
+      ],
+      "occurrences": 2,
+      "allocated_gain": 2.3803622733207478e-05,
+      "associated_gain": 7.141086819962243e-05,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 20,
+      "surplus": 8,
+      "overhang": 0.780703926874164,
+      "uses": 1,
+      "n": [
+        637
+      ],
+      "occurrences": 1,
+      "allocated_gain": 8.747305094445536e-06,
+      "associated_gain": 1.7494610188891072e-05,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 16,
+      "h": 7,
+      "surplus": 10,
+      "overhang": 0.9081501725260983,
+      "uses": 1,
+      "n": [
+        548
+      ],
+      "occurrences": 1,
+      "allocated_gain": 8.120592500879308e-06,
+      "associated_gain": 1.6241185001758615e-05,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 10,
+      "h": 10,
+      "surplus": 3,
+      "overhang": 0.6792320474999993,
+      "uses": 1,
+      "n": [
+        791
+      ],
+      "occurrences": 1,
+      "allocated_gain": 7.13217829973505e-06,
+      "associated_gain": 3.566089149867525e-05,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 15,
+      "h": 16,
+      "surplus": 10,
+      "overhang": 0.8385819269810728,
+      "uses": 1,
+      "n": [
+        335
+      ],
+      "occurrences": 1,
+      "allocated_gain": 6.874270463016304e-06,
+      "associated_gain": 1.3748540926032608e-05,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 3,
+      "h": 5,
+      "surplus": 1,
+      "overhang": 0.6903559372884915,
+      "uses": 1,
+      "n": [
+        735
+      ],
+      "occurrences": 1,
+      "allocated_gain": 6.165802690182468e-06,
+      "associated_gain": 3.699481614109481e-05,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 18,
+      "h": 6,
+      "surplus": 7,
+      "overhang": 0.8070058241189564,
+      "uses": 1,
+      "n": [
+        746
+      ],
+      "occurrences": 1,
+      "allocated_gain": 3.473840142058814e-06,
+      "associated_gain": 6.947680284117628e-06,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 24,
+      "h": 23,
+      "surplus": 24,
+      "overhang": 0.9582625193811474,
+      "uses": 1,
+      "n": [
+        701
+      ],
+      "occurrences": 1,
+      "allocated_gain": 2.9530558288997243e-06,
+      "associated_gain": 5.906111657799449e-06,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 20,
+      "surplus": 13,
+      "overhang": 0.9168945350421644,
+      "uses": 1,
+      "n": [
+        928
+      ],
+      "occurrences": 1,
+      "allocated_gain": 1.2727247221654236e-06,
+      "associated_gain": 2.5454494443308473e-06,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 20,
+      "surplus": 12,
+      "overhang": 0.8998706113077937,
+      "uses": 1,
+      "n": [
+        927
+      ],
+      "occurrences": 1,
+      "allocated_gain": 1.2704692908742205e-06,
+      "associated_gain": 2.540938581748441e-06,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 10,
+      "h": 20,
+      "surplus": 13,
+      "overhang": 0.908086772321596,
+      "uses": 1,
+      "n": [
+        752
+      ],
+      "occurrences": 1,
+      "allocated_gain": 3.595322071068912e-07,
+      "associated_gain": 7.190644142137824e-07,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 9,
+      "h": 25,
+      "surplus": 12,
+      "overhang": 0.8219601909822281,
+      "uses": 1,
+      "n": [
+        981
+      ],
+      "occurrences": 1,
+      "allocated_gain": 1.470316380885301e-07,
+      "associated_gain": 2.940632761770602e-07,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 21,
+      "h": 20,
+      "surplus": 13,
+      "overhang": 0.8249545129886791,
+      "uses": 1,
+      "n": [
+        543
+      ],
+      "occurrences": 1,
+      "allocated_gain": 5.8735819736942456e-08,
+      "associated_gain": 1.1747163947388491e-07,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 14,
+      "h": 13,
+      "surplus": 9,
+      "overhang": 0.8388319611000004,
+      "uses": 1,
+      "n": [
+        266
+      ],
+      "occurrences": 1,
+      "allocated_gain": 4.3701349441874276e-08,
+      "associated_gain": 8.740269888374855e-08,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 5,
+      "h": 7,
+      "surplus": 4,
+      "overhang": 0.8700138505000004,
+      "uses": 1,
+      "n": [
+        235
+      ],
+      "occurrences": 1,
+      "allocated_gain": 4.365057370059027e-08,
+      "associated_gain": 8.730114740118054e-08,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 8,
+      "h": 5,
+      "surplus": 3,
+      "overhang": 0.808642840591494,
+      "uses": 1,
+      "n": [
+        203
+      ],
+      "occurrences": 1,
+      "allocated_gain": 4.3612952881231836e-08,
+      "associated_gain": 8.722590576246367e-08,
+      "unique_bottleneck_uses": 0
+    },
+    {
+      "w": 5,
+      "h": 4,
+      "surplus": 3,
+      "overhang": 0.8720298491999996,
+      "uses": 1,
+      "n": [
+        152
+      ],
+      "occurrences": 1,
+      "allocated_gain": 4.333269499346867e-08,
+      "associated_gain": 8.666538998693734e-08,
+      "unique_bottleneck_uses": 1
+    },
+    {
+      "w": 8,
+      "h": 18,
+      "surplus": 7,
+      "overhang": 0.791544316265032,
+      "uses": 1,
+      "n": [
+        540
+      ],
+      "occurrences": 1,
+      "allocated_gain": 1.456019564667017e-10,
+      "associated_gain": 2.912039129334034e-10,
+      "unique_bottleneck_uses": 1
+    }
+  ],
+  "puzzles": [
+    {
+      "n": 83,
+      "baseline_side": 9.690356806324084,
+      "final_side": 9.690356024192049,
+      "score_gain": 8.585014409984884e-08,
+      "source_n": 83,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 104,
+      "baseline_side": 10.790677554467656,
+      "final_side": 10.742640784626406,
+      "score_gain": 0.004710392822894219,
+      "source_n": 104,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 106,
+      "baseline_side": 10.880961359796038,
+      "final_side": 10.870013949200137,
+      "score_gain": 0.0010633065141217985,
+      "source_n": 106,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          8,
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 125,
+      "baseline_side": 11.742641761464068,
+      "final_side": 11.707106888257615,
+      "score_gain": 0.003178335682458602,
+      "source_n": 125,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 126,
+      "baseline_side": 11.742641761464068,
+      "final_side": 11.742640794626405,
+      "score_gain": 8.613274479135298e-08,
+      "source_n": 126,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 128,
+      "baseline_side": 11.872030936402986,
+      "final_side": 11.870013959200138,
+      "score_gain": 0.00017827728220404154,
+      "source_n": 128,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          4,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 148,
+      "baseline_side": 12.742641861464069,
+      "final_side": 12.707106898257615,
+      "score_gain": 0.002920955982537039,
+      "source_n": 148,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 149,
+      "baseline_side": 12.742641861464069,
+      "final_side": 12.742640804626406,
+      "score_gain": 8.657951481038858e-08,
+      "source_n": 149,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 150,
+      "baseline_side": 12.810937828593666,
+      "final_side": 12.808642958677922,
+      "score_gain": 0.0001873753439878795,
+      "source_n": 150,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 151,
+      "baseline_side": 12.872031036402985,
+      "final_side": 12.838217065636666,
+      "score_gain": 0.0027517419154855943,
+      "source_n": 151,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          10,
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 152,
+      "baseline_side": 12.872031036402985,
+      "final_side": 12.872029967920298,
+      "score_gain": 8.666538998693734e-08,
+      "source_n": 152,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          5,
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 173,
+      "baseline_side": 13.742641961464068,
+      "final_side": 13.707106908257614,
+      "score_gain": 0.0027016800664436715,
+      "source_n": 173,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          4,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 174,
+      "baseline_side": 13.742641961464068,
+      "final_side": 13.707106908257614,
+      "score_gain": 0.002693905431428485,
+      "source_n": 174,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 176,
+      "baseline_side": 13.872031136402986,
+      "final_side": 13.8246035190237,
+      "score_gain": 0.0035749911715370767,
+      "source_n": 176,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          5,
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 177,
+      "baseline_side": 13.872031136402986,
+      "final_side": 13.870013979200136,
+      "score_gain": 0.00015161881993796706,
+      "source_n": 177,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          7
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 178,
+      "baseline_side": 13.881307506330623,
+      "final_side": 13.872029977920297,
+      "score_gain": 0.0006953801539098842,
+      "source_n": 178,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          11,
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 180,
+      "baseline_side": 14,
+      "final_side": 13.993271380449826,
+      "score_gain": 0.0005015216902974132,
+      "source_n": 180,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          3,
+          3
+        ],
+        [
+          6,
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 200,
+      "baseline_side": 14.74264206146407,
+      "final_side": 14.707106918257615,
+      "score_gain": 0.0025127140731718784,
+      "source_n": 200,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 201,
+      "baseline_side": 14.74264206146407,
+      "final_side": 14.707106918257615,
+      "score_gain": 0.0025064557469579867,
+      "source_n": 201,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 202,
+      "baseline_side": 14.768900653489927,
+      "final_side": 14.742640824626406,
+      "score_gain": 0.0018476351113411312,
+      "source_n": 202,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 203,
+      "baseline_side": 14.80864422145578,
+      "final_side": 14.808642978677922,
+      "score_gain": 8.722590576246367e-08,
+      "source_n": 203,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          9,
+          4
+        ],
+        [
+          8,
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 205,
+      "baseline_side": 14.881307606330623,
+      "final_side": 14.870013989200137,
+      "score_gain": 0.0007887804352753433,
+      "source_n": 205,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          7
+        ],
+        [
+          3,
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 207,
+      "baseline_side": 15,
+      "final_side": 14.9511501844115,
+      "score_gain": 0.003395296891410775,
+      "source_n": 207,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          10,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 208,
+      "baseline_side": 15,
+      "final_side": 14.993271390449825,
+      "score_gain": 0.0004665451297256019,
+      "source_n": 208,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          8,
+          4
+        ],
+        [
+          10,
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 230,
+      "baseline_side": 15.742642161464069,
+      "final_side": 15.707106928257614,
+      "score_gain": 0.0023431238893901634,
+      "source_n": 230,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          4,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 231,
+      "baseline_side": 15.763777868276103,
+      "final_side": 15.742640834626405,
+      "score_gain": 0.0013907147116240244,
+      "source_n": 231,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          10,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 233,
+      "baseline_side": 15.808644321455779,
+      "final_side": 15.80864298867792,
+      "score_gain": 8.731318053547918e-08,
+      "source_n": 233,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          7,
+          4
+        ],
+        [
+          6,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 234,
+      "baseline_side": 15.870015337501385,
+      "final_side": 15.838517591452057,
+      "score_gain": 0.0020590720735861275,
+      "source_n": 234,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          13,
+          12,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 235,
+      "baseline_side": 15.870015337501385,
+      "final_side": 15.870013999200138,
+      "score_gain": 8.730114740118054e-08,
+      "source_n": 235,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          6
+        ],
+        [
+          5,
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 237,
+      "baseline_side": 16,
+      "final_side": 15.955003943210244,
+      "score_gain": 0.0029228079720474303,
+      "source_n": 237,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          11,
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 238,
+      "baseline_side": 16,
+      "final_side": 15.988762909886429,
+      "score_gain": 0.0007283923653508075,
+      "source_n": 238,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          11,
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 262,
+      "baseline_side": 16.74062500066234,
+      "final_side": 16.707106938257613,
+      "score_gain": 0.0020707528108617024,
+      "source_n": 262,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 264,
+      "baseline_side": 16.80864442145578,
+      "final_side": 16.80864299867792,
+      "score_gain": 8.756592405815671e-08,
+      "source_n": 264,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          4
+        ],
+        [
+          6,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 265,
+      "baseline_side": 16.838833544983196,
+      "final_side": 16.82489870247193,
+      "score_gain": 0.0008560105708520297,
+      "source_n": 265,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          9,
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 266,
+      "baseline_side": 16.838833544983196,
+      "final_side": 16.838832119488316,
+      "score_gain": 8.740269888374855e-08,
+      "source_n": 266,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          14,
+          13,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 269,
+      "baseline_side": 17,
+      "final_side": 16.969250238448634,
+      "score_gain": 0.0018748460511430044,
+      "source_n": 269,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          4,
+          5
+        ],
+        [
+          7,
+          12,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 270,
+      "baseline_side": 17,
+      "final_side": 16.977805635691745,
+      "score_gain": 0.0013507059979021132,
+      "source_n": 270,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          12,
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 292,
+      "baseline_side": 17.64575491509514,
+      "final_side": 17.605828862558283,
+      "score_gain": 0.002336495495963309,
+      "source_n": 292,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          9,
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 297,
+      "baseline_side": 17.80864452145578,
+      "final_side": 17.79879630824806,
+      "score_gain": 0.0005714512901838313,
+      "source_n": 297,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          8,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 298,
+      "baseline_side": 17.813285545423906,
+      "final_side": 17.808643008677922,
+      "score_gain": 0.0002689349328619076,
+      "source_n": 298,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 301,
+      "baseline_side": 17.907263733991762,
+      "final_side": 17.89395511143955,
+      "score_gain": 0.0007670962511937919,
+      "source_n": 301,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          6
+        ],
+        [
+          7,
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 304,
+      "baseline_side": 18,
+      "final_side": 17.970140440417385,
+      "score_gain": 0.0017125631936743457,
+      "source_n": 304,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          13,
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 305,
+      "baseline_side": 18,
+      "final_side": 17.9935425450343,
+      "score_gain": 0.0003697527957267619,
+      "source_n": 305,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          13,
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 327,
+      "baseline_side": 18.64575501509514,
+      "final_side": 18.591378321613778,
+      "score_gain": 0.0030070380206090757,
+      "source_n": 327,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          7,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 331,
+      "baseline_side": 18.740625200662343,
+      "final_side": 18.70710695825761,
+      "score_gain": 0.0018423292215101212,
+      "source_n": 331,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          7,
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 332,
+      "baseline_side": 18.80864462145578,
+      "final_side": 18.742640864626406,
+      "score_gain": 0.003622426762457883,
+      "source_n": 332,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          9,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 333,
+      "baseline_side": 18.838833744983194,
+      "final_side": 18.808643018677923,
+      "score_gain": 0.001654441610199932,
+      "source_n": 333,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          9,
+          4
+        ],
+        [
+          9,
+          7,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 334,
+      "baseline_side": 18.838833744983194,
+      "final_side": 18.810432151779924,
+      "score_gain": 0.0015540660368717322,
+      "source_n": 334,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          6,
+          4
+        ],
+        [
+          9,
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 335,
+      "baseline_side": 18.838833744983194,
+      "final_side": 18.83858210536689,
+      "score_gain": 1.3748540926032608e-05,
+      "source_n": 335,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          15,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 336,
+      "baseline_side": 19,
+      "final_side": 18.87001402920014,
+      "score_gain": 0.0070913160770557674,
+      "source_n": 336,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          13,
+          8
+        ],
+        [
+          7,
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 337,
+      "baseline_side": 19,
+      "final_side": 18.872030027920296,
+      "score_gain": 0.006970968571948853,
+      "source_n": 337,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          11,
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 338,
+      "baseline_side": 19,
+      "final_side": 18.9511502244115,
+      "score_gain": 0.002657077506005377,
+      "source_n": 338,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          4,
+          5
+        ],
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          5,
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 339,
+      "baseline_side": 19,
+      "final_side": 18.95151757067269,
+      "score_gain": 0.0026332041080337123,
+      "source_n": 339,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          14,
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 340,
+      "baseline_side": 19,
+      "final_side": 18.984995825147536,
+      "score_gain": 0.0008137156299840623,
+      "source_n": 340,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          14,
+          9,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 341,
+      "baseline_side": 19,
+      "final_side": 18.99354257282987,
+      "score_gain": 0.0003496892867048607,
+      "source_n": 341,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          14,
+          9,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 364,
+      "baseline_side": 19.645755115095138,
+      "final_side": 19.59137833161378,
+      "score_gain": 0.0028501178796609935,
+      "source_n": 364,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          8,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 368,
+      "baseline_side": 19.74062530066234,
+      "final_side": 19.740623614006232,
+      "score_gain": 8.7923027571043e-08,
+      "source_n": 368,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          15,
+          16,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 369,
+      "baseline_side": 19.80864472145578,
+      "final_side": 19.742640874626407,
+      "score_gain": 0.0034360230194876063,
+      "source_n": 369,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 370,
+      "baseline_side": 19.838833844983196,
+      "final_side": 19.790676763306763,
+      "score_gain": 0.0025035674630687977,
+      "source_n": 370,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          10,
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 371,
+      "baseline_side": 19.838833844983196,
+      "final_side": 19.808643028677924,
+      "score_gain": 0.0015674290839129185,
+      "source_n": 371,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          14,
+          14,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 372,
+      "baseline_side": 19.838833844983196,
+      "final_side": 19.824946327543444,
+      "score_gain": 0.0007200342372374543,
+      "source_n": 372,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          17,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 373,
+      "baseline_side": 20,
+      "final_side": 19.83886641139429,
+      "score_gain": 0.008343180962374235,
+      "source_n": 373,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          17,
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 374,
+      "baseline_side": 20,
+      "final_side": 19.87001403920014,
+      "score_gain": 0.006721414020178302,
+      "source_n": 374,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          12,
+          11,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 375,
+      "baseline_side": 20,
+      "final_side": 19.898512703469407,
+      "score_gain": 0.005240781457527987,
+      "source_n": 375,
+      "steps": [],
+      "gadgets": [
+        [
+          15,
+          7,
+          8
+        ],
+        [
+          4,
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 376,
+      "baseline_side": 20,
+      "final_side": 19.9511502344115,
+      "score_gain": 0.0025192343051370215,
+      "source_n": 376,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          4,
+          5
+        ],
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          6,
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 377,
+      "baseline_side": 20,
+      "final_side": 19.9692981422948,
+      "score_gain": 0.0015812261187430035,
+      "source_n": 377,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          15,
+          10,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 378,
+      "baseline_side": 20,
+      "final_side": 19.985008400176493,
+      "score_gain": 0.0007710846913527256,
+      "source_n": 378,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          15,
+          10,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 379,
+      "baseline_side": 20,
+      "final_side": 19.99354260137793,
+      "score_gain": 0.000331694287212998,
+      "source_n": 379,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          15,
+          10,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 403,
+      "baseline_side": 20.64575521509514,
+      "final_side": 20.58378247333782,
+      "score_gain": 0.0030870821548137093,
+      "source_n": 403,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 407,
+      "baseline_side": 20.740625400662342,
+      "final_side": 20.707106978257613,
+      "score_gain": 0.001661446514973481,
+      "source_n": 407,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 408,
+      "baseline_side": 20.80864482145578,
+      "final_side": 20.742640884626407,
+      "score_gain": 0.0032676817939194993,
+      "source_n": 408,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          10,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 409,
+      "baseline_side": 20.838833944983197,
+      "final_side": 20.742640884626407,
+      "score_gain": 0.004756440714024162,
+      "source_n": 409,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          10,
+          8,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 410,
+      "baseline_side": 20.838833944983197,
+      "final_side": 20.80864303867792,
+      "score_gain": 0.0014910225853697627,
+      "source_n": 410,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          7,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 411,
+      "baseline_side": 20.838833944983197,
+      "final_side": 20.810432171779922,
+      "score_gain": 0.0014009561568815155,
+      "source_n": 411,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          2,
+          1
+        ],
+        [
+          9,
+          6,
+          4
+        ],
+        [
+          6,
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 412,
+      "baseline_side": 20.88868611477178,
+      "final_side": 20.824950894611746,
+      "score_gain": 0.0031400089236964124,
+      "source_n": 412,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          18,
+          17,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 413,
+      "baseline_side": 20.88868611477178,
+      "final_side": 20.870014049200137,
+      "score_gain": 0.0009187922811825324,
+      "source_n": 413,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          10,
+          11,
+          7
+        ],
+        [
+          7,
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 414,
+      "baseline_side": 20.88868611477178,
+      "final_side": 20.881306417013064,
+      "score_gain": 0.0003626923577922859,
+      "source_n": 414,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          6
+        ],
+        [
+          10,
+          12,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 417,
+      "baseline_side": 21,
+      "final_side": 20.969573087087632,
+      "score_gain": 0.0014900123358870347,
+      "source_n": 417,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          16,
+          11,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 418,
+      "baseline_side": 21,
+      "final_side": 20.985019551874593,
+      "score_gain": 0.0007327176686207881,
+      "source_n": 418,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          16,
+          11,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 419,
+      "baseline_side": 21,
+      "final_side": 20.993669890448107,
+      "score_gain": 0.00030924608817643756,
+      "source_n": 419,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          9,
+          5
+        ],
+        [
+          16,
+          11,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 444,
+      "baseline_side": 21.64575531509514,
+      "final_side": 21.591378351613777,
+      "score_gain": 0.0025806164836538934,
+      "source_n": 444,
+      "steps": [],
+      "gadgets": [
+        [
+          12,
+          10,
+          1
+        ],
+        [
+          9,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 445,
+      "baseline_side": 21.64575531509514,
+      "final_side": 21.621320549772843,
+      "score_gain": 0.0011583189643925116,
+      "source_n": 445,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          16,
+          3
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 448,
+      "baseline_side": 21.740625500662343,
+      "final_side": 21.707106988257614,
+      "score_gain": 0.001583600859638342,
+      "source_n": 448,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 449,
+      "baseline_side": 21.80864492145578,
+      "final_side": 21.74062363400623,
+      "score_gain": 0.0032101230285016464,
+      "source_n": 449,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          15,
+          16,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 450,
+      "baseline_side": 21.838834044983194,
+      "final_side": 21.74264089462641,
+      "score_gain": 0.004534588594732041,
+      "source_n": 450,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          11,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 451,
+      "baseline_side": 21.838834044983194,
+      "final_side": 21.808643048677922,
+      "score_gain": 0.0014216384928046441,
+      "source_n": 451,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 452,
+      "baseline_side": 21.838834044983194,
+      "final_side": 21.808643048677922,
+      "score_gain": 0.001420065013083083,
+      "source_n": 452,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          14,
+          13,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 453,
+      "baseline_side": 21.868113038839134,
+      "final_side": 21.824936568908452,
+      "score_gain": 0.0020286075192786517,
+      "source_n": 453,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          14,
+          13,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 454,
+      "baseline_side": 21.868113038839134,
+      "final_side": 21.838832169488317,
+      "score_gain": 0.0013742192897258677,
+      "source_n": 454,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          16,
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 487,
+      "baseline_side": 22.645755415095138,
+      "final_side": 22.58378249333782,
+      "score_gain": 0.0028082611451611733,
+      "source_n": 487,
+      "steps": [],
+      "gadgets": [
+        [
+          12,
+          10,
+          1
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 488,
+      "baseline_side": 22.645755415095138,
+      "final_side": 22.64191849445398,
+      "score_gain": 0.00017368923637665602,
+      "source_n": 488,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          7,
+          1
+        ],
+        [
+          12,
+          15,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 489,
+      "baseline_side": 22.678782043277987,
+      "final_side": 22.64214898171669,
+      "score_gain": 0.0016566043073073494,
+      "source_n": 489,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          6,
+          1
+        ],
+        [
+          12,
+          16,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 491,
+      "baseline_side": 22.74062560066234,
+      "final_side": 22.70710699825761,
+      "score_gain": 0.0015126733508350595,
+      "source_n": 491,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 492,
+      "baseline_side": 22.769355213370613,
+      "final_side": 22.70710699825761,
+      "score_gain": 0.0028063662689819897,
+      "source_n": 492,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 493,
+      "baseline_side": 22.769355372687954,
+      "final_side": 22.742640904626406,
+      "score_gain": 0.0012031591308472006,
+      "source_n": 493,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          9,
+          4
+        ],
+        [
+          10,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 494,
+      "baseline_side": 22.769355572409598,
+      "final_side": 22.76889949428899,
+      "score_gain": 2.051992475462411e-05,
+      "source_n": 494,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          13,
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 496,
+      "baseline_side": 22.854575172231705,
+      "final_side": 22.808643058677923,
+      "score_gain": 0.002062412781888785,
+      "source_n": 496,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          6,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 497,
+      "baseline_side": 22.854575371080788,
+      "final_side": 22.82494344435492,
+      "score_gain": 0.0013291735692670214,
+      "source_n": 497,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          15,
+          14,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 498,
+      "baseline_side": 22.854575388628433,
+      "final_side": 22.838866557190084,
+      "score_gain": 0.0007039295686839809,
+      "source_n": 498,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          20,
+          19,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 532,
+      "baseline_side": 23.64575551509514,
+      "final_side": 23.59137837161378,
+      "score_gain": 0.002357548161346568,
+      "source_n": 532,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          7,
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 533,
+      "baseline_side": 23.64575551509514,
+      "final_side": 23.621228892007164,
+      "score_gain": 0.0010623659744182059,
+      "source_n": 533,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          15,
+          16,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 534,
+      "baseline_side": 23.67878214327799,
+      "final_side": 23.64214899171669,
+      "score_gain": 0.001585271508375681,
+      "source_n": 534,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          7,
+          1
+        ],
+        [
+          12,
+          16,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 535,
+      "baseline_side": 23.70423506192328,
+      "final_side": 23.678780102187797,
+      "score_gain": 0.0011005138775340606,
+      "source_n": 535,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          14,
+          16,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 536,
+      "baseline_side": 23.740625700662342,
+      "final_side": 23.707107008257612,
+      "score_gain": 0.001447787001760997,
+      "source_n": 536,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 537,
+      "baseline_side": 23.80864512145578,
+      "final_side": 23.707107008257612,
+      "score_gain": 0.004381693003720418,
+      "source_n": 537,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 538,
+      "baseline_side": 23.79154454671725,
+      "final_side": 23.74062365400623,
+      "score_gain": 0.002195355571748536,
+      "source_n": 538,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          16,
+          16,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 539,
+      "baseline_side": 23.79154455020271,
+      "final_side": 23.742640914626406,
+      "score_gain": 0.0021064287024788225,
+      "source_n": 539,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          10,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 540,
+      "baseline_side": 23.791544550947442,
+      "final_side": 23.791544544180475,
+      "score_gain": 2.912039129334034e-10,
+      "source_n": 540,
+      "steps": [],
+      "gadgets": [
+        [
+          15,
+          5,
+          4
+        ],
+        [
+          8,
+          18,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 543,
+      "baseline_side": 23.824957478604702,
+      "final_side": 23.824954741238223,
+      "score_gain": 1.1747163947388491e-07,
+      "source_n": 543,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          21,
+          20,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 546,
+      "baseline_side": 23.90853059800088,
+      "final_side": 23.874369619416253,
+      "score_gain": 0.0014619549219731561,
+      "source_n": 546,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          16,
+          15,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 547,
+      "baseline_side": 23.90853059800088,
+      "final_side": 23.898576163578817,
+      "score_gain": 0.0004256208813810286,
+      "source_n": 547,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          16,
+          9
+        ],
+        [
+          16,
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 548,
+      "baseline_side": 23.90853059800088,
+      "final_side": 23.9081504016076,
+      "score_gain": 1.6241185001758615e-05,
+      "source_n": 548,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          16,
+          9
+        ],
+        [
+          16,
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 579,
+      "baseline_side": 24.64575561509514,
+      "final_side": 24.59137838161378,
+      "score_gain": 0.0022598407027656676,
+      "source_n": 579,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          7,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 580,
+      "baseline_side": 24.64575561509514,
+      "final_side": 24.62122832412667,
+      "score_gain": 0.0010184403239945092,
+      "source_n": 580,
+      "steps": [],
+      "gadgets": [
+        [
+          14,
+          14,
+          2
+        ],
+        [
+          10,
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 581,
+      "baseline_side": 24.67878224327799,
+      "final_side": 24.642149001716692,
+      "score_gain": 0.0015198029513141965,
+      "source_n": 581,
+      "steps": [],
+      "gadgets": [
+        [
+          12,
+          8,
+          1
+        ],
+        [
+          12,
+          16,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 582,
+      "baseline_side": 24.704235161923283,
+      "final_side": 24.6787801121878,
+      "score_gain": 0.0010551457587588352,
+      "source_n": 582,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          14,
+          16,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 583,
+      "baseline_side": 24.740625800662343,
+      "final_side": 24.707107018257613,
+      "score_gain": 0.0013882061267152792,
+      "source_n": 583,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 584,
+      "baseline_side": 24.80864522145578,
+      "final_side": 24.707107018257613,
+      "score_gain": 0.004201680744245353,
+      "source_n": 584,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 585,
+      "baseline_side": 24.838834344983194,
+      "final_side": 24.707107018257613,
+      "score_gain": 0.005446254669517812,
+      "source_n": 585,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 586,
+      "baseline_side": 24.838834344983194,
+      "final_side": 24.742640924626407,
+      "score_gain": 0.003973713568197603,
+      "source_n": 586,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          11,
+          10,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 587,
+      "baseline_side": 24.838834344983194,
+      "final_side": 24.763778105913882,
+      "score_gain": 0.0030979025226068042,
+      "source_n": 587,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          15,
+          15,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 588,
+      "baseline_side": 25,
+      "final_side": 24.807006062189014,
+      "score_gain": 0.007958935853367035,
+      "source_n": 588,
+      "steps": [],
+      "gadgets": [
+        [
+          19,
+          6,
+          5
+        ],
+        [
+          5,
+          18,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 589,
+      "baseline_side": 25,
+      "final_side": 24.80864307867792,
+      "score_gain": 0.007884724581627615,
+      "source_n": 589,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          14,
+          14,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 590,
+      "baseline_side": 25,
+      "final_side": 24.810432211779922,
+      "score_gain": 0.00780438233374526,
+      "source_n": 590,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          9,
+          4
+        ],
+        [
+          6,
+          9,
+          4
+        ],
+        [
+          12,
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 591,
+      "baseline_side": 25,
+      "final_side": 24.824954751238224,
+      "score_gain": 0.007200399396009299,
+      "source_n": 591,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          22,
+          21,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 592,
+      "baseline_side": 25,
+      "final_side": 24.85457562717418,
+      "score_gain": 0.005976904905520318,
+      "source_n": 592,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          21,
+          22,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 593,
+      "baseline_side": 25,
+      "final_side": 24.874369629416254,
+      "score_gain": 0.005159020981971992,
+      "source_n": 593,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          6
+        ],
+        [
+          14,
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 594,
+      "baseline_side": 24.90845078238463,
+      "final_side": 24.898512753469408,
+      "score_gain": 0.0004077622655234745,
+      "source_n": 594,
+      "steps": [],
+      "gadgets": [
+        [
+          15,
+          7,
+          8
+        ],
+        [
+          9,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 595,
+      "baseline_side": 24.90845078238463,
+      "final_side": 24.898576173578817,
+      "score_gain": 0.0004048194930617219,
+      "source_n": 595,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          16,
+          9
+        ],
+        [
+          17,
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 596,
+      "baseline_side": 24.90845078238463,
+      "final_side": 24.899448830132897,
+      "score_gain": 0.00036873433158039873,
+      "source_n": 596,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          7,
+          17,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 628,
+      "baseline_side": 25.645755715095138,
+      "final_side": 25.591378391613777,
+      "score_gain": 0.0021698914341463887,
+      "source_n": 628,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          7,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 629,
+      "baseline_side": 25.645755715095138,
+      "final_side": 25.591378391613777,
+      "score_gain": 0.0021681658740848883,
+      "source_n": 629,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 630,
+      "baseline_side": 25.678782343277987,
+      "final_side": 25.650161760378047,
+      "score_gain": 0.0011402713165944989,
+      "source_n": 630,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          14,
+          15,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 631,
+      "baseline_side": 25.70423526192328,
+      "final_side": 25.690356184192048,
+      "score_gain": 0.0005525173605487411,
+      "source_n": 631,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          7,
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 632,
+      "baseline_side": 25.740625900662344,
+      "final_side": 25.690356184192048,
+      "score_gain": 0.0019996219555696543,
+      "source_n": 632,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          16,
+          15,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 633,
+      "baseline_side": 25.80864532145578,
+      "final_side": 25.707107028257614,
+      "score_gain": 0.004035784833084229,
+      "source_n": 633,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 634,
+      "baseline_side": 25.838834444983195,
+      "final_side": 25.707107028257614,
+      "score_gain": 0.005231564042421796,
+      "source_n": 634,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 635,
+      "baseline_side": 25.781145718679763,
+      "final_side": 25.74062367400623,
+      "score_gain": 0.001608068291202649,
+      "source_n": 635,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          16,
+          16,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 636,
+      "baseline_side": 25.781145718679763,
+      "final_side": 25.742640934626408,
+      "score_gain": 0.0015268140025624035,
+      "source_n": 636,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 637,
+      "baseline_side": 25.781145718679763,
+      "final_side": 25.7807041746812,
+      "score_gain": 1.7494610188891072e-05,
+      "source_n": 637,
+      "steps": [],
+      "gadgets": [
+        [
+          15,
+          5,
+          4
+        ],
+        [
+          10,
+          20,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 640,
+      "baseline_side": 26,
+      "final_side": 25.824950944611746,
+      "score_gain": 0.006919421466098143,
+      "source_n": 640,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          18,
+          17,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 641,
+      "baseline_side": 26,
+      "final_side": 25.838866422483463,
+      "score_gain": 0.006364393664237158,
+      "source_n": 641,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          3,
+          2
+        ],
+        [
+          20,
+          22,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 642,
+      "baseline_side": 26,
+      "final_side": 25.870014099200137,
+      "score_gain": 0.0051301342957213785,
+      "source_n": 642,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          5,
+          4
+        ],
+        [
+          8,
+          5,
+          4
+        ],
+        [
+          9,
+          15,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 643,
+      "baseline_side": 26,
+      "final_side": 25.883413765991293,
+      "score_gain": 0.004597712251505184,
+      "source_n": 643,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          17,
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 644,
+      "baseline_side": 26,
+      "final_side": 25.898576183578815,
+      "score_gain": 0.003996658258101018,
+      "source_n": 644,
+      "steps": [],
+      "gadgets": [
+        [
+          16,
+          7,
+          9
+        ],
+        [
+          7,
+          16,
+          9
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 645,
+      "baseline_side": 25.92506364754038,
+      "final_side": 25.899448840132898,
+      "score_gain": 0.001008582056726679,
+      "source_n": 645,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          8,
+          18,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 646,
+      "baseline_side": 25.925065357806886,
+      "final_side": 25.899551537469844,
+      "score_gain": 0.0010038278349781588,
+      "source_n": 646,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          8,
+          18,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 647,
+      "baseline_side": 25.92506624463819,
+      "final_side": 25.918446131599257,
+      "score_gain": 0.000260263499363399,
+      "source_n": 647,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          8,
+          18,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 679,
+      "baseline_side": 26.621228875940673,
+      "final_side": 26.58378253333782,
+      "score_gain": 0.0014370587364383315,
+      "source_n": 679,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          15,
+          16,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 680,
+      "baseline_side": 26.621228875940673,
+      "final_side": 26.591378401613778,
+      "score_gain": 0.0011447134354608136,
+      "source_n": 680,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 683,
+      "baseline_side": 26.740626000662342,
+      "final_side": 26.704233048542328,
+      "score_gain": 0.001392537612231083,
+      "source_n": 683,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          17,
+          16,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 684,
+      "baseline_side": 26.808645421455783,
+      "final_side": 26.704233048542328,
+      "score_gain": 0.00399230685951783,
+      "source_n": 684,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          17,
+          17,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 685,
+      "baseline_side": 26.838834544983197,
+      "final_side": 26.70710703825761,
+      "score_gain": 0.005033049318508512,
+      "source_n": 685,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          4,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 686,
+      "baseline_side": 26.838834544983197,
+      "final_side": 26.74062368400623,
+      "score_gain": 0.00374970809628463,
+      "source_n": 686,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          16,
+          14,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 687,
+      "baseline_side": 26.838834544983197,
+      "final_side": 26.742640944626405,
+      "score_gain": 0.0036700147641588908,
+      "source_n": 687,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          9,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 688,
+      "baseline_side": 27,
+      "final_side": 26.77573431046359,
+      "score_gain": 0.008550049257239548,
+      "source_n": 688,
+      "steps": [],
+      "gadgets": [
+        [
+          15,
+          5,
+          4
+        ],
+        [
+          11,
+          21,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 689,
+      "baseline_side": 27,
+      "final_side": 26.791545613486672,
+      "score_gain": 0.007941479652196578,
+      "source_n": 689,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          22,
+          23,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 690,
+      "baseline_side": 27,
+      "final_side": 26.809861517424615,
+      "score_gain": 0.0072384483240009335,
+      "source_n": 690,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          4
+        ],
+        [
+          9,
+          6,
+          4
+        ],
+        [
+          6,
+          11,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 691,
+      "baseline_side": 27,
+      "final_side": 26.824946397543446,
+      "score_gain": 0.006659352881497905,
+      "source_n": 691,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          16,
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 692,
+      "baseline_side": 27,
+      "final_side": 26.834919788820013,
+      "score_gain": 0.006275408022018696,
+      "source_n": 692,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          21,
+          10
+        ],
+        [
+          17,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 693,
+      "baseline_side": 27,
+      "final_side": 26.835109803552744,
+      "score_gain": 0.006263660613224096,
+      "source_n": 693,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          21,
+          10
+        ],
+        [
+          17,
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 694,
+      "baseline_side": 27,
+      "final_side": 26.86811329752028,
+      "score_gain": 0.005006350763750268,
+      "source_n": 694,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          21,
+          21,
+          16
+        ]
+      ]
+    },
+    {
+      "n": 695,
+      "baseline_side": 26.899870596141785,
+      "final_side": 26.874369649416256,
+      "score_gain": 0.0009673060446551014,
+      "source_n": 695,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          7
+        ],
+        [
+          15,
+          16,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 696,
+      "baseline_side": 26.899870602759353,
+      "final_side": 26.898576193578815,
+      "score_gain": 4.906445336782243e-05,
+      "source_n": 696,
+      "steps": [],
+      "gadgets": [
+        [
+          16,
+          7,
+          9
+        ],
+        [
+          7,
+          16,
+          9
+        ],
+        [
+          3,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 697,
+      "baseline_side": 26.899870609141647,
+      "final_side": 26.899448850132895,
+      "score_gain": 1.597526160813646e-05,
+      "source_n": 697,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          17,
+          10
+        ],
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 700,
+      "baseline_side": 26.958419147898063,
+      "final_side": 26.94486092392494,
+      "score_gain": 0.000512452697894297,
+      "source_n": 700,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          23,
+          24,
+          23
+        ]
+      ]
+    },
+    {
+      "n": 701,
+      "baseline_side": 26.958419151565575,
+      "final_side": 26.95826277896377,
+      "score_gain": 5.906111657799449e-06,
+      "source_n": 701,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          24,
+          23,
+          24
+        ]
+      ]
+    },
+    {
+      "n": 732,
+      "baseline_side": 27.64575591509514,
+      "final_side": 27.59137841161378,
+      "score_gain": 0.0020098503617414585,
+      "source_n": 732,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          12,
+          10,
+          1
+        ],
+        [
+          7,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 733,
+      "baseline_side": 27.64575591509514,
+      "final_side": 27.605828962558284,
+      "score_gain": 0.0014747356406937017,
+      "source_n": 733,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          10,
+          1
+        ],
+        [
+          12,
+          8,
+          1
+        ],
+        [
+          10,
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 734,
+      "baseline_side": 27.67878254327799,
+      "final_side": 27.621228962955758,
+      "score_gain": 0.0021243414135423138,
+      "source_n": 734,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          16,
+          3
+        ],
+        [
+          10,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 735,
+      "baseline_side": 27.691359166339723,
+      "final_side": 27.69035620419205,
+      "score_gain": 3.699481614109481e-05,
+      "source_n": 735,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          3,
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 736,
+      "baseline_side": 27.691359166339723,
+      "final_side": 27.69035620419205,
+      "score_gain": 3.6969675250565517e-05,
+      "source_n": 736,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          16,
+          14,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 740,
+      "baseline_side": 27.838834644983194,
+      "final_side": 27.74062369400623,
+      "score_gain": 0.0036103063604000615,
+      "source_n": 740,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          16,
+          16,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 741,
+      "baseline_side": 28,
+      "final_side": 27.742640954626406,
+      "score_gain": 0.009454320766436163,
+      "source_n": 741,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          10,
+          9,
+          4
+        ],
+        [
+          9,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 742,
+      "baseline_side": 28,
+      "final_side": 27.769355840103152,
+      "score_gain": 0.008467213483225497,
+      "source_n": 742,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          22,
+          22,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 743,
+      "baseline_side": 28,
+      "final_side": 27.781145986486777,
+      "score_gain": 0.008028975054038092,
+      "source_n": 743,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          25,
+          24,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 744,
+      "baseline_side": 27.835109560815557,
+      "final_side": 27.809692337300174,
+      "score_gain": 0.0009318406250959584,
+      "source_n": 744,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          6,
+          8
+        ],
+        [
+          5,
+          21,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 745,
+      "baseline_side": 27.835109560815557,
+      "final_side": 27.82495247265436,
+      "score_gain": 0.0003721269176477616,
+      "source_n": 745,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          4
+        ],
+        [
+          20,
+          19,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 746,
+      "baseline_side": 27.835109560815557,
+      "final_side": 27.834919798820014,
+      "score_gain": 6.947680284117628e-06,
+      "source_n": 746,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          21,
+          10
+        ],
+        [
+          18,
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 751,
+      "baseline_side": 27.908106758885932,
+      "final_side": 27.899448860132896,
+      "score_gain": 0.0003159312125273933,
+      "source_n": 751,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          17,
+          10
+        ],
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          3,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 752,
+      "baseline_side": 27.908106760031497,
+      "final_side": 27.90808704140246,
+      "score_gain": 7.190644142137824e-07,
+      "source_n": 752,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          10,
+          20,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 787,
+      "baseline_side": 28.64575601509514,
+      "final_side": 28.58378255333782,
+      "score_gain": 0.002209115331791585,
+      "source_n": 787,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          8,
+          12,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 788,
+      "baseline_side": 28.64575601509514,
+      "final_side": 28.59137842161378,
+      "score_gain": 0.0019371215604944282,
+      "source_n": 788,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          12,
+          10,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 789,
+      "baseline_side": 28.678782643277987,
+      "final_side": 28.621228972955755,
+      "score_gain": 0.0020489649207809345,
+      "source_n": 789,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          16,
+          3
+        ],
+        [
+          11,
+          12,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 790,
+      "baseline_side": 28.691359166859595,
+      "final_side": 28.678780152187798,
+      "score_gain": 0.00044754125771662737,
+      "source_n": 790,
+      "steps": [],
+      "gadgets": [
+        [
+          14,
+          14,
+          2
+        ],
+        [
+          14,
+          14,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 791,
+      "baseline_side": 28.691359166859595,
+      "final_side": 28.690356214192047,
+      "score_gain": 3.566089149867525e-05,
+      "source_n": 791,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          10,
+          10,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 795,
+      "baseline_side": 28.838834744983195,
+      "final_side": 28.742640964626407,
+      "score_gain": 0.0034116418112419013,
+      "source_n": 795,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          8,
+          11,
+          4
+        ],
+        [
+          16,
+          12,
+          5
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 796,
+      "baseline_side": 29,
+      "final_side": 28.742640964626407,
+      "score_gain": 0.00912184915577078,
+      "source_n": 796,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 797,
+      "baseline_side": 29,
+      "final_side": 28.769355850103153,
+      "score_gain": 0.008169834950213216,
+      "source_n": 797,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          22,
+          22,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 798,
+      "baseline_side": 28.807227373314376,
+      "final_side": 28.781145996486778,
+      "score_gain": 0.0009232707314964851,
+      "source_n": 798,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          25,
+          24,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 799,
+      "baseline_side": 28.807227680838057,
+      "final_side": 28.791545656694,
+      "score_gain": 0.0005547901330079987,
+      "source_n": 799,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          23,
+          23,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 803,
+      "baseline_side": 29,
+      "final_side": 28.865431207354675,
+      "score_gain": 0.004748829567278047,
+      "source_n": 803,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          13,
+          12
+        ],
+        [
+          6,
+          15,
+          7
+        ]
+      ]
+    },
+    {
+      "n": 804,
+      "baseline_side": 28.883544755615635,
+      "final_side": 28.870014129200136,
+      "score_gain": 0.000477188401099617,
+      "source_n": 804,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          21,
+          20,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 805,
+      "baseline_side": 28.88354482244518,
+      "final_side": 28.88341379599129,
+      "score_gain": 4.6180756954584645e-06,
+      "source_n": 806,
+      "steps": [
+        "trim 806->805"
+      ],
+      "gadgets": [
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          20,
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 806,
+      "baseline_side": 28.883544879384225,
+      "final_side": 28.88341379599129,
+      "score_gain": 4.617215587366206e-06,
+      "source_n": 806,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          20,
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 809,
+      "baseline_side": 29,
+      "final_side": 28.917323844834414,
+      "score_gain": 0.0029067388207864725,
+      "source_n": 809,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          11,
+          21,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 810,
+      "baseline_side": 29,
+      "final_side": 28.9448604550252,
+      "score_gain": 0.0019374061251739964,
+      "source_n": 810,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          6,
+          18,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 811,
+      "baseline_side": 29,
+      "final_side": 28.95819142771742,
+      "score_gain": 0.001468097536845354,
+      "source_n": 811,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          6,
+          13
+        ],
+        [
+          6,
+          22,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 812,
+      "baseline_side": 28.988905657460446,
+      "final_side": 28.973003451240576,
+      "score_gain": 0.0005580580361825085,
+      "source_n": 812,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          6,
+          13
+        ],
+        [
+          6,
+          22,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 813,
+      "baseline_side": 28.988906968215897,
+      "final_side": 28.985122469554632,
+      "score_gain": 0.0001327281628430946,
+      "source_n": 813,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          26,
+          25,
+          28
+        ]
+      ]
+    },
+    {
+      "n": 844,
+      "baseline_side": 29.64575611509514,
+      "final_side": 29.58378256333782,
+      "score_gain": 0.0021332176254892474,
+      "source_n": 844,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          8,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 845,
+      "baseline_side": 29.64575611509514,
+      "final_side": 29.591378431613776,
+      "score_gain": 0.0018706491803583767,
+      "source_n": 845,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          8,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 846,
+      "baseline_side": 29.67878274327799,
+      "final_side": 29.6212290021871,
+      "score_gain": 0.001978738378760676,
+      "source_n": 846,
+      "steps": [],
+      "gadgets": [
+        [
+          18,
+          18,
+          3
+        ],
+        [
+          11,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 847,
+      "baseline_side": 29.691359166869596,
+      "final_side": 29.64214905171669,
+      "score_gain": 0.0016908795673174198,
+      "source_n": 847,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          5,
+          10,
+          1
+        ],
+        [
+          16,
+          12,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 848,
+      "baseline_side": 29.691359166869596,
+      "final_side": 29.690356224192048,
+      "score_gain": 3.444119294905692e-05,
+      "source_n": 848,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          10,
+          8,
+          1
+        ],
+        [
+          16,
+          14,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 849,
+      "baseline_side": 29.691359166869596,
+      "final_side": 29.690356224192048,
+      "score_gain": 3.442090358473405e-05,
+      "source_n": 849,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          14,
+          16,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 852,
+      "baseline_side": 29.838834844983197,
+      "final_side": 29.707107068257613,
+      "score_gain": 0.004512919269152572,
+      "source_n": 852,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          7,
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 853,
+      "baseline_side": 29.775767850749993,
+      "final_side": 29.742640974626408,
+      "score_gain": 0.001134242635438362,
+      "source_n": 853,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          10,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 854,
+      "baseline_side": 29.77576789215423,
+      "final_side": 29.742640974626408,
+      "score_gain": 0.0011335797812620963,
+      "source_n": 854,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          10,
+          8,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 859,
+      "baseline_side": 30,
+      "final_side": 29.821828085159453,
+      "score_gain": 0.006079147284685776,
+      "source_n": 859,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          6,
+          8
+        ],
+        [
+          7,
+          23,
+          10
+        ]
+      ]
+    },
+    {
+      "n": 860,
+      "baseline_side": 30,
+      "final_side": 29.835109835225033,
+      "score_gain": 0.00562270795054405,
+      "source_n": 860,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          9,
+          21,
+          10
+        ],
+        [
+          18,
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 861,
+      "baseline_side": 30,
+      "final_side": 29.865431217354672,
+      "score_gain": 0.004586091843856285,
+      "source_n": 861,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          13,
+          12
+        ],
+        [
+          7,
+          16,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 862,
+      "baseline_side": 30,
+      "final_side": 29.86543121805472,
+      "score_gain": 0.004583430901979515,
+      "source_n": 862,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          27,
+          26,
+          20
+        ]
+      ]
+    },
+    {
+      "n": 863,
+      "baseline_side": 30,
+      "final_side": 29.88342907546065,
+      "score_gain": 0.0039681204192410224,
+      "source_n": 863,
+      "steps": [],
+      "gadgets": [
+        [
+          20,
+          8,
+          11
+        ],
+        [
+          9,
+          21,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 864,
+      "baseline_side": 30,
+      "final_side": 29.899380313331957,
+      "score_gain": 0.003423151255769853,
+      "source_n": 864,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          22,
+          21,
+          18
+        ]
+      ]
+    },
+    {
+      "n": 865,
+      "baseline_side": 30,
+      "final_side": 29.908087061402462,
+      "score_gain": 0.0031251336677326808,
+      "source_n": 865,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          7,
+          17,
+          10
+        ],
+        [
+          20,
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 866,
+      "baseline_side": 30,
+      "final_side": 29.908107047966997,
+      "score_gain": 0.003122649625742522,
+      "source_n": 866,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          26,
+          27,
+          24
+        ]
+      ]
+    },
+    {
+      "n": 867,
+      "baseline_side": 30,
+      "final_side": 29.917305963631673,
+      "score_gain": 0.0028084367151547255,
+      "source_n": 867,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          7,
+          19,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 868,
+      "baseline_side": 29.958197646077785,
+      "final_side": 29.917305963631673,
+      "score_gain": 0.001387954140928265,
+      "source_n": 868,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          7,
+          19,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 869,
+      "baseline_side": 29.95819764832649,
+      "final_side": 29.918031391433143,
+      "score_gain": 0.001362546941927321,
+      "source_n": 869,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          7,
+          19,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 870,
+      "baseline_side": 29.958197650307767,
+      "final_side": 29.95216353305013,
+      "score_gain": 0.0002045757344486381,
+      "source_n": 870,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          23,
+          15
+        ],
+        [
+          21,
+          6,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 903,
+      "baseline_side": 30.64575621509514,
+      "final_side": 30.58378257333782,
+      "score_gain": 0.00206235366208987,
+      "source_n": 903,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          8,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 904,
+      "baseline_side": 30.64575621509514,
+      "final_side": 30.605828992558283,
+      "score_gain": 0.0013279596680571268,
+      "source_n": 904,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          5,
+          10,
+          1
+        ],
+        [
+          11,
+          7,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 905,
+      "baseline_side": 30.67878284327799,
+      "final_side": 30.621228992955757,
+      "score_gain": 0.0019131547193092923,
+      "source_n": 905,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          16,
+          17,
+          3
+        ],
+        [
+          6,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 906,
+      "baseline_side": 30.691359166879597,
+      "final_side": 30.621229111825677,
+      "score_gain": 0.002329915019404,
+      "source_n": 906,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          22,
+          23,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 907,
+      "baseline_side": 30.691359166879597,
+      "final_side": 30.678780172187796,
+      "score_gain": 0.00041767866329662693,
+      "source_n": 907,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          14,
+          16,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 911,
+      "baseline_side": 30.838834944983194,
+      "final_side": 30.74062372400623,
+      "score_gain": 0.003253882916592323,
+      "source_n": 911,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          11,
+          3
+        ],
+        [
+          16,
+          12,
+          5
+        ],
+        [
+          7,
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "n": 912,
+      "baseline_side": 31,
+      "final_side": 30.742640984626405,
+      "score_gain": 0.008522008581118165,
+      "source_n": 912,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          16,
+          12,
+          5
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 913,
+      "baseline_side": 31,
+      "final_side": 30.742640984626405,
+      "score_gain": 0.008517340266015116,
+      "source_n": 913,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          11,
+          9,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 914,
+      "baseline_side": 31,
+      "final_side": 30.76935587010315,
+      "score_gain": 0.007629029742338838,
+      "source_n": 914,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          22,
+          22,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 915,
+      "baseline_side": 30.801079750128007,
+      "final_side": 30.781146016486776,
+      "score_gain": 0.0006589889066618195,
+      "source_n": 915,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          25,
+          24,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 916,
+      "baseline_side": 30.801079934665417,
+      "final_side": 30.781146016491217,
+      "score_gain": 0.0006586351954730482,
+      "source_n": 916,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          25,
+          25,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 923,
+      "baseline_side": 31,
+      "final_side": 30.883413815991293,
+      "score_gain": 0.0038374809899920574,
+      "source_n": 923,
+      "steps": [],
+      "gadgets": [
+        [
+          20,
+          8,
+          11
+        ],
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 924,
+      "baseline_side": 31,
+      "final_side": 30.883413815991293,
+      "score_gain": 0.0038354038688710075,
+      "source_n": 924,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          22,
+          10,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 925,
+      "baseline_side": 30.91738188313125,
+      "final_side": 30.908107057966998,
+      "score_gain": 0.0003049543728874268,
+      "source_n": 925,
+      "steps": [],
+      "gadgets": [
+        [
+          5,
+          3,
+          2
+        ],
+        [
+          25,
+          27,
+          23
+        ]
+      ]
+    },
+    {
+      "n": 926,
+      "baseline_side": 30.917382284444617,
+      "final_side": 30.917305973631674,
+      "score_gain": 2.507728910687397e-06,
+      "source_n": 926,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          8,
+          20,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 927,
+      "baseline_side": 30.917383336762093,
+      "final_side": 30.917305973631674,
+      "score_gain": 2.540938581748441e-06,
+      "source_n": 927,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          8,
+          20,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 928,
+      "baseline_side": 30.917383515893356,
+      "final_side": 30.917305973631674,
+      "score_gain": 2.5454494443308473e-06,
+      "source_n": 928,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          8,
+          20,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 930,
+      "baseline_side": 31,
+      "final_side": 30.973003471240574,
+      "score_gain": 0.0008852510518458053,
+      "source_n": 930,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          23,
+          15
+        ],
+        [
+          22,
+          7,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 931,
+      "baseline_side": 31,
+      "final_side": 30.98768589309884,
+      "score_gain": 0.00040357855309864943,
+      "source_n": 931,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          28,
+          27,
+          30
+        ]
+      ]
+    },
+    {
+      "n": 932,
+      "baseline_side": 31,
+      "final_side": 30.98890549087172,
+      "score_gain": 0.0003634127295713395,
+      "source_n": 932,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          28,
+          27,
+          31
+        ]
+      ]
+    },
+    {
+      "n": 964,
+      "baseline_side": 31.64575631509514,
+      "final_side": 31.58378258333782,
+      "score_gain": 0.0019960394987133686,
+      "source_n": 964,
+      "steps": [],
+      "gadgets": [
+        [
+          11,
+          10,
+          1
+        ],
+        [
+          12,
+          10,
+          1
+        ],
+        [
+          8,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 965,
+      "baseline_side": 31.64575631509514,
+      "final_side": 31.591378451613778,
+      "score_gain": 0.0017504853617962654,
+      "source_n": 965,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          7,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 966,
+      "baseline_side": 31.678782943277987,
+      "final_side": 31.621228394126668,
+      "score_gain": 0.0018517872649271134,
+      "source_n": 966,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          14,
+          14,
+          2
+        ],
+        [
+          9,
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 967,
+      "baseline_side": 31.70423586192328,
+      "final_side": 31.621229112758183,
+      "score_gain": 0.0026693171002627786,
+      "source_n": 967,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          21,
+          4
+        ],
+        [
+          9,
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 968,
+      "baseline_side": 31.740626500662344,
+      "final_side": 31.650161820378045,
+      "score_gain": 0.0029076449494045815,
+      "source_n": 968,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          16,
+          3
+        ],
+        [
+          14,
+          15,
+          4
+        ]
+      ]
+    },
+    {
+      "n": 969,
+      "baseline_side": 31.80864592145578,
+      "final_side": 31.691359435704637,
+      "score_gain": 0.003767784760560593,
+      "source_n": 970,
+      "steps": [
+        "trim 970->969"
+      ],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          25,
+          28,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 970,
+      "baseline_side": 31.838835044983195,
+      "final_side": 31.691359435704637,
+      "score_gain": 0.0047351564417577145,
+      "source_n": 970,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          25,
+          28,
+          8
+        ]
+      ]
+    },
+    {
+      "n": 971,
+      "baseline_side": 31.838835044983195,
+      "final_side": 31.691359473773183,
+      "score_gain": 0.004732716303388785,
+      "source_n": 971,
+      "steps": [],
+      "gadgets": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          25,
+          28,
+          9
+        ]
+      ]
+    },
+    {
+      "n": 972,
+      "baseline_side": 31.838835044983195,
+      "final_side": 31.70710708825761,
+      "score_gain": 0.004225176181961954,
+      "source_n": 972,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 973,
+      "baseline_side": 32,
+      "final_side": 31.742640994626406,
+      "score_gain": 0.008250550926628705,
+      "source_n": 973,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          9,
+          11,
+          4
+        ],
+        [
+          16,
+          12,
+          5
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 974,
+      "baseline_side": 32,
+      "final_side": 31.742640994626406,
+      "score_gain": 0.00824631444320349,
+      "source_n": 974,
+      "steps": [],
+      "gadgets": [
+        [
+          10,
+          8,
+          4
+        ],
+        [
+          9,
+          10,
+          4
+        ],
+        [
+          10,
+          11,
+          4
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "n": 975,
+      "baseline_side": 32,
+      "final_side": 31.768899584288988,
+      "score_gain": 0.007401136582278499,
+      "source_n": 975,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          10,
+          4
+        ],
+        [
+          10,
+          9,
+          4
+        ],
+        [
+          13,
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "n": 976,
+      "baseline_side": 32,
+      "final_side": 31.769355880103152,
+      "score_gain": 0.007382738371615293,
+      "source_n": 976,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          22,
+          22,
+          11
+        ]
+      ]
+    },
+    {
+      "n": 977,
+      "baseline_side": 32,
+      "final_side": 31.781146026491218,
+      "score_gain": 0.007001758933900628,
+      "source_n": 977,
+      "steps": [],
+      "gadgets": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          25,
+          25,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 978,
+      "baseline_side": 32,
+      "final_side": 31.80721597873748,
+      "score_gain": 0.00616455323764686,
+      "source_n": 978,
+      "steps": [],
+      "gadgets": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          27,
+          25,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 979,
+      "baseline_side": 31.821968983743293,
+      "final_side": 31.807229493480357,
+      "score_gain": 0.00047107615177093644,
+      "source_n": 979,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          27,
+          28,
+          17
+        ]
+      ]
+    },
+    {
+      "n": 980,
+      "baseline_side": 31.821969384610576,
+      "final_side": 31.807229531867417,
+      "score_gain": 0.0004708473244576979,
+      "source_n": 980,
+      "steps": [],
+      "gadgets": [
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          27,
+          28,
+          18
+        ]
+      ]
+    },
+    {
+      "n": 981,
+      "baseline_side": 31.821969709534038,
+      "final_side": 31.82196049920183,
+      "score_gain": 2.940632761770602e-07,
+      "source_n": 981,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          6,
+          8
+        ],
+        [
+          9,
+          25,
+          12
+        ]
+      ]
+    },
+    {
+      "n": 984,
+      "baseline_side": 32,
+      "final_side": 31.865431237204646,
+      "score_gain": 0.004289895473203085,
+      "source_n": 984,
+      "steps": [],
+      "gadgets": [
+        [
+          9,
+          21,
+          10
+        ],
+        [
+          22,
+          10,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 985,
+      "baseline_side": 32,
+      "final_side": 31.88341382599129,
+      "score_gain": 0.0037147443866108673,
+      "source_n": 985,
+      "steps": [],
+      "gadgets": [
+        [
+          20,
+          8,
+          11
+        ],
+        [
+          8,
+          20,
+          11
+        ],
+        [
+          3,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 986,
+      "baseline_side": 32,
+      "final_side": 31.899448900132896,
+      "score_gain": 0.003202199371667395,
+      "source_n": 986,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          17,
+          10
+        ],
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          7,
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "n": 987,
+      "baseline_side": 32,
+      "final_side": 31.908451091469136,
+      "score_gain": 0.0029140338651023044,
+      "source_n": 987,
+      "steps": [],
+      "gadgets": [
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          24,
+          23,
+          21
+        ]
+      ]
+    },
+    {
+      "n": 988,
+      "baseline_side": 32,
+      "final_side": 31.91730598363167,
+      "score_gain": 0.002630847130221864,
+      "source_n": 988,
+      "steps": [],
+      "gadgets": [
+        [
+          17,
+          7,
+          10
+        ],
+        [
+          10,
+          22,
+          15
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "n": 989,
+      "baseline_side": 32,
+      "final_side": 31.91730598363167,
+      "score_gain": 0.0026295167396790295,
+      "source_n": 989,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          9,
+          21,
+          13
+        ]
+      ]
+    },
+    {
+      "n": 990,
+      "baseline_side": 32,
+      "final_side": 31.926874632670014,
+      "score_gain": 0.0023240767357994526,
+      "source_n": 990,
+      "steps": [],
+      "gadgets": [
+        [
+          24,
+          11,
+          15
+        ],
+        [
+          7,
+          20,
+          14
+        ]
+      ]
+    },
+    {
+      "n": 991,
+      "baseline_side": 32,
+      "final_side": 31.95166301406123,
+      "score_gain": 0.0015354749623109926,
+      "source_n": 991,
+      "steps": [],
+      "gadgets": [
+        [
+          22,
+          10,
+          15
+        ],
+        [
+          9,
+          21,
+          15
+        ]
+      ]
+    },
+    {
+      "n": 992,
+      "baseline_side": 32,
+      "final_side": 31.973022841666822,
+      "score_gain": 0.0008565256336044682,
+      "source_n": 992,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          23,
+          15
+        ],
+        [
+          23,
+          8,
+          16
+        ]
+      ]
+    },
+    {
+      "n": 993,
+      "baseline_side": 32,
+      "final_side": 31.98768515683622,
+      "score_gain": 0.00039079973538979387,
+      "source_n": 993,
+      "steps": [],
+      "gadgets": [
+        [
+          8,
+          23,
+          15
+        ],
+        [
+          23,
+          8,
+          17
+        ]
+      ]
+    }
+  ]
+}
