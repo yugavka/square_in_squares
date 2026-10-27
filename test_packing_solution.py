@@ -110,6 +110,16 @@ class ConstructivePackingTests(unittest.TestCase):
             actual = [(float(row[3]), float(row[4]), float(row[5])) for row in rows]
             self.assertEqual(actual, fixed_packing(5)[1])
 
+    def test_tight_proof_backed_layouts_remain_valid(self):
+        for n in (5, 10):
+            side, placements = fixed_packing(n)
+            measured = measure_packing(
+                n, [make_square(i, *placement)
+                    for i, placement in enumerate(placements)])
+            self.assertAlmostEqual(measured.side, side, delta=2e-12)
+            self.assertLess(measured.side - proven_optimal(n).exact_side,
+                            2e-11)
+
     def test_candidates_never_override_proven_layouts(self):
         overlap = set(improved_packings()) & {
             n for n in range(1, 1001) if proven_optimal(n) is not None

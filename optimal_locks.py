@@ -17,7 +17,7 @@ from pathlib import Path
 SquarePlacement = tuple[float, float, float]
 Packing = tuple[float, list[SquarePlacement]]
 SQRT2 = math.sqrt(2)
-SAFETY_SCALE = 1 + 1e-7
+SAFETY_SCALE = 1 + 1e-12
 
 CATALOG = "https://kingbird.myphotos.cc/packing/squares_in_squares.html"
 KARAKUS = ("https://github.com/jlevy/squares/blob/main/packing/resources/papers/"
@@ -131,7 +131,7 @@ def write_lock_manifest(path: Path, max_n: int = 1000) -> int:
     records = [record for n in range(1, max_n + 1)
                if (record := proven_optimal(n)) is not None]
     with path.open("w", newline="", encoding="utf-8") as target:
-        writer = csv.writer(target)
+        writer = csv.writer(target, lineterminator="\n")
         writer.writerow(["n", "exact_optimum_side", "submitted_side",
                          "family", "evidence", "source"])
         for record in records:

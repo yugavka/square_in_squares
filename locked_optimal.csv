@@ -3,12 +3,12 @@ n,exact_optimum_side,submitted_side,family,evidence,source
 2,2,2,classical_grid_case,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 3,2,2,k_squared_minus_1,independent_proof_2026,https://github.com/jlevy/squares/blob/main/packing/resources/papers/karakus-2026-counterexample-nagamochi-scoring-lemma.md
 4,2,2,perfect_square,area_bound,https://kingbird.myphotos.cc/packing/squares_in_squares.html
-5,2.70710678118655,2.70710705189723,Goebel_construction,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
+5,2.70710678118655,2.70710678118925,Goebel_construction,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 6,3,3,classical_grid_case,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 7,3,3,classical_grid_case,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 8,3,3,k_squared_minus_1,independent_proof_2026,https://github.com/jlevy/squares/blob/main/packing/resources/papers/karakus-2026-counterexample-nagamochi-scoring-lemma.md
 9,3,3,perfect_square,area_bound,https://kingbird.myphotos.cc/packing/squares_in_squares.html
-10,3.70710678118655,3.70710715189723,Goebel_construction,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
+10,3.70710678118655,3.70710678119025,Goebel_construction,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 13,4,4,classical_grid_case,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 14,4,4,classical_grid_case,classical_proof,https://kingbird.myphotos.cc/packing/squares_in_squares.html
 15,4,4,k_squared_minus_1,independent_proof_2026,https://github.com/jlevy/squares/blob/main/packing/resources/papers/karakus-2026-counterexample-nagamochi-scoring-lemma.md
