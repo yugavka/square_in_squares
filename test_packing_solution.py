@@ -132,11 +132,11 @@ class ConstructivePackingTests(unittest.TestCase):
 
     def test_record_seeds_are_valid_and_normalized(self):
         seeds = record_seeds()
-        self.assertEqual(len(seeds), 44)
+        self.assertEqual(len(seeds), 45)
         sizes = {len(squares) for _, squares in seeds}
         self.assertTrue({11, 17, 18, 19, 26, 28, 29, 37, 39, 40, 41,
                          50, 51, 54, 55, 68, 70, 204, 227, 229,
-                         260, 295} <= sizes)
+                         260, 295, 976} <= sizes)
         for side, squares in seeds:
             self.assertGreater(side, 0)
             self.assertTrue(all(x >= 0 and y >= 0 for x, y, _ in squares))
