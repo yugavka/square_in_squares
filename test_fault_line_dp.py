@@ -5,12 +5,19 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from fault_line_dp import (Gadget, compose, extract_corner_crops,
-                           has_empty_upper_tip, orient, seam_compatible)
+                           has_empty_upper_tip, load_gadget_overrides,
+                           orient, seam_compatible)
 from packing_solution import five_square_seed, record_seeds
 from validate_submission import ValidationError, make_square, measure_packing
 
 
 class FaultLineTests(unittest.TestCase):
+    def test_saved_override_preserves_required_seam(self):
+        gadget = next(g for g in load_gadget_overrides()
+                      if (g.w, g.h, g.surplus) == (22, 10, 15))
+        self.assertTrue(has_empty_upper_tip(gadget))
+        self.assertLess(gadget.overhang, 0.917305674)
+
     def test_rectangular_crops_from_known_packing(self):
         donor = next(packing for packing in record_seeds()
                      if len(packing[1]) == 11)

@@ -10,9 +10,11 @@ from __future__ import annotations
 
 import math
 import heapq
+import json
 from collections import defaultdict
 from collections.abc import Iterable
 from dataclasses import dataclass
+from pathlib import Path
 
 from validate_submission import (ValidationError, make_square, measure_packing,
                                  squares_overlap)
@@ -103,6 +105,36 @@ def extract_corner_crops(donors: Iterable[Packing],
     return list(best.values())
 
 
+def load_gadget_overrides(path: Path | None = None) -> list[Gadget]:
+    """Load independently checked local improvements to extracted gadgets."""
+    if path is None:
+        path = Path(__file__).with_name("gadget_overrides.json")
+    if not path.exists():
+        return []
+    overrides = []
+    for entry in json.loads(path.read_text(encoding="utf-8")):
+        w, h, surplus = (int(entry[key]) for key in ("w", "h", "surplus"))
+        rows = [tuple(map(float, row)) for row in entry["squares"]]
+        if w < 2 or h < 2 or surplus < 1 or len(rows) != w * h + surplus:
+            raise ValueError(f"invalid gadget size: {w}x{h}+{surplus}")
+        squares, width, height = normalize(rows)
+        f = max(width - w, height - h, 0.0)
+        if not 0 < f < 1 or abs(f - float(entry["overhang"])) > 1e-7:
+            raise ValueError(f"invalid gadget overhang: {w}x{h}+{surplus}")
+        geometry = sorted((make_square(i, *row) for i, row in enumerate(squares)),
+                          key=lambda square: square.min_x)
+        active = []
+        for square in geometry:
+            active = [other for other in active if other.max_x > square.min_x]
+            for other in active:
+                if (square.max_y > other.min_y and other.max_y > square.min_y
+                        and squares_overlap(square, other, tolerance=0)):
+                    raise ValueError(f"overlapping gadget: {w}x{h}+{surplus}")
+            active.append(square)
+        overrides.append(Gadget(w, h, surplus, f, squares))
+    return overrides
+
+
 def seam_compatible(a: Gadget, b: Gadget) -> bool:
     """Check the only region where consecutive diagonal gadgets may meet."""
     a_corner = []
@@ -182,7 +214,16 @@ def fault_line_compositions(donors: Iterable[Packing],
     can be joined without a buffer row. DP states record the columns,
     rows and surplus already used, retaining the smallest maximum overhang.
     """
-    all_gadgets = extract_corner_crops(donors)
+    extracted = extract_corner_crops(donors)
+    by_key = {(g.w, g.h, g.surplus): g for g in extracted}
+    for override in load_gadget_overrides():
+        key = override.w, override.h, override.surplus
+        previous = by_key.get(key)
+        if previous is None or override.overhang < previous.overhang - 1e-8:
+            if previous is not None and has_empty_upper_tip(previous) and not has_empty_upper_tip(override):
+                raise ValueError(f"gadget override closes upper seam: {key}")
+            by_key[key] = override
+    all_gadgets = list(by_key.values())
     gadgets = [g for g in all_gadgets if has_empty_upper_tip(g)]
     max_k = math.isqrt(max_n)
     terminal_by_difference: dict[int, list[Gadget]] = defaultdict(list)
