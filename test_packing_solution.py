@@ -8,6 +8,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from area_gap_report import ranked_gaps
+from import_published_packings import checked_side, import_entries
 from optimal_locks import check_locked_sides, fixed_packing, proven_optimal
 from packing_solution import (five_square_seed, goebel_strip_seed,
                               improved_packings, record_seeds,
@@ -65,12 +66,24 @@ class ConstructivePackingTests(unittest.TestCase):
 
     def test_record_seeds_are_valid_and_normalized(self):
         seeds = record_seeds()
-        self.assertEqual(len(seeds), 11)
-        self.assertEqual(sorted(len(squares) for _, squares in seeds),
-                         [11, 17, 18, 19, 26, 28, 29, 37, 39, 40, 41])
+        self.assertEqual(len(seeds), 40)
+        sizes = {len(squares) for _, squares in seeds}
+        self.assertTrue({11, 17, 18, 19, 26, 28, 29, 37, 39, 40, 41,
+                         50, 51, 54, 55, 68, 70, 295} <= sizes)
         for side, squares in seeds:
             self.assertGreater(side, 0)
             self.assertTrue(all(x >= 0 and y >= 0 for x, y, _ in squares))
+
+    def test_published_import_validates_and_is_idempotent(self):
+        entry = {'source': 'fixture', 'published_side': '2',
+                 'squares': [[0.5, 0.5, 0.0], [1.5, 0.5, 0.0]]}
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'seeds.json'
+            path.write_text('{}')
+            self.assertEqual(import_entries(path, [(2, entry)]), [2])
+            self.assertEqual(import_entries(path, [(2, entry)]), [])
+        with self.assertRaisesRegex(ValueError, 'overlap'):
+            checked_side(2, [[0.5, 0.5, 0.0], [0.5, 0.5, 0.0]])
 
     def test_gap_ranking_excludes_locked_cases(self):
         rows = ranked_gaps([Result(25, 5, 5), Result(11, 4, 4),
