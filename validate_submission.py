@@ -1,7 +1,9 @@
-"""Validate a Squares in Squares submission and compute its Kaggle score.
+"""Strictly validate a submission and score valid puzzles by Kaggle's formula.
 
 The score uses Kaggle's formula, while geometry is checked with double precision.
 Angles are interpreted as radians by default; use --angle-unit degrees if needed.
+Unlike Kaggle V17, an invalid submitted puzzle raises an error instead of
+receiving the grid-ceiling fallback score. This is deliberate preflight behavior.
 """
 
 from __future__ import annotations
