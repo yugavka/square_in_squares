@@ -1,0 +1,253 @@
+"""Compose locally validated rectangular crops along a diagonal fault line.
+
+A gadget with ``w*h + surplus`` unit squares fits a ``(w+f) x (h+f)``
+rectangle. Gadgets placed corner to corner share only a small seam square.
+The remaining off-diagonal rectangles are filled with upright unit squares.
+Every proposed full packing is checked by the independent SAT validator.
+"""
+
+from __future__ import annotations
+
+import math
+import heapq
+from collections import defaultdict
+from collections.abc import Iterable
+from dataclasses import dataclass
+
+from validate_submission import (ValidationError, make_square, measure_packing,
+                                 squares_overlap)
+
+
+Placement = tuple[float, float, float]
+Packing = tuple[float, list[Placement]]
+
+
+@dataclass(slots=True)
+class Gadget:
+    w: int
+    h: int
+    surplus: int
+    overhang: float
+    squares: tuple[Placement, ...]
+
+
+def normalize(squares: Iterable[Placement]) -> tuple[tuple[Placement, ...], float, float]:
+    """Move the true bounding-box lower-left corner to the origin."""
+    rows = tuple(squares)
+    geometry = [make_square(i, *row) for i, row in enumerate(rows)]
+    min_x = min(square.min_x for square in geometry)
+    min_y = min(square.min_y for square in geometry)
+    width = max(square.max_x for square in geometry) - min_x
+    height = max(square.max_y for square in geometry) - min_y
+    return tuple((x - min_x, y - min_y, angle) for x, y, angle in rows), width, height
+
+
+def orient(squares: Iterable[Placement], turns: int = 0,
+           mirror: bool = False) -> tuple[Placement, ...]:
+    """Apply one of the eight square symmetries without changing unit sizes."""
+    changed = []
+    for x, y, angle in squares:
+        if mirror:
+            x, angle = -x, -angle
+        for _ in range(turns):
+            x, y, angle = -y, x, angle + math.pi / 2
+        changed.append((x, y, math.remainder(angle, math.pi / 2)))
+    return normalize(changed)[0]
+
+
+def extract_corner_crops(donors: Iterable[Packing],
+                         max_dim: int = 28) -> list[Gadget]:
+    """Keep the smallest overhang seen for each rectangular crop signature."""
+    best: dict[tuple[int, int, int], Gadget] = {}
+    for _, donor in donors:
+        for mirror in (False, True):
+            for turns in range(4):
+                rows = orient(donor, turns, mirror)
+                geometry = [make_square(i, *row) for i, row in enumerate(rows)]
+                side = max(max(s.max_x for s in geometry),
+                           max(s.max_y for s in geometry))
+                base = math.floor(side + 1e-9)
+                full_f = side - base
+                if base < 2 or not (0 < full_f < 1):
+                    continue
+                limit = min(base, max_dim)
+                # A square appears in crop (w,h) iff both integer thresholds
+                # are met. The 2D prefix sum counts crops before rebuilding any.
+                buckets = [[0] * (limit + 1) for _ in range(limit + 1)]
+                required = []
+                for square in geometry:
+                    rw = max(1, math.ceil(square.max_x - full_f - 1e-9))
+                    rh = max(1, math.ceil(square.max_y - full_f - 1e-9))
+                    required.append((rw, rh))
+                    if rw <= limit and rh <= limit:
+                        buckets[rw][rh] += 1
+                for w in range(1, limit + 1):
+                    for h in range(1, limit + 1):
+                        buckets[w][h] += (buckets[w - 1][h] +
+                                          buckets[w][h - 1] - buckets[w - 1][h - 1])
+                        if w < 2 or h < 2:
+                            continue
+                        surplus = buckets[w][h] - w * h
+                        if surplus <= 0:
+                            continue
+                        picked = tuple(row for row, (rw, rh) in zip(rows, required)
+                                       if rw <= w and rh <= h)
+                        crop, width, height = normalize(picked)
+                        f = max(width - w, height - h, 0.0)
+                        if f >= 1 or f < 1e-10:
+                            continue
+                        key = (w, h, surplus)
+                        previous = best.get(key)
+                        if previous is None or f < previous.overhang - 1e-8:
+                            best[key] = Gadget(w, h, surplus, f, crop)
+    return list(best.values())
+
+
+def seam_compatible(a: Gadget, b: Gadget) -> bool:
+    """Check the only region where consecutive diagonal gadgets may meet."""
+    a_corner = []
+    for i, row in enumerate(a.squares):
+        square = make_square(i, *row)
+        if square.max_x > a.w and square.max_y > a.h:
+            a_corner.append(square)
+    if not a_corner:
+        return True
+    b_corner = []
+    for i, (x, y, angle) in enumerate(b.squares):
+        square = make_square(i, x + a.w, y + a.h, angle)
+        if square.min_x < a.w + a.overhang and square.min_y < a.h + a.overhang:
+            b_corner.append(square)
+    for first in a_corner:
+        for second in b_corner:
+            if (first.max_x > second.min_x and second.max_x > first.min_x and
+                    first.max_y > second.min_y and second.max_y > first.min_y and
+                    squares_overlap(first, second, tolerance=0)):
+                return False
+    return True
+
+
+def compose(gadgets: Iterable[Gadget], clearance: float = 1e-8) -> Packing:
+    """Fill every off-diagonal rectangle and validate the complete packing."""
+    chain = tuple(gadgets)
+    if not chain or sum(g.w for g in chain) != sum(g.h for g in chain):
+        raise ValueError("gadget widths and heights must sum to the same side")
+    f = max(g.overhang for g in chain)
+    px = py = 0
+    origins = []
+    squares: list[Placement] = []
+    for gadget in chain:
+        origins.append((px, py))
+        squares.extend((x + px, y + py, angle) for x, y, angle in gadget.squares)
+        px += gadget.w
+        py += gadget.h
+    for i, first in enumerate(chain):
+        x_i, y_i = origins[i]
+        for j in range(i + 1, len(chain)):
+            second = chain[j]
+            x_j, y_j = origins[j]
+            squares.extend((x_i + x + 0.5, y_j + f + y + 0.5, 0.0)
+                           for x in range(first.w) for y in range(second.h))
+            squares.extend((x_j + f + x + 0.5, y_i + y + 0.5, 0.0)
+                           for x in range(second.w) for y in range(first.h))
+    n = len(squares)
+    k = px
+    expected = k * k + sum(g.surplus for g in chain)
+    if n != expected:
+        raise AssertionError(f"composition has {n} squares, expected {expected}")
+    # Scaling centres opens a small gap at exact grid contacts after CSV
+    # serialization without changing the unit square side length.
+    safe = [(x * (1 + clearance), y * (1 + clearance), angle)
+            for x, y, angle in squares]
+    measured = measure_packing(n, [make_square(i, *row)
+                                   for i, row in enumerate(safe)])
+    return measured.side, safe
+
+
+def has_empty_upper_tip(gadget: Gadget) -> bool:
+    """An empty upper-right seam guarantees compatibility on that side."""
+    return not any((square := make_square(i, *row)).max_x > gadget.w and
+                   square.max_y > gadget.h
+                   for i, row in enumerate(gadget.squares))
+
+
+def fault_line_compositions(donors: Iterable[Packing],
+                            incumbents: dict[int, Packing],
+                            max_n: int = 1000,
+                            locked: Iterable[int] = ()) -> dict[int, Packing]:
+    """Minimax DP over diagonal chains of rectangular gadgets.
+
+    Every nonterminal gadget has an empty upper seam, so any terminal gadget
+    can be joined without a buffer row. DP states record the columns,
+    rows and surplus already used, retaining the smallest maximum overhang.
+    """
+    all_gadgets = extract_corner_crops(donors)
+    gadgets = [g for g in all_gadgets if has_empty_upper_tip(g)]
+    max_k = math.isqrt(max_n)
+    terminal_by_difference: dict[int, list[Gadget]] = defaultdict(list)
+    for gadget in all_gadgets:
+        terminal_by_difference[gadget.w - gadget.h].append(gadget)
+
+    locked_set = set(locked)
+    options: dict[int, list[tuple[float, int, tuple[int, ...], Gadget]]] = defaultdict(list)
+    serial = 0
+    # A transition increases w+h, so buckets can be processed in one pass.
+    states: list[dict[tuple[int, int, int], tuple[float, tuple[int, ...]]]] = [
+        {} for _ in range(2 * max_k + 1)
+    ]
+    for index, gadget in enumerate(gadgets):
+        if gadget.w <= max_k - 2 and gadget.h <= max_k - 2:
+            key = (gadget.w, gadget.h, gadget.surplus)
+            bucket = states[gadget.w + gadget.h]
+            previous = bucket.get(key)
+            if previous is None or gadget.overhang < previous[0]:
+                bucket[key] = gadget.overhang, (index,)
+
+    for dimension in range(len(states)):
+        for (used_w, used_h, surplus), (old_f, chain) in states[dimension].items():
+            # Close the chain with any gadget. Equal width and height totals
+            # form a square container; the off-diagonal blocks
+            # are filled by compose().
+            for final in terminal_by_difference[used_h - used_w]:
+                k = used_w + final.w
+                n = k * k + surplus + final.surplus
+                if n > max_n or n in locked_set:
+                    continue
+                f = max(old_f, final.overhang)
+                limit = incumbents[n][0] if n in incumbents else math.isqrt(n - 1) + 1
+                if k + f + 2e-7 >= limit:
+                    continue
+                serial += 1
+                item = (-f, serial, chain, final)
+                best = options[n]
+                if len(best) < 8:
+                    heapq.heappush(best, item)
+                elif item > best[0]:
+                    heapq.heapreplace(best, item)
+
+            for index, gadget in enumerate(gadgets):
+                w = used_w + gadget.w
+                h = used_h + gadget.h
+                if w > max_k - 2 or h > max_k - 2:
+                    continue
+                new_surplus = surplus + gadget.surplus
+                if (max(w, h) + 2) ** 2 + new_surplus + 1 > max_n:
+                    continue
+                f = max(old_f, gadget.overhang)
+                key = (w, h, new_surplus)
+                bucket = states[w + h]
+                previous = bucket.get(key)
+                if previous is None or f < previous[0] - 1e-10:
+                    bucket[key] = f, chain + (index,)
+
+    improved: dict[int, Packing] = {}
+    for n, best in options.items():
+        limit = incumbents[n][0] if n in incumbents else math.isqrt(n - 1) + 1
+        for _, _, chain, final in sorted(best, reverse=True):
+            try:
+                candidate = compose([gadgets[index] for index in chain] + [final])
+            except ValidationError:
+                continue
+            if candidate[0] < limit - 1e-9:
+                improved[n] = candidate
+                break
+    return improved

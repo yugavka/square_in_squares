@@ -3,9 +3,10 @@
 The starting layouts are classical Goebel 5/27/52-square constructions and
 selected catalog layouts in record_seeds.json. Each can be extended by one
 outer row and column, cut along a unit-wide strip, or trimmed by removing
-boundary squares. Optional validated CSVs form a per-n portfolio. Other puzzle
-sizes retain the grid baseline. No optimization libraries or network access
-are required.
+boundary squares. Rectangular crops are joined along a diagonal fault by a
+minimax dynamic program. Optional validated CSVs form a per-n portfolio.
+Other puzzle sizes retain the grid baseline. No optimization libraries or
+network access are required.
 """
 
 from __future__ import annotations
@@ -207,8 +208,9 @@ def slab_candidates(squares: list[SquarePlacement],
 
 def improved_packings(max_n: int = 1000,
                       portfolio_paths: Iterable[Path] = (),
-                      include_public: bool = True) -> dict[int, Packing]:
-    """Select the best seed, portfolio, slab-cut and trimmed layout for each n."""
+                      include_public: bool = True,
+                      include_fault_dp: bool = True) -> dict[int, Packing]:
+    """Select the best seed, portfolio, fault, slab and trimmed layout per n."""
     candidates = [(2, five_square_seed()),
                   (5, goebel_strip_seed(5)),
                   (7, goebel_strip_seed(7))]
@@ -238,10 +240,20 @@ def improved_packings(max_n: int = 1000,
     sources = list(portfolio_paths)
     if include_public and max_n == 1000:
         sources.insert(0, PUBLIC_PORTFOLIO)
-    for n, candidate in portfolio_packings(sources, max_n).items():
+    source_packings = portfolio_packings(sources, max_n)
+    for n, candidate in source_packings.items():
         previous = improved.get(n)
         if previous is None or candidate[0] < previous[0] - 1e-9:
             improved[n] = candidate
+
+    if include_fault_dp and max_n == 1000:
+        from fault_line_dp import fault_line_compositions
+
+        donors = [packing for _, packing in candidates]
+        donors.extend(source_packings.values())
+        locked = (n for n in range(1, max_n + 1)
+                  if proven_optimal(n) is not None)
+        improved.update(fault_line_compositions(donors, improved, max_n, locked))
 
     # A unit-wide strip can be removed from a larger packing and the two
     # remaining pieces can be joined without creating a new intersection.
@@ -281,9 +293,11 @@ def improved_packings(max_n: int = 1000,
 
 def write_submission(path: Path, max_n: int = 1000,
                      portfolio_paths: Iterable[Path] = (),
-                     include_public: bool = True) -> int:
+                     include_public: bool = True,
+                     include_fault_dp: bool = True) -> int:
     """Write a complete submission, always preserving proof-backed layouts."""
-    improved = improved_packings(max_n, portfolio_paths, include_public)
+    improved = improved_packings(max_n, portfolio_paths, include_public,
+                                 include_fault_dp)
     with path.open("w", newline="", encoding="utf-8") as target:
         writer = csv.writer(target)
         writer.writerow(["id", "n", "square_id", "x", "y", "angle"])
@@ -317,11 +331,14 @@ def main() -> None:
                         help="validated full or partial submission CSV; repeat for multiple inputs")
     parser.add_argument("--no-public-portfolio", action="store_true",
                         help="exclude the bundled public replay for ablation")
+    parser.add_argument("--no-fault-dp", action="store_true",
+                        help="disable diagonal gadget composition for ablation")
     args = parser.parse_args()
     if args.output.resolve() in {path.resolve() for path in args.portfolio}:
         parser.error("--output must differ from every --portfolio input")
     improved_count = write_submission(args.output, portfolio_paths=args.portfolio,
-                                      include_public=not args.no_public_portfolio)
+                                      include_public=not args.no_public_portfolio,
+                                      include_fault_dp=not args.no_fault_dp)
     lock_count = write_lock_manifest(Path(__file__).with_name("locked_optimal.csv"))
     results = validate_submission(args.output)
     check_locked_sides(results)
