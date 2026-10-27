@@ -1,60 +1,10 @@
 {
-  "baseline_score": 22.285051125648675,
-  "final_score": 22.28505109932975,
-  "score_gain": 2.6318925242039097e-08,
-  "affected_n": 1,
-  "direct_n": 1,
+  "baseline_score": 22.285049815087174,
+  "final_score": 22.285049815087174,
+  "score_gain": 0.0,
+  "affected_n": 0,
+  "direct_n": 0,
   "derived_n": 0,
-  "gadgets": [
-    {
-      "w": 8,
-      "h": 25,
-      "surplus": 8,
-      "overhang": 0.7467106294427701,
-      "uses": 1,
-      "n": [
-        976
-      ],
-      "occurrences": 1,
-      "allocated_gain": 1.3159462621019549e-08,
-      "associated_gain": 2.6318925242039097e-08,
-      "unique_bottleneck_uses": 1
-    },
-    {
-      "w": 23,
-      "h": 6,
-      "surplus": 7,
-      "overhang": 0.7466707257009446,
-      "uses": 1,
-      "n": [
-        976
-      ],
-      "occurrences": 1,
-      "allocated_gain": 1.3159462621019549e-08,
-      "associated_gain": 2.6318925242039097e-08,
-      "unique_bottleneck_uses": 0
-    }
-  ],
-  "puzzles": [
-    {
-      "n": 976,
-      "baseline_side": 31.746711759139384,
-      "final_side": 31.746710936909874,
-      "score_gain": 2.6318925242039097e-08,
-      "source_n": 976,
-      "steps": [],
-      "gadgets": [
-        [
-          8,
-          25,
-          8
-        ],
-        [
-          23,
-          6,
-          7
-        ]
-      ]
-    }
-  ]
+  "gadgets": [],
+  "puzzles": []
 }
