@@ -205,6 +205,13 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Generated competition outputs and downloaded upstream source data
+/submission.csv
+/submission_improved.csv
+/area_gap_report.csv
+/search_12_20_results.json
+/published_sources/xu_records.json
+
 # Ruff stuff:
 .ruff_cache/
 
