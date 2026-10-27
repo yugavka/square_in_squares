@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 from bisect import bisect_left, bisect_right
 import csv
+import gzip
 import json
 import math
 from pathlib import Path
@@ -34,7 +35,7 @@ from validate_submission import (make_square, measure_packing, total_score,
 SquarePlacement = tuple[float, float, float]
 Packing = tuple[float, list[SquarePlacement]]
 PUBLIC_PORTFOLIO = (Path(__file__).with_name("published_sources") /
-                    "malyshev_replay_v34.csv")
+                    "malyshev_v36_partial.csv.gz")
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
                    (1, 1), (1, -1), (-1, 1), (-1, -1))
 MAX_TRIM = 4
@@ -152,7 +153,8 @@ def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
         groups: dict[int, list[SquarePlacement | None]] = {
             n: [None] * n for n in measured
         }
-        with path.open(newline="", encoding="utf-8-sig") as source:
+        opener = gzip.open if path.suffix == ".gz" else Path.open
+        with opener(path, mode="rt", newline="", encoding="utf-8-sig") as source:
             for row in csv.DictReader(source):
                 n = int(row["n"])
                 groups[n][int(row["square_id"])] = (

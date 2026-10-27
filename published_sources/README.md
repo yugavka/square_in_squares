@@ -1,5 +1,16 @@
 # Источники импортированных раскладок
 
+`malyshev_v36_partial.csv.gz` — используемый по умолчанию снимок
+[публичного ноутбука Neighbour Transfer + Squeeze, версия 36](https://www.kaggle.com/code/malyshevdanil/squares-in-squares-neighbour-transfer-squeeze?scriptVersionId=362914762).
+Он получен из опубликованного `submission.csv`: сохранены только 547 раскладок,
+у которых сторона меньше стороны обычной решётки. В архиве 290 670 строк;
+при отсутствии `n` генератор сам создаёт решётку. Полный CSV содержит
+500 500 строк и даёт локальный балл `22.285051125530`; сжатый снимок
+воспроизводит тот же балл. Все его раскладки проверены локальным валидатором.
+SHA-256 исходного полного CSV:
+`6e3497709581354d51d7b7053c49cc261b37d3c57570926b167321c4c8c33233`.
+SHA-256 сжатого снимка указан в таблице ниже.
+
 `malyshev_replay_v34.csv` — 60 полных раскладок для отдельных `n`, извлечённых
 без оптимизации из `REPLAY_B64` в публичном
 [ноутбуке Malyshev Danil, версия 34](https://www.kaggle.com/code/malyshevdanil/squares-in-squares-neighbour-transfer-squeeze).
@@ -37,6 +48,7 @@ SHA-256 исходных файлов и сохранённых снимков:
 
 | Файл | SHA-256 |
 | --- | --- |
+| `malyshev_v36_partial.csv.gz` | `148105da8592c2f7cb9f63ace6649a87b353840788f8ed3dd6b6796b094f6709` |
 | `square-50.svg` | `c044b04db21d01f4a5a6066b23bffe89f9585c4b99c88c4cca6b13af7b692c95` |
 | `square-54.svg` | `96afd34f230d10c5dc750b8209fecb90bbebc01f4519cf58193051b9b7ddcaec` |
 | `square-55.svg` | `77a0ff9aee57df261c922f45250d7b17b8fdc063c63be3a9a1c0772eb85eb3f7` |

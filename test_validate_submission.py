@@ -1,4 +1,5 @@
 import csv
+import gzip
 import math
 import sys
 import tempfile
@@ -50,6 +51,18 @@ class SubmissionTests(unittest.TestCase):
                          [2, 2, 1, 1, 0, 0]])
         results = validate_submission(self.path, max_n=2)
         self.assertEqual([round(result.side) for result in results], [1, 2])
+
+    def test_gzip_submission_uses_same_validation(self):
+        rows = [[0, 1, 0, 0, 0, 0], [1, 2, 0, 0, 0, 0],
+                [2, 2, 1, 1, 0, 0]]
+        self.write_rows(rows)
+        path = self.path.with_suffix(".csv.gz")
+        with gzip.open(path, "wt", newline="") as target:
+            writer = csv.writer(target)
+            writer.writerow(["id", "n", "square_id", "x", "y", "angle"])
+            writer.writerows(rows)
+        self.assertEqual(validate_submission(path, max_n=2),
+                         validate_submission(self.path, max_n=2))
 
     def test_detects_overlap(self):
         self.write_rows([[0, 1, 0, 0, 0, 0],

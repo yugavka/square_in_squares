@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import math
 import sys
 from dataclasses import dataclass
@@ -115,7 +116,8 @@ def validate_submission(path: Path, max_n: int = 1000,
     groups: list[dict[int, Square]] = [{} for _ in range(max_n + 1)]
     row_count = 0
 
-    with path.open(newline="", encoding="utf-8-sig") as source:
+    opener = gzip.open if path.suffix == ".gz" else Path.open
+    with opener(path, mode="rt", newline="", encoding="utf-8-sig") as source:
         reader = csv.DictReader(source)
         if reader.fieldnames != HEADER:
             raise ValidationError(f"expected CSV header {','.join(HEADER)}")
