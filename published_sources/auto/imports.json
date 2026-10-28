@@ -1,0 +1,37 @@
+[
+  {
+    "ref": "busyaprime/lb-22-2622907-best-public-packings-fq-quench",
+    "run": "20261028T183941",
+    "title": "LB 22.2622907 · Best Public Packings + FQ Quench",
+    "url": "https://www.kaggle.com/code/busyaprime/lb-22-2622907-best-public-packings-fq-quench",
+    "last_run_time": "2026-10-28T18:39:41.803000",
+    "imported_at": "2026-10-28T21:45:17+00:00",
+    "source_sha256": "0e95371390addda9cdd9908746c99ad1012b9fa9eeeb0f8b1d3f95464e7c3605",
+    "source_score": 22.2622906804,
+    "estimated_gain": 9.1163635e-05,
+    "rows": 15816,
+    "n": [
+      648,
+      683,
+      695,
+      703,
+      738,
+      744,
+      752,
+      791,
+      808,
+      858,
+      861,
+      862,
+      921,
+      925,
+      927,
+      933,
+      980,
+      992,
+      995
+    ],
+    "archive": "busyaprime__lb-22-2622907-best-public-packings-fq-quench__20261028T183941.csv.gz",
+    "archive_sha256": "99c72a821aba5a2b416aa1065de9fe1b369183d5535a3590051d84382e59c6ea"
+  }
+]
