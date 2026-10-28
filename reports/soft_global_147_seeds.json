@@ -1,0 +1,157 @@
+{
+  "n": 147,
+  "incumbent_side": 12.656854249492426,
+  "target": 12.66,
+  "mode": "seeds",
+  "count": 6,
+  "steps": 250,
+  "temperature": 2e-06,
+  "seconds": 16,
+  "best_side": null,
+  "runs": [
+    {
+      "kind": "band",
+      "seed": 0,
+      "energy": 0.2811898856860011,
+      "side": null
+    },
+    {
+      "kind": "band",
+      "seed": 1,
+      "energy": 0.055251464344917435,
+      "side": null
+    },
+    {
+      "kind": "band",
+      "seed": 2,
+      "energy": 0.04460069539807016,
+      "side": null
+    },
+    {
+      "kind": "band",
+      "seed": 3,
+      "energy": 0.2146684702992046,
+      "side": null
+    },
+    {
+      "kind": "band",
+      "seed": 4,
+      "energy": 0.10245663079200268,
+      "side": null
+    },
+    {
+      "kind": "band",
+      "seed": 5,
+      "energy": 0.28199211166111693,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 0,
+      "energy": 0.09437865167271584,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 1,
+      "energy": 0.07127059268966868,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 2,
+      "energy": 0.22566187443348085,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 3,
+      "energy": 0.03706627381249925,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 4,
+      "energy": 0.1909256494645616,
+      "side": null
+    },
+    {
+      "kind": "block",
+      "seed": 5,
+      "energy": 0.0895141754636635,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 0,
+      "energy": 0.2067903784527011,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 1,
+      "energy": 0.08712147327585522,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 2,
+      "energy": 0.20713861075795123,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 3,
+      "energy": 0.20637985127528755,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 4,
+      "energy": 0.18905550252063927,
+      "side": null
+    },
+    {
+      "kind": "mixed",
+      "seed": 5,
+      "energy": 0.11115778419420017,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 0,
+      "energy": 0.1618523493535179,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 1,
+      "energy": 0.11831135161458535,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 2,
+      "energy": 0.09493916833705074,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 3,
+      "energy": 0.1487987262695032,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 4,
+      "energy": 0.2117939091193039,
+      "side": null
+    },
+    {
+      "kind": "random",
+      "seed": 5,
+      "energy": 0.15047285204566724,
+      "side": null
+    }
+  ]
+}

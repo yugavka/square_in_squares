@@ -1,0 +1,97 @@
+{
+  "n": 147,
+  "incumbent_side": 12.656854249492426,
+  "target": 12.651,
+  "mode": "hop",
+  "count": 12,
+  "steps": 250,
+  "temperature": 2e-06,
+  "seconds": 405,
+  "best_side": null,
+  "runs": [
+    {
+      "kind": "hop",
+      "seed": 0,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.7502373437115387e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 1,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.080570552230153e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 2,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.5408532686330272e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 3,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.05162599313758e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 4,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.369272563336035e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 5,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.7545763669309272e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 6,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.015566782728479e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 7,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.5951240718938986e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 8,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 1.9949841353595678e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 9,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.3144891774635806e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 10,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 2.0072260510611205e-05,
+      "side": null
+    },
+    {
+      "kind": "hop",
+      "seed": 11,
+      "start_energy": 2.757820158692752e-05,
+      "energy": 1.981184012334922e-05,
+      "side": null
+    }
+  ]
+}
