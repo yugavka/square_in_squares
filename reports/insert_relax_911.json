@@ -1,0 +1,126 @@
+{
+  "n": 911,
+  "incumbent_side": 30.707106781186845,
+  "targets": [
+    30.706,
+    30.7,
+    30.69
+  ],
+  "trials": 6,
+  "iterations": 600,
+  "seed": 20261028,
+  "donors": [
+    {
+      "donor_n": 910,
+      "donor_side": 30.691223722711864,
+      "best_side": null,
+      "trials": [
+        {
+          "trial": 0,
+          "target": 30.706,
+          "soft_energy": 4.063021737719347,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 48.1
+        },
+        {
+          "trial": 1,
+          "target": 30.7,
+          "soft_energy": 4.248565981745132,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 62.3
+        },
+        {
+          "trial": 2,
+          "target": 30.69,
+          "soft_energy": 4.544863768561093,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 70.0
+        },
+        {
+          "trial": 3,
+          "target": 30.706,
+          "soft_energy": 4.105637417638491,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 40.4
+        },
+        {
+          "trial": 4,
+          "target": 30.7,
+          "soft_energy": 4.236342051461979,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 74.9
+        },
+        {
+          "trial": 5,
+          "target": 30.69,
+          "soft_energy": 4.639394846785229,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 45.1
+        }
+      ]
+    },
+    {
+      "donor_n": 909,
+      "donor_side": 30.656854249498547,
+      "best_side": null,
+      "trials": [
+        {
+          "trial": 0,
+          "target": 30.706,
+          "soft_energy": 8.292534654537608,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 56.0
+        },
+        {
+          "trial": 1,
+          "target": 30.7,
+          "soft_energy": 8.614615671797461,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 50.6
+        },
+        {
+          "trial": 2,
+          "target": 30.69,
+          "soft_energy": 9.184538479934854,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 57.4
+        },
+        {
+          "trial": 3,
+          "target": 30.706,
+          "soft_energy": 8.319183543621024,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 62.1
+        },
+        {
+          "trial": 4,
+          "target": 30.7,
+          "soft_energy": 8.612595565085941,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 55.7
+        },
+        {
+          "trial": 5,
+          "target": 30.69,
+          "soft_energy": 46.833708150203215,
+          "lp_repaired": false,
+          "side": null,
+          "seconds": 68.0
+        }
+      ]
+    }
+  ],
+  "best_side": 30.707106781186845,
+  "score_gain": 0.0
+}
