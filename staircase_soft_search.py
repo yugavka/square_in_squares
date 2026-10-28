@@ -143,16 +143,35 @@ def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
 
 def soften(packing: list[Placement], target: float, rng: random.Random,
            jitter: float, angle_jitter: float, trust: float,
-           iterations: int) -> tuple[list[Placement], float]:
+           iterations: int, mode: int = 0) -> tuple[list[Placement], float]:
     """Move a complete packing through a small-overlap state in a fixed box."""
     side = strict_side(packing)
     factor = target / side
     proposal = []
+    centre = side / 2
+    bend = .065 if side < 16 else .12
     for x, y, angle in packing:
         tilted = abs(math.remainder(angle, math.pi / 2)) > .01
-        proposal.append((x * factor + rng.gauss(0, jitter if tilted else jitter / 4),
-                         y * factor + rng.gauss(0, jitter if tilted else jitter / 4),
-                         angle + rng.gauss(0, angle_jitter) if tilted else angle))
+        shift_x = shift_y = shift_angle = 0.0
+        if tilted and mode == 1:
+            shift_x = bend * (y - centre) / side
+            shift_angle = bend / side
+        elif tilted and mode == 2:
+            position = (x + y) / (2 * side)
+            wave = math.sin(2 * math.pi * position)
+            shift_x, shift_y = -bend * wave, bend * wave
+            shift_angle = bend * math.cos(2 * math.pi * position) / side
+        elif tilted and mode == 3:
+            sign = 1 if x + y > side else -1
+            shift_x = sign * bend / 2
+            shift_y = -sign * bend / 2
+            shift_angle = sign * bend / side
+        proposal.append((x * factor + shift_x +
+                         rng.gauss(0, jitter if tilted else jitter / 4),
+                         y * factor + shift_y +
+                         rng.gauss(0, jitter if tilted else jitter / 4),
+                         angle + shift_angle + rng.gauss(0, angle_jitter)
+                         if tilted else angle))
     reference = np.asarray(proposal, dtype=float)
     vector = reference.ravel().copy()
     pairs = pair_indices(proposal, trust)
@@ -186,17 +205,23 @@ def search_one(packing: list[Placement], trials: int, seed: int,
     best, best_side = base, initial
     stats = {"baseline_rebuilt": True, "rebuilt_side": strict_side(rebuilt),
              "soft_trials": 0, "lp_repaired": 0,
-             "strict_candidates": 0, "improvements": []}
+             "strict_candidates": 0, "best_soft_energy": None,
+             "improvements": []}
     for trial in range(trials):
         target = best_side - reductions[trial % len(reductions)]
         jitter = (0.0, .005, .02, .04)[trial % 4]
         angle_jitter = (0.0, .003, .01, .02)[trial % 4]
         softened, energy = soften(rebuilt if trial == 0 else best, target,
                                   rng, jitter, angle_jitter, trust=.12,
-                                  iterations=iterations)
+                                  iterations=iterations, mode=trial % 4)
         stats["soft_trials"] += 1
+        if stats["best_soft_energy"] is None or energy < stats["best_soft_energy"]:
+            stats["best_soft_energy"] = energy
         repaired = restore_lp(softened, target + 1e-8, trust=.08,
-                              rng=rng, tie=1e-5, time_limit=5.0)
+                              rng=rng, time_limit=5.0)
+        if repaired is None:
+            repaired = restore_lp(softened, target + 1e-8, trust=.08,
+                                  rng=rng, tie=1e-4, time_limit=5.0)
         if repaired is None:
             continue
         stats["lp_repaired"] += 1
