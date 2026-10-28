@@ -1,0 +1,49 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "baseline_score": 22.26868135524178,
+  "candidate_score": 22.26868135524178,
+  "seed": 20261027,
+  "trials": 4,
+  "patch_size": 6,
+  "milp_seconds": 1.0,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "before_side": 5.933833462681863,
+      "after_side": 5.933833462681863,
+      "score_gain": 0.0,
+      "survivor_reclosures": 4,
+      "refill_feasible": 0,
+      "strict_candidates": 0,
+      "joint_improvements": 0,
+      "n": 29,
+      "accepted": false,
+      "seconds": 0.48365650000050664
+    },
+    {
+      "before_side": 7.822875655532302,
+      "after_side": 7.822875655532302,
+      "score_gain": 0.0,
+      "survivor_reclosures": 0,
+      "refill_feasible": 0,
+      "strict_candidates": 0,
+      "joint_improvements": 0,
+      "n": 53,
+      "accepted": false,
+      "seconds": 0.009065041987923905
+    },
+    {
+      "before_side": 9.63475764863109,
+      "after_side": 9.63475764863109,
+      "score_gain": 0.0,
+      "survivor_reclosures": 0,
+      "refill_feasible": 0,
+      "strict_candidates": 0,
+      "joint_improvements": 0,
+      "n": 83,
+      "accepted": false,
+      "seconds": 0.013440916984109208
+    }
+  ]
+}
