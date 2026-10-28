@@ -284,5 +284,9 @@
       2.500194688575462,
       0.0
     ]
-  ]
+  ],
+  "full_portfolio_score_before": 22.264019444925,
+  "full_portfolio_score_after": 22.264019444925,
+  "full_submission_identical": true,
+  "direct_splice_n753": "overlap at crop boundary; fixed-angle LP repair did not produce a smaller valid full packing"
 }
