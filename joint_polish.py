@@ -53,7 +53,8 @@ def _chosen_axis(a: Placement, b: Placement
 
 
 def linearized_step(placements: list[Placement], side: float,
-                    step: float, time_limit: float = 2.0
+                    step: float, time_limit: float = 2.0,
+                    height: float | None = None
                     ) -> list[tuple[float, float, float]] | None:
     """Find a local LP step; returned geometry still needs exact validation."""
     n = len(placements)
@@ -88,14 +89,16 @@ def linearized_step(placements: list[Placement], side: float,
                  (3 * i + 2, angle_i), (3 * j + 2, angle_j)),
                 gap - 4e-10)
 
+    if height is None:
+        height = side
     for i, (x, y, angle) in enumerate(placements):
         h = (abs(math.cos(angle)) + abs(math.sin(angle))) / 2
-        for dimension, centre in ((0, x), (1, y)):
+        for dimension, centre, bound in ((0, x, side), (1, y, height)):
             for slope in _support_slope(angle):
                 add(((3 * i + dimension, -1), (3 * i + 2, slope)),
                     centre - h - 4e-10)
                 add(((3 * i + dimension, 1), (3 * i + 2, slope),
-                     (3 * n, -1)), side - centre - h - 4e-10)
+                     (3 * n, -1)), bound - centre - h - 4e-10)
 
     matrix = coo_matrix((values, (row_indices, col_indices)),
                         shape=(len(rhs), 3 * n + 1)).tocsr()
@@ -144,6 +147,44 @@ def polish(placements: list[Placement], rounds: int,
                 break
         else:
             best, side = winner, winner_side
+            improvements += 1
+            step = min(0.06, step * 1.3)
+    return best, improvements
+
+
+def polish_rectangle(gadget, placements: list[Placement], rounds: int,
+                     initial_step: float = 0.025
+                     ) -> tuple[list[Placement], int]:
+    """Optimize centres, angles and common overhang of a checked gadget."""
+    from search_gadget import checked_gadget
+
+    overhang, normalized = checked_gadget(gadget, placements)
+    best = list(normalized)
+    step = initial_step
+    improvements = 0
+    for _ in range(rounds):
+        move = linearized_step(best, gadget.w + overhang, step,
+                               height=gadget.h + overhang)
+        winner = None
+        winner_overhang = overhang
+        if move is not None:
+            for fraction in (1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125):
+                proposal = [(x + fraction * dx,
+                             y + fraction * dy,
+                             angle + fraction * da)
+                            for (x, y, angle), (dx, dy, da) in zip(best, move)]
+                try:
+                    measured, normalized = checked_gadget(gadget, proposal)
+                except ValueError:
+                    continue
+                if measured < winner_overhang - 1e-10:
+                    winner, winner_overhang = list(normalized), measured
+        if winner is None:
+            step *= 0.4
+            if step < 2e-7:
+                break
+        else:
+            best, overhang = winner, winner_overhang
             improvements += 1
             step = min(0.06, step * 1.3)
     return best, improvements

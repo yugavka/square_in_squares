@@ -32,7 +32,7 @@ class CoreRefillSearchTest(unittest.TestCase):
         self.assertEqual((len(tilted), len(upright)), (1, 4))
         best, stats = search(gadget, trials=1, seed=20261028,
                              mutation_size=0.04, trust=0.18,
-                             milp_seconds=3.0)
+                             milp_seconds=3.0, polish_rounds=3)
         self.assertEqual(stats["strict_candidates"], 1)
         checked, _ = checked_gadget(best, list(best.squares))
         self.assertAlmostEqual(checked, best.overhang, places=7)

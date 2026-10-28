@@ -20,6 +20,7 @@ from scipy.sparse import coo_matrix
 from scipy.spatial import cKDTree
 
 from fault_line_dp import Gadget, extract_corner_crops
+from joint_polish import polish_rectangle
 from patch_refill import milp_refill
 from projected_search import load_selected
 from search_gadget import checked_gadget, compact_rectangle
@@ -187,7 +188,8 @@ def upright_candidates(core: list[Placement], old_upright: list[Placement],
 
 def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
            trust: float, milp_seconds: float,
-           overlap_tolerance: float = 0.0) -> tuple[Gadget, dict]:
+           overlap_tolerance: float = 0.0,
+           polish_rounds: int = 0) -> tuple[Gadget, dict]:
     rng = random.Random(seed)
     core, uprights = split_gadget(gadget)
     if not core or not uprights:
@@ -196,6 +198,7 @@ def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
     best = gadget
     stats = {"core_repaired": 0, "refill_feasible": 0,
              "assembly_repaired": 0, "strict_candidates": 0,
+             "polish_accepted_steps": 0,
              "improved_trials": []}
     for trial in range(trials):
         proposal, converted = mutate_core(core, uprights, rng, trial,
@@ -240,6 +243,14 @@ def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
         compacted = compact_rectangle(aligned, list(normalized))
         if compacted is not None and compacted[0] < overhang:
             overhang, normalized = compacted
+        if polish_rounds and overhang < best.overhang + 0.002:
+            current = Gadget(gadget.w, gadget.h, gadget.surplus,
+                             overhang, normalized)
+            polished, accepted = polish_rectangle(current, list(normalized),
+                                                   polish_rounds)
+            stats["polish_accepted_steps"] += accepted
+            if accepted:
+                overhang, normalized = checked_gadget(gadget, polished)
         if overhang < best.overhang - 1e-8:
             best = Gadget(gadget.w, gadget.h, gadget.surplus,
                           overhang, normalized)
@@ -262,11 +273,13 @@ def main() -> None:
     parser.add_argument("--milp-seconds", type=float, default=2.0)
     parser.add_argument("--overlap-tolerance", type=float, default=0.0,
                         help="temporary overlap allowed during MILP refill")
+    parser.add_argument("--polish-rounds", type=int, default=0,
+                        help="free-angle rectangular LP rounds after refill")
     parser.add_argument("--report", type=Path,
                         default=ROOT / "reports" / "core_refill_pilot.json")
     args = parser.parse_args()
     if (args.trials < 1 or args.mutation_size <= 0 or args.trust <= 0 or
-            args.overlap_tolerance < 0):
+            args.overlap_tolerance < 0 or args.polish_rounds < 0):
         parser.error("invalid trial, mutation, trust or overlap tolerance")
     rows = load_selected(args.input, {args.donor})[args.donor]
     donor_side = measure_packing(args.donor,
@@ -281,7 +294,7 @@ def main() -> None:
     started = time.monotonic()
     best, stats = search(initial, args.trials, args.seed,
                          args.mutation_size, args.trust, args.milp_seconds,
-                         args.overlap_tolerance)
+                         args.overlap_tolerance, args.polish_rounds)
     report = {"donor_n": args.donor, "signature": [args.w, args.h, args.surplus],
               "initial_overhang": initial.overhang,
               "final_overhang": best.overhang,
@@ -289,6 +302,7 @@ def main() -> None:
               "mutation_size": args.mutation_size, "trust": args.trust,
               "milp_seconds": args.milp_seconds,
               "overlap_tolerance": args.overlap_tolerance,
+              "polish_rounds": args.polish_rounds,
               "tilted_count": len(split_gadget(initial)[0]),
               "upright_count": len(split_gadget(initial)[1]),
               "seconds": time.monotonic() - started,
