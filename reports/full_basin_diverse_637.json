@@ -1,0 +1,40 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "baseline_score": 22.264019444924894,
+  "estimated_score": 22.264019444924894,
+  "seed": 20261030,
+  "trials": 48,
+  "quench_rounds": 6,
+  "trust": 0.22,
+  "allowance": 0.06,
+  "archive_size": 8,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "initial_side": 25.745120287793842,
+      "final_side": 25.745120287793842,
+      "repaired": 39,
+      "quenched": 39,
+      "new_topologies": 22,
+      "uphill_moves": 6,
+      "best_updates": [],
+      "attempts": 48,
+      "score_gain": 0.0,
+      "archive_size": 8,
+      "archive_sides": [
+        25.745120287793842,
+        25.777045283882817,
+        25.791701038971855,
+        25.795428436917764,
+        25.795717593891105,
+        25.796744073116187,
+        25.79839270387643,
+        25.799349278740628
+      ],
+      "n": 637,
+      "accepted": false,
+      "seconds": 40.71707091599819
+    }
+  ]
+}

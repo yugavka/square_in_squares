@@ -106,9 +106,19 @@ def add_to_archive(archive: list[State], candidate: State,
             archive.sort(key=lambda row: row.side)
             return True
     archive.append(candidate)
-    archive.sort(key=lambda row: row.side)
     if len(archive) > maximum:
-        archive.pop()
+        best = min(archive, key=lambda row: row.side)
+        # Retain alternative basins even when their current sides are worse.
+        # The most redundant non-incumbent gives up its slot.
+        def redundancy(row: State) -> tuple[int, float]:
+            nearest = min(len(row.contacts ^ other.contacts)
+                          for other in archive if other is not row)
+            return nearest, -row.side
+
+        evict = min((row for row in archive if row is not best),
+                    key=redundancy)
+        archive.remove(evict)
+    archive.sort(key=lambda row: row.side)
     return candidate in archive
 
 
@@ -163,7 +173,9 @@ def search_one(base: list[Placement], trials: int, seed: int,
             best = candidate
             stats["best_updates"].append({"trial": trial, "side": side})
         difference = side - walk.side
-        if difference <= 0 or rng.random() < math.exp(-difference / temperature):
+        if (side <= initial_side + allowance and
+                (difference <= 0 or
+                 rng.random() < math.exp(-difference / temperature))):
             if difference > 1e-8:
                 stats["uphill_moves"] += 1
             walk = candidate
