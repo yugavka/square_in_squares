@@ -1,0 +1,32 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "reduction": 0.0001,
+  "trials": 72,
+  "milp_seconds": 1.0,
+  "maximum": 640,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "n": 498,
+      "before_side": 22.823089196293683,
+      "target_side": 22.822989196293683,
+      "trials": 72,
+      "valid_cores": 72,
+      "milp_solutions": 72,
+      "best_count": 477,
+      "count_gap": 21,
+      "best_parameters": {
+        "angle": 0.7853981633974483,
+        "rows": 3,
+        "vertex_fraction": 0.9,
+        "phase": 0.0,
+        "core": 34,
+        "upright": 443
+      },
+      "accepted": false,
+      "after_side": 22.823089196293683,
+      "seconds": 65.28719583401107
+    }
+  ]
+}
