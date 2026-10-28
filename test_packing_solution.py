@@ -92,6 +92,24 @@ class ConstructivePackingTests(unittest.TestCase):
             self.assertAlmostEqual(chosen[11][0], expected)
             self.assertEqual(len(chosen[11][1]), 11)
 
+    def test_portfolio_keeps_sub_nanometre_improvements(self):
+        seed = next(squares for _, squares in record_seeds()
+                    if len(squares) == 11)
+        with tempfile.TemporaryDirectory() as temp:
+            paths = [Path(temp) / name for name in ('old.csv', 'new.csv')]
+            for path, spacing in zip(paths, (1.0 + 1e-10, 1.0)):
+                with path.open('w', newline='') as target:
+                    writer = csv.writer(target)
+                    writer.writerow(('id', 'n', 'square_id', 'x', 'y', 'angle'))
+                    for i, (x, y, angle) in enumerate(seed):
+                        writer.writerow((i, 11, i, repr(x * spacing),
+                                         repr(y * spacing), angle))
+            sides = [portfolio_packings([path], max_n=11)[11][0]
+                     for path in paths]
+            self.assertLess(sides[1], sides[0])
+            self.assertLess(sides[0] - sides[1], 1e-9)
+            self.assertEqual(portfolio_packings(paths, max_n=11)[11][0], sides[1])
+
     def test_proof_registry_does_not_assume_k_squared_minus_2(self):
         for n in (23, 34, 47, 62):
             self.assertIsNone(proven_optimal(n))

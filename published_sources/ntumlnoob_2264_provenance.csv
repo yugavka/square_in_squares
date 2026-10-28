@@ -1,27 +1,42 @@
 n,source,url
+19,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+26,Kaggle donor: malyshevdanil,https://www.kaggle.com/code/malyshevdanil/squares-in-squares-neighbour-transfer-squeeze
+175,Local GPU CUDA + contact-aware FQ,
+197,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+201,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+325,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
+326,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
+329,Kaggle donor: malyshevdanil,https://www.kaggle.com/code/malyshevdanil/squares-in-squares-neighbour-transfer-squeeze
+332,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 333,Local CPU FTMC / FQ refinements,
 370,Local CPU FTMC / FQ refinements,
+408,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 421,Local CPU FTMC / FQ refinements,
 446,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 456,Local CPU FTMC / FQ refinements,
 457,Local CPU FTMC / FQ refinements,
+504,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 505,Local CPU FTMC / FQ refinements,
 547,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
+580,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 591,Local systematic rectangle assembly + FQ,
 594,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 595,Local GPU CUDA + contact-aware FQ,
 597,Local CPU FTMC / FQ refinements,
 602,Local CPU FTMC / FQ refinements,
 603,Local GPU CUDA + contact-aware FQ,
+629,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 637,Local CPU FTMC / FQ refinements,
 638,Local CPU FTMC / FQ refinements,
 645,Local CPU FTMC / FQ refinements,
 648,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 650,Local CPU FTMC / FQ refinements,
+677,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 699,Local CPU FTMC / FQ refinements,
 700,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 704,Local CPU FTMC / FQ refinements,
 736,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+737,Local GPU CUDA + contact-aware FQ,
 739,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 742,Local CPU FTMC / FQ refinements,
 744,Local GPU CUDA + contact-aware FQ,
@@ -31,6 +46,7 @@ n,source,url
 759,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 760,Local GPU CUDA + contact-aware FQ,
 790,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+791,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 794,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 797,Local CPU FTMC / FQ refinements,
 798,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
@@ -39,15 +55,19 @@ n,source,url
 806,Local GPU CUDA + contact-aware FQ,
 807,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 808,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
+809,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 811,Local CPU FTMC / FQ refinements,
 812,Local CPU FTMC / FQ refinements,
 815,Local GPU CUDA + contact-aware FQ,
+851,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 856,Local GPU CUDA + contact-aware FQ,
 857,Local CPU FTMC / FQ refinements,
 860,Local CPU FTMC / FQ refinements,
 866,Local CPU FTMC / FQ refinements,
 867,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 870,Local CPU FTMC / FQ refinements,
+905,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
+908,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 916,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 917,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 923,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
@@ -59,6 +79,7 @@ n,source,url
 930,Local CPU FTMC / FQ refinements,
 933,Local CPU FTMC / FQ refinements,
 934,Local CPU FTMC / FQ refinements,
+966,Kaggle donor: busyaprime,https://www.kaggle.com/code/busyaprime/33-lb-22-2683156-public-packings-fq-quench
 968,Local CPU FTMC / FQ refinements,
 977,Kaggle donor: alexchilton,https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2990
 979,Local CPU FTMC / FQ refinements,

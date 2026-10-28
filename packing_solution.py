@@ -168,7 +168,9 @@ def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
                     side >= math.isqrt(n - 1) + 1 - 1e-9):
                 continue
             previous = best.get(n)
-            if previous is None or side < previous[0] - 1e-9:
+            # Validated inputs need no tolerance; a 1e-9 margin used to keep
+            # an earlier file whose side was larger by a few 1e-10.
+            if previous is None or side < previous[0]:
                 best[n] = side, [row for row in rows if row is not None]
     return best
 
@@ -261,7 +263,7 @@ def improved_packings(max_n: int = 1000,
     source_packings = portfolio_packings(sources, max_n)
     for n, candidate in source_packings.items():
         previous = improved.get(n)
-        if previous is None or candidate[0] < previous[0] - 1e-9:
+        if previous is None or candidate[0] < previous[0]:
             improved[n] = candidate
 
     if include_fault_dp and max_n == 1000:
