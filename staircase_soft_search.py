@@ -69,7 +69,8 @@ def pair_indices(packing: list[Placement], trust: float) -> list[tuple[int, int]
 def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
                          pairs: list[tuple[int, int]], side: float,
                          stiffness: float, spring: float,
-                         clearance: float) -> tuple[float, np.ndarray]:
+                         clearance: float,
+                         square_size: float = 1.0) -> tuple[float, np.ndarray]:
     """Squared overlap and wall penalty with a separating-axis subgradient."""
     points = vector.reshape(-1, 3)
     ref = reference.reshape(-1, 3)
@@ -77,9 +78,9 @@ def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
     energy = .5 * spring * float(np.sum((points - ref) ** 2))
     cosines = np.cos(points[:, 2])
     sines = np.sin(points[:, 2])
-    radii = (np.abs(cosines) + np.abs(sines)) / 2
+    radii = square_size * (np.abs(cosines) + np.abs(sines)) / 2
     radius_derivative = (-np.sign(cosines) * sines +
-                         np.sign(sines) * cosines) / 2
+                         np.sign(sines) * cosines) * square_size / 2
     for i, (x, y, _) in enumerate(points):
         for dim, coordinate in ((0, x), (1, y)):
             low = radii[i] - coordinate + clearance
@@ -106,7 +107,8 @@ def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
             aj = cosines[j] * ux + sines[j] * uy
             bj = -sines[j] * ux + cosines[j] * uy
             projection = dx * ux + dy * uy
-            overlap = (abs(ai) + abs(bi) + abs(aj) + abs(bj)) / 2 - abs(projection)
+            overlap = square_size * (abs(ai) + abs(bi) +
+                                     abs(aj) + abs(bj)) / 2 - abs(projection)
             if best is None or overlap < best[0]:
                 best = (overlap, ux, uy, owner, kind,
                         ai, bi, aj, bj, projection)
@@ -123,14 +125,14 @@ def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
         gradient[j, 1] -= factor * direction * uy
         for index, a, b, c, s in ((i, ai, bi, cosines[i], sines[i]),
                                   (j, aj, bj, cosines[j], sines[j])):
-            direct = (np.sign(a) * (-s * ux + c * uy) -
-                      np.sign(b) * (c * ux + s * uy)) / 2
+            direct = square_size * (np.sign(a) * (-s * ux + c * uy) -
+                                    np.sign(b) * (c * ux + s * uy)) / 2
             gradient[index, 2] += factor * direct
         if kind == 0:
             dux, duy = -sines[owner], cosines[owner]
         else:
             dux, duy = -cosines[owner], -sines[owner]
-        support_du = (
+        support_du = square_size * (
             np.sign(ai) * (cosines[i] * dux + sines[i] * duy) +
             np.sign(bi) * (-sines[i] * dux + cosines[i] * duy) +
             np.sign(aj) * (cosines[j] * dux + sines[j] * duy) +
@@ -143,7 +145,8 @@ def soft_energy_gradient(vector: np.ndarray, reference: np.ndarray,
 
 def soften(packing: list[Placement], target: float, rng: random.Random,
            jitter: float, angle_jitter: float, trust: float,
-           iterations: int, mode: int = 0) -> tuple[list[Placement], float]:
+           iterations: int, mode: int = 0,
+           inflate: bool = False) -> tuple[list[Placement], float]:
     """Move a complete packing through a small-overlap state in a fixed box."""
     side = strict_side(packing)
     factor = target / side
@@ -183,9 +186,18 @@ def soften(packing: list[Placement], target: float, rng: random.Random,
         else:
             bounds.append((angle, angle))
     result = None
-    for stiffness in (30.0, 300.0, 3000.0):
+    stages = ((.94, 20.0), (.97, 80.0), (.99, 300.0),
+              (1.0, 3000.0)) if inflate else ((1.0, 30.0),
+                                               (1.0, 300.0),
+                                               (1.0, 3000.0))
+    for square_size, stiffness in stages:
+        stage_reference = reference.copy()
+        if inflate:
+            stage_reference[:, :2] = (target / 2 +
+                                      .94 * (reference[:, :2] - target / 2))
         result = minimize(soft_energy_gradient, vector, jac=True,
-                          args=(reference, pairs, target, stiffness, .03, 2e-7),
+                          args=(stage_reference, pairs, target, stiffness,
+                                .08 if inflate else .03, 2e-7, square_size),
                           method="L-BFGS-B", bounds=bounds,
                           options={"maxiter": iterations, "ftol": 1e-10})
         vector = result.x
@@ -195,7 +207,8 @@ def soften(packing: list[Placement], target: float, rng: random.Random,
 
 def search_one(packing: list[Placement], trials: int, seed: int,
                reductions: tuple[float, ...], maximum: int,
-               milp_seconds: float, iterations: int) -> tuple[list[Placement], dict]:
+               milp_seconds: float, iterations: int,
+               inflate: bool = False) -> tuple[list[Placement], dict]:
     base = normalized(packing)
     initial = strict_side(base)
     rebuilt = rebuild_staircases(base, maximum, milp_seconds)
@@ -212,8 +225,10 @@ def search_one(packing: list[Placement], trials: int, seed: int,
         jitter = (0.0, .005, .02, .04)[trial % 4]
         angle_jitter = (0.0, .003, .01, .02)[trial % 4]
         softened, energy = soften(rebuilt if trial == 0 else best, target,
-                                  rng, jitter, angle_jitter, trust=.12,
-                                  iterations=iterations, mode=trial % 4)
+                                  rng, jitter, angle_jitter,
+                                  trust=.35 if inflate else .12,
+                                  iterations=iterations, mode=trial % 4,
+                                  inflate=inflate)
         stats["soft_trials"] += 1
         if stats["best_soft_energy"] is None or energy < stats["best_soft_energy"]:
             stats["best_soft_energy"] = energy
@@ -249,6 +264,8 @@ def main() -> None:
     parser.add_argument("--maximum", type=int, default=640)
     parser.add_argument("--milp-seconds", type=float, default=5.0)
     parser.add_argument("--seed", type=int, default=20261028)
+    parser.add_argument("--inflate", action="store_true",
+                        help="expand temporarily smaller squares under inward pressure")
     parser.add_argument("--output", type=Path,
                         default=ROOT / "staircase_soft_candidates.csv")
     parser.add_argument("--report", type=Path,
@@ -266,7 +283,7 @@ def main() -> None:
                                        args.seed + n,
                                        (1e-4, .001, .005, .02),
                                        args.maximum, args.milp_seconds,
-                                       args.iterations)
+                                       args.iterations, args.inflate)
         record.update(n=n, seconds=time.monotonic() - start,
                       accepted=record["score_gain"] > 1e-8)
         records.append(record)
@@ -280,6 +297,7 @@ def main() -> None:
     report = {"input": str(args.input), "trials": args.trials,
               "iterations": args.iterations, "maximum": args.maximum,
               "milp_seconds": args.milp_seconds, "seed": args.seed,
+              "inflate": args.inflate,
               "accepted_n": sorted(accepted),
               "candidate_csv": str(args.output) if accepted else None,
               "records": records}

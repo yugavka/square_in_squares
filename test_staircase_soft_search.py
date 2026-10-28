@@ -24,16 +24,18 @@ class StaircaseSoftSearchTest(unittest.TestCase):
     def test_soft_gradient_matches_finite_difference(self):
         vector = np.array([2.0, 2.0, 0.27, 2.75, 2.12, -0.39])
         reference = vector.copy()
-        args = (reference, [(0, 1)], 5.0, 10.0, 0.03, 1e-4)
-        _, gradient = soft_energy_gradient(vector, *args)
-        for index in range(len(vector)):
-            step = 1e-6
-            plus, minus = vector.copy(), vector.copy()
-            plus[index] += step
-            minus[index] -= step
-            numeric = (soft_energy_gradient(plus, *args)[0] -
-                       soft_energy_gradient(minus, *args)[0]) / (2 * step)
-            self.assertAlmostEqual(gradient[index], numeric, places=5)
+        for square_size in (0.95, 1.0):
+            args = (reference, [(0, 1)], 5.0, 10.0, 0.03,
+                    1e-4, square_size)
+            _, gradient = soft_energy_gradient(vector, *args)
+            for index in range(len(vector)):
+                step = 1e-6
+                plus, minus = vector.copy(), vector.copy()
+                plus[index] += step
+                minus[index] -= step
+                numeric = (soft_energy_gradient(plus, *args)[0] -
+                           soft_energy_gradient(minus, *args)[0]) / (2 * step)
+                self.assertAlmostEqual(gradient[index], numeric, places=5)
 
 
 if __name__ == "__main__":
