@@ -140,7 +140,8 @@ def repair_core(proposal: list[Placement], width: float, height: float,
 
 def upright_candidates(core: list[Placement], old_upright: list[Placement],
                        width: float, height: float,
-                       maximum: int = 320) -> list[Placement]:
+                       maximum: int = 320,
+                       overlap_tolerance: float = 0.0) -> list[Placement]:
     """Enumerate four wall grids and exact contact anchored staircase points."""
     margin = 1e-7
     geometry = [make_square(i, *row) for i, row in enumerate(core)]
@@ -150,7 +151,8 @@ def upright_candidates(core: list[Placement], old_upright: list[Placement],
                         other.max_x > square.min_x and
                         square.max_y > other.min_y and
                         other.max_y > square.min_y and
-                        squares_overlap(square, other, tolerance=0))
+                        squares_overlap(square, other,
+                                        tolerance=overlap_tolerance))
                        for other in geometry)
 
     original = [row for row in old_upright if compatible(row)]
@@ -184,7 +186,8 @@ def upright_candidates(core: list[Placement], old_upright: list[Placement],
 
 
 def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
-           trust: float, milp_seconds: float) -> tuple[Gadget, dict]:
+           trust: float, milp_seconds: float,
+           overlap_tolerance: float = 0.0) -> tuple[Gadget, dict]:
     rng = random.Random(seed)
     core, uprights = split_gadget(gadget)
     if not core or not uprights:
@@ -192,7 +195,8 @@ def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
     width, height = gadget.w + gadget.overhang, gadget.h + gadget.overhang
     best = gadget
     stats = {"core_repaired": 0, "refill_feasible": 0,
-             "strict_candidates": 0, "improved_trials": []}
+             "assembly_repaired": 0, "strict_candidates": 0,
+             "improved_trials": []}
     for trial in range(trials):
         proposal, converted = mutate_core(core, uprights, rng, trial,
                                           mutation_size)
@@ -207,9 +211,11 @@ def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
                                             abs(row[1] - q[1]) < 1e-9
                                             for q in proposal[len(core):])]
         candidates = upright_candidates(repaired, original_uprights,
-                                        width, height)
+                                        width, height,
+                                        overlap_tolerance=overlap_tolerance)
         chosen = milp_refill(candidates, len(original_uprights),
-                             milp_seconds)
+                             milp_seconds,
+                             overlap_tolerance=overlap_tolerance)
         if chosen is None:
             continue
         stats["refill_feasible"] += 1
@@ -217,7 +223,17 @@ def search(gadget: Gadget, trials: int, seed: int, mutation_size: float,
         try:
             overhang, normalized = checked_gadget(gadget, joined)
         except ValueError:
-            continue
+            if overlap_tolerance <= 0:
+                continue
+            restored = repair_core(joined, width, height,
+                                   max(0.04, overlap_tolerance * 4))
+            if restored is None:
+                continue
+            try:
+                overhang, normalized = checked_gadget(gadget, restored)
+            except ValueError:
+                continue
+            stats["assembly_repaired"] += 1
         stats["strict_candidates"] += 1
         aligned = Gadget(gadget.w, gadget.h, gadget.surplus,
                          overhang, normalized)
@@ -244,11 +260,14 @@ def main() -> None:
     parser.add_argument("--mutation-size", type=float, default=0.04)
     parser.add_argument("--trust", type=float, default=0.18)
     parser.add_argument("--milp-seconds", type=float, default=2.0)
+    parser.add_argument("--overlap-tolerance", type=float, default=0.0,
+                        help="temporary overlap allowed during MILP refill")
     parser.add_argument("--report", type=Path,
                         default=ROOT / "reports" / "core_refill_pilot.json")
     args = parser.parse_args()
-    if args.trials < 1 or args.mutation_size <= 0 or args.trust <= 0:
-        parser.error("trials, mutation-size and trust must be positive")
+    if (args.trials < 1 or args.mutation_size <= 0 or args.trust <= 0 or
+            args.overlap_tolerance < 0):
+        parser.error("invalid trial, mutation, trust or overlap tolerance")
     rows = load_selected(args.input, {args.donor})[args.donor]
     donor_side = measure_packing(args.donor,
                                  [make_square(i, *row)
@@ -261,13 +280,15 @@ def main() -> None:
     initial = min(matches, key=lambda g: g.overhang)
     started = time.monotonic()
     best, stats = search(initial, args.trials, args.seed,
-                         args.mutation_size, args.trust, args.milp_seconds)
+                         args.mutation_size, args.trust, args.milp_seconds,
+                         args.overlap_tolerance)
     report = {"donor_n": args.donor, "signature": [args.w, args.h, args.surplus],
               "initial_overhang": initial.overhang,
               "final_overhang": best.overhang,
               "trials": args.trials, "seed": args.seed,
               "mutation_size": args.mutation_size, "trust": args.trust,
               "milp_seconds": args.milp_seconds,
+              "overlap_tolerance": args.overlap_tolerance,
               "tilted_count": len(split_gadget(initial)[0]),
               "upright_count": len(split_gadget(initial)[1]),
               "seconds": time.monotonic() - started,

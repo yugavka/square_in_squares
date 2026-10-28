@@ -114,7 +114,8 @@ def candidate_positions(survivors: list[Placement], removed: list[Placement],
 
 
 def milp_refill(candidates: list[Placement], count: int,
-                seconds: float = 3.0) -> list[Placement] | None:
+                seconds: float = 3.0,
+                overlap_tolerance: float = 0.0) -> list[Placement] | None:
     """Choose count pairwise compatible placements from a candidate bank."""
     if len(candidates) < count:
         return None
@@ -125,7 +126,7 @@ def milp_refill(candidates: list[Placement], count: int,
             b = squares[j]
             if (a.max_x > b.min_x and b.max_x > a.min_x and
                     a.max_y > b.min_y and b.max_y > a.min_y and
-                    squares_overlap(a, b, tolerance=0)):
+                    squares_overlap(a, b, tolerance=overlap_tolerance)):
                 conflicts.append((i, j))
     rows = [0] * len(candidates)
     cols = list(range(len(candidates)))
