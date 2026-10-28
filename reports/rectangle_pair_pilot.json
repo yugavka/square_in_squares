@@ -1,0 +1,16 @@
+{
+  "gadgets": 11166,
+  "screened_pairs": 131,
+  "compatible_pairs": 0,
+  "shifted_pairs": 0,
+  "validated_pairs": 0,
+  "improvements": [],
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "record_donors": 45,
+  "public_donors": 24,
+  "max_dim": 20,
+  "variants_per_signature": 3,
+  "baseline_score": 22.26868135524178,
+  "candidate_score": 22.26868135524178,
+  "candidate_csv": null
+}

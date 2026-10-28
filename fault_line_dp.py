@@ -58,9 +58,12 @@ def orient(squares: Iterable[Placement], turns: int = 0,
 
 
 def extract_corner_crops(donors: Iterable[Packing],
-                         max_dim: int = 28) -> list[Gadget]:
-    """Keep the smallest overhang seen for each rectangular crop signature."""
-    best: dict[tuple[int, int, int], Gadget] = {}
+                         max_dim: int = 28,
+                         variants_per_signature: int = 1) -> list[Gadget]:
+    """Keep low-overhang crops, optionally retaining distinct seam shapes."""
+    if variants_per_signature < 1:
+        raise ValueError("variants_per_signature must be positive")
+    best: dict[tuple[int, int, int, bool], list[Gadget]] = {}
     for _, donor in donors:
         for mirror in (False, True):
             for turns in range(4):
@@ -98,11 +101,24 @@ def extract_corner_crops(donors: Iterable[Packing],
                         f = max(width - w, height - h, 0.0)
                         if f >= 1 or f < 1e-10:
                             continue
-                        key = (w, h, surplus)
-                        previous = best.get(key)
-                        if previous is None or f < previous.overhang - 1e-8:
-                            best[key] = Gadget(w, h, surplus, f, crop)
-    return list(best.values())
+                        gadget = Gadget(w, h, surplus, f, crop)
+                        if variants_per_signature == 1:
+                            key = (w, h, surplus, True)
+                            previous = best.get(key)
+                            if previous is None or f < previous[0].overhang - 1e-8:
+                                best[key] = [gadget]
+                            continue
+                        # Both seam classes matter: a slightly wider crop with
+                        # an empty upper tip may join where the narrowest one
+                        # cannot. Keep geometrically different ties as well.
+                        key = (w, h, surplus, has_empty_upper_tip(gadget))
+                        variants = best.setdefault(key, [])
+                        if any(existing.squares == gadget.squares for existing in variants):
+                            continue
+                        variants.append(gadget)
+                        variants.sort(key=lambda item: item.overhang)
+                        del variants[variants_per_signature:]
+    return [gadget for variants in best.values() for gadget in variants]
 
 
 def load_gadget_overrides(path: Path | None = None) -> list[Gadget]:
