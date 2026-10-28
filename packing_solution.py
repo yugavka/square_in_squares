@@ -38,6 +38,8 @@ PUBLIC_PORTFOLIO = (Path(__file__).with_name("published_sources") /
                     "ntumlnoob_2268_partial.csv.gz")
 PUBLIC_PORTFOLIO_2264 = (Path(__file__).with_name("published_sources") /
                          "ntumlnoob_2264_delta.csv.gz")
+PUBLIC_PORTFOLIO_22262 = (Path(__file__).with_name("published_sources") /
+                          "alexchilton_22262_delta.csv.gz")
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
                    (1, 1), (1, -1), (-1, 1), (-1, -1))
 MAX_TRIM = 4
@@ -259,7 +261,8 @@ def improved_packings(max_n: int = 1000,
 
     sources = list(portfolio_paths)
     if include_public and max_n == 1000:
-        sources[0:0] = (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264)
+        sources[0:0] = (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264,
+                         PUBLIC_PORTFOLIO_22262)
     source_packings = portfolio_packings(sources, max_n)
     for n, candidate in source_packings.items():
         previous = improved.get(n)

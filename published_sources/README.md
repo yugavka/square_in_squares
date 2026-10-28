@@ -1,5 +1,21 @@
 # Источники импортированных раскладок
 
+`alexchilton_22262_delta.csv.gz` — 105 раскладок (66 680 строк) из
+[публичного ноутбука Fault-line DP + Basin Hopping - LB 22.2672](https://www.kaggle.com/code/alexchilton/fault-line-dp-basin-hopping-lb-22-2672)
+(запуск 2026-10-28 16:29 UTC, публичный балл `22.262381844`), сторона которых
+строго меньше, чем в обоих снимках ntumlnoob. Исходный `submission.csv`
+скачан командой `kaggle kernels output alexchilton/fault-line-dp-basin-hopping-lb-22-2672`,
+содержит 500 500 строк, прошёл локальный валидатор с баллом
+`22.262381844045` и имеет SHA-256
+`167e9c66d9e712ea5e0327d5495a6c7a4ca714eb6c922714108e96ab6b1b5a2d`.
+Сжатый снимок сохраняет исходные десятичные строки; SHA-256 архива:
+`28af16a528f381041fbcdf619d6b3eb74ba0b8af9d91f10e3766acca4ade3852`.
+Ноутбук объединяет публичные портфели; [метки
+происхождения](alexchilton_22262_provenance.csv) взяты из его
+`merged_sources.csv`: 98 раскладок помечены ноутбуком «LB 22.2683156 Public
+Packings + FQ Quench», остальные 7 — Neighbour Transfer + Squeeze, Deep EDA &
+Analogies и C++ Seam DP.
+
 `ntumlnoob_2264_delta.csv.gz` — 94 раскладки (67 697 строк) из
 [публичного ноутбука 22.264 With rectangles/FTMC/MILP/FQ/cpu+gpu](https://www.kaggle.com/code/ntumlnoob/22-264-with-rectangles-ftmc-milp-fq-cpu-gpu?scriptVersionId=363062691),
 сторона которых строго меньше, чем в снимке `ntumlnoob_2268_partial.csv.gz`.
