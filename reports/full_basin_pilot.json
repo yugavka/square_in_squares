@@ -1,0 +1,65 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "baseline_score": 22.264019444924894,
+  "estimated_score": 22.264019444924894,
+  "seed": 20261028,
+  "trials": 20,
+  "quench_rounds": 8,
+  "trust": 0.22,
+  "allowance": 0.06,
+  "archive_size": 8,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "initial_side": 9.535533905932756,
+      "final_side": 9.535533905932756,
+      "repaired": 15,
+      "quenched": 15,
+      "new_topologies": 12,
+      "uphill_moves": 3,
+      "best_updates": [],
+      "attempts": 20,
+      "score_gain": 0.0,
+      "archive_size": 8,
+      "archive_sides": [
+        9.535533905932756,
+        9.535533909229795,
+        9.535533909229795,
+        9.544089958211138,
+        9.544092070164677,
+        9.545276037205387,
+        9.55154102579207,
+        9.552197032152815
+      ],
+      "n": 82,
+      "accepted": false,
+      "seconds": 0.9837275829922874
+    },
+    {
+      "initial_side": 10.535533905932775,
+      "final_side": 10.535533905932775,
+      "repaired": 16,
+      "quenched": 16,
+      "new_topologies": 12,
+      "uphill_moves": 3,
+      "best_updates": [],
+      "attempts": 20,
+      "score_gain": 0.0,
+      "archive_size": 8,
+      "archive_sides": [
+        10.535533905932775,
+        10.535533909629795,
+        10.535533909629798,
+        10.557616678707108,
+        10.557621150173455,
+        10.56010966467262,
+        10.566941090714552,
+        10.567438361904868
+      ],
+      "n": 101,
+      "accepted": false,
+      "seconds": 1.2934684999927413
+    }
+  ]
+}
