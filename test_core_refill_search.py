@@ -3,7 +3,8 @@
 import unittest
 import math
 
-from core_refill_search import repair_core, search, split_gadget
+from core_refill_search import (repair_core, search, split_gadget,
+                                upright_candidates)
 from fault_line_dp import Gadget
 from patch_refill import milp_refill
 from search_gadget import checked_gadget
@@ -11,6 +12,14 @@ from validate_submission import make_square, measure_packing
 
 
 class CoreRefillSearchTest(unittest.TestCase):
+    def test_old_uprights_outside_new_rectangle_are_discarded(self):
+        candidates = upright_candidates([], [(1.6, 0.5, 0.0)],
+                                         width=2.0, height=2.0,
+                                         maximum=2)
+        self.assertTrue(candidates)
+        self.assertTrue(all(make_square(i, *row).max_x <= 2.0
+                            for i, row in enumerate(candidates)))
+
     def test_small_temporary_overlap_can_be_repaired(self):
         candidates = [(0.5, 0.5, 0.0), (1.49, 0.5, 0.0)]
         self.assertIsNone(milp_refill(candidates, 2, overlap_tolerance=0.0))

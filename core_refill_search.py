@@ -148,6 +148,10 @@ def upright_candidates(core: list[Placement], old_upright: list[Placement],
     geometry = [make_square(i, *row) for i, row in enumerate(core)]
     def compatible(row: Placement) -> bool:
         square = make_square(-1, *row)
+        if (square.min_x < -1e-8 or square.min_y < -1e-8 or
+                square.max_x > width + 1e-8 or
+                square.max_y > height + 1e-8):
+            return False
         return not any((square.max_x > other.min_x and
                         other.max_x > square.min_x and
                         square.max_y > other.min_y and
