@@ -183,6 +183,8 @@ python3 core_refill_search.py --donor 753 --w 8 --h 6 --surplus 3 --trials 20
 после заполнения прямыми квадратами. На тех же 20 попытках она снизила свес
 лучшего фрагмента до `0.893976138`; результат сохранён в `gadget_overrides.json`,
 подробности — в `reports/core_refill_free_angles.json`.
+Совмещение свободных углов с временными пересечениями за 150 попыток дало
+свес `0.894005023`, поэтому лучший сохранённый фрагмент не заменён.
 
 Для `n=204`, `227`, `229`, `260` добавлены [проверенные координаты](https://github.com/evand/square-packing/tree/0075967bace18a3deabcc0baa64c2fb294fc80a0/search/regularize/lists/certs)
 из публикации Evan Daniel и Francisco Couzo. Локальный линейный поиск улучшил
