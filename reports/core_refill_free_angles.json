@@ -288,5 +288,10 @@
       2.500194000420213,
       -4.3008000000000016e-07
     ]
-  ]
+  ],
+  "previous_best_overhang": 0.8939769809134823,
+  "local_gain": 8.431309961309807e-07,
+  "full_portfolio_score_before": 22.264019444925,
+  "full_portfolio_score_after": 22.264019444925,
+  "full_submission_identical": true
 }
