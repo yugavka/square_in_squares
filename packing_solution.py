@@ -35,7 +35,7 @@ from validate_submission import (make_square, measure_packing, total_score,
 SquarePlacement = tuple[float, float, float]
 Packing = tuple[float, list[SquarePlacement]]
 PUBLIC_PORTFOLIO = (Path(__file__).with_name("published_sources") /
-                    "malyshev_v36_partial.csv.gz")
+                    "ntumlnoob_2268_partial.csv.gz")
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
                    (1, 1), (1, -1), (-1, 1), (-1, -1))
 MAX_TRIM = 4

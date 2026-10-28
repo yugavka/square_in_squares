@@ -46,17 +46,17 @@ def write_csv(path: Path, rows: list[dict]) -> None:
                              for key, value in row.items()})
 
 
-def write_markdown(path: Path, rows: list[dict]) -> None:
+def write_markdown(path: Path, rows: list[dict], label: str = "V36") -> None:
     def score(field: str) -> float:
         return math.fsum((row[field] / math.sqrt(row["n"]) - 1)
                          for row in rows)
 
-    lines = ["# Сравнение с публичным портфелем V36", "",
+    lines = [f"# Сравнение с публичным портфелем {label}", "",
              "Стороны измерены локальным валидатором после чтения CSV. "
              "Выигрыш считается как разность сторон, делённая на `√n`; "
              "меньший общий балл лучше.", "",
              f"- Наш файл до импорта: **{score('before_side'):.12f}**",
-             f"- Публичный файл V36: **{score('public_side'):.12f}**",
+             f"- Публичный файл {label}: **{score('public_side'):.12f}**",
              f"- После генератора: **{score('final_side'):.12f}**",
              f"- Выигрыш нового портфеля: **{math.fsum(r['public_gain'] for r in rows):.12f}**",
              f"- Дополнительный выигрыш генератора: **{math.fsum(r['extra_gain'] for r in rows):.12f}**",
@@ -91,12 +91,13 @@ def main() -> None:
                         default=ROOT / "reports" / "portfolio_v36_comparison.csv")
     parser.add_argument("--markdown", type=Path,
                         default=ROOT / "reports" / "portfolio_v36_comparison.md")
+    parser.add_argument("--label", default="V36")
     args = parser.parse_args()
     rows = compare(sides(args.before), sides(args.public, partial=True),
                    sides(args.after))
     write_csv(args.csv, rows)
     args.markdown.parent.mkdir(parents=True, exist_ok=True)
-    write_markdown(args.markdown, rows)
+    write_markdown(args.markdown, rows, args.label)
     print(f"Compared 1000 layouts; "
           f"public gain {math.fsum(r['public_gain'] for r in rows):.12f}, "
           f"extra gain {math.fsum(r['extra_gain'] for r in rows):.12f}")

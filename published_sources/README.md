@@ -1,6 +1,17 @@
 # Источники импортированных раскладок
 
-`malyshev_v36_partial.csv.gz` — используемый по умолчанию снимок
+`ntumlnoob_2268_partial.csv.gz` — используемый по умолчанию снимок
+[публичного ноутбука First 22.268681355 Public Code With Explanation](https://www.kaggle.com/code/ntumlnoob/first-22-268681355-public-code-with-explanation).
+Он получен из опубликованного `submission.csv` с SHA-256
+`30dded7f9b2ab419c87daceb6d72f53502edbe23238caea3301dac9110720a7b`.
+Сохранены 547 раскладок (290 670 строк), которые улучшают обычную решётку;
+остальные размеры генератор заполняет самостоятельно. Сжатый снимок и полный
+CSV дают одинаковый локальный балл `22.268681355090` и прошли локальный
+валидатор. Ноутбук включает координаты из нескольких публичных портфелей и
+собственных улучшений автора; подробные ссылки на исходные источники находятся
+в его `SOURCE_NOTICES.md` и `portfolio_provenance.csv`.
+
+`malyshev_v36_partial.csv.gz` — предыдущий снимок
 [публичного ноутбука Neighbour Transfer + Squeeze, версия 36](https://www.kaggle.com/code/malyshevdanil/squares-in-squares-neighbour-transfer-squeeze?scriptVersionId=362914762).
 Он получен из опубликованного `submission.csv`: сохранены только 547 раскладок,
 у которых сторона меньше стороны обычной решётки. В архиве 290 670 строк;
@@ -48,6 +59,7 @@ SHA-256 исходных файлов и сохранённых снимков:
 
 | Файл | SHA-256 |
 | --- | --- |
+| `ntumlnoob_2268_partial.csv.gz` | `3b35c52c836c18a3be18dc143ee026366b7a293c7091d0c75bc17e19628bad38` |
 | `malyshev_v36_partial.csv.gz` | `148105da8592c2f7cb9f63ace6649a87b353840788f8ed3dd6b6796b094f6709` |
 | `square-50.svg` | `c044b04db21d01f4a5a6066b23bffe89f9585c4b99c88c4cca6b13af7b692c95` |
 | `square-54.svg` | `96afd34f230d10c5dc750b8209fecb90bbebc01f4519cf58193051b9b7ddcaec` |
