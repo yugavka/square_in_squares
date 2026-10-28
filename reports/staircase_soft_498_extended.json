@@ -1,0 +1,27 @@
+{
+  "input": "/Users/borisbezmenov/kaggle/square_in_squares/submission_improved.csv",
+  "trials": 16,
+  "iterations": 80,
+  "maximum": 640,
+  "milp_seconds": 5.0,
+  "seed": 20261028,
+  "accepted_n": [],
+  "candidate_csv": null,
+  "records": [
+    {
+      "baseline_rebuilt": true,
+      "rebuilt_side": 22.823089196293683,
+      "soft_trials": 16,
+      "lp_repaired": 0,
+      "strict_candidates": 0,
+      "best_soft_energy": 2.4344898315032223e-05,
+      "improvements": [],
+      "before_side": 22.823089196293683,
+      "after_side": 22.823089196293683,
+      "score_gain": 0.0,
+      "n": 498,
+      "seconds": 54.96863216601196,
+      "accepted": false
+    }
+  ]
+}
