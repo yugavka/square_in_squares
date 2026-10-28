@@ -108,6 +108,22 @@ python3 packing_solution.py --portfolio other_submission.csv \
 валидатор подтвердил локальный балл `22.268559132307` вместо
 `22.268681355242`.
 
+В [публичном ноутбуке 22.264](https://www.kaggle.com/code/ntumlnoob/22-264-with-rectangles-ftmc-milp-fq-cpu-gpu)
+после сборки прямоугольников применяется полировка всей раскладки со
+свободными положениями и углами. Этот шаг добавлен в поиск флагом
+`--polish-rounds 8` на основе `joint_polish.py`. Он дополнительно снизил
+стороны до `28.75743607` и `29.75744209`; [отчёт полировки](reports/rectangle_pair_polished.json)
+содержит обе стадии и итоговый локальный балл `22.268558791844`.
+Воспроизвести полный поиск можно так:
+
+```bash
+python3 packing_solution.py --no-fault-dp --output /tmp/submission_before_rectangles.csv
+python3 rectangle_pair_search.py --input /tmp/submission_before_rectangles.csv \
+  --public-donors 96 --max-dim 28 --variants 4 --polish-rounds 8 \
+  --report reports/rectangle_pair_polished.json
+python3 packing_solution.py --portfolio rectangle_pair_candidates.csv
+```
+
 Чтобы увидеть, какие фрагменты сохранились в итоговых раскладках и какому
 снижению балла они сопутствуют, запустите:
 

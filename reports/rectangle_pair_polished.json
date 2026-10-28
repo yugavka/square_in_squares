@@ -1,0 +1,64 @@
+{
+  "gadgets": 41563,
+  "screened_pairs": 930,
+  "compatible_pairs": 3,
+  "shifted_pairs": 1,
+  "validated_pairs": 3,
+  "improvements": [
+    {
+      "n": 798,
+      "before_side": 28.75748341624322,
+      "after_side": 28.757436066987992,
+      "score_gain": 1.676145465681368e-06,
+      "fragments": [
+        [
+          9,
+          19,
+          7,
+          0.7574423173995797
+        ],
+        [
+          19,
+          9,
+          7,
+          0.7574423173995797
+        ]
+      ],
+      "seam_shift": 0.0,
+      "assembled_side": 28.757442594974002,
+      "polish_steps": 2
+    },
+    {
+      "n": 856,
+      "before_side": 29.760978941617438,
+      "after_side": 29.757442085541967,
+      "score_gain": 0.00012088725195516556,
+      "fragments": [
+        [
+          20,
+          8,
+          7,
+          0.7574449979800164
+        ],
+        [
+          9,
+          21,
+          8,
+          0.7530247455461918
+        ]
+      ],
+      "seam_shift": 0.0024928761737553025,
+      "assembled_side": 29.757445285554464,
+      "polish_steps": 1
+    }
+  ],
+  "input": "/tmp/submission_before_rectangles.csv",
+  "record_donors": 45,
+  "public_donors": 96,
+  "max_dim": 28,
+  "variants_per_signature": 4,
+  "polish_rounds": 8,
+  "baseline_score": 22.26868135524178,
+  "candidate_score": 22.26855879184436,
+  "candidate_csv": "/Users/borisbezmenov/kaggle/square_in_squares/rectangle_pair_candidates.csv"
+}

@@ -138,11 +138,15 @@ def main() -> None:
     parser.add_argument("--public-donors", type=int, default=24)
     parser.add_argument("--max-dim", type=int, default=20)
     parser.add_argument("--variants", type=int, default=3)
+    parser.add_argument("--polish-rounds", type=int, default=0,
+                        help="optional full-packing centre/angle LP refinement")
     parser.add_argument("--report", type=Path,
                         default=ROOT / "reports" / "rectangle_pair_pilot.json")
     parser.add_argument("--output", type=Path,
                         default=ROOT / "rectangle_pair_candidates.csv")
     args = parser.parse_args()
+    if args.polish_rounds < 0:
+        parser.error("--polish-rounds must be nonnegative")
     incumbents = {row.n: row.side for row in validate_submission(args.input)}
     donors = record_seeds()
     portfolio = portfolio_packings([PUBLIC_PORTFOLIO], 1000)
@@ -152,9 +156,26 @@ def main() -> None:
                                    variants_per_signature=args.variants)
     gadgets.extend(load_gadget_overrides())
     improvements, report = search_pairs(gadgets, incumbents)
+    if args.polish_rounds:
+        from joint_polish import polish
+        from projected_search import normalized, strict_side
+
+        for item in report["improvements"]:
+            n = item["n"]
+            before, rows = improvements[n]
+            polished, steps = polish(rows, args.polish_rounds, strict_side,
+                                     normalized, initial_step=0.01)
+            side = strict_side(polished)
+            item["assembled_side"] = before
+            item["polish_steps"] = steps
+            if side < before - 1e-10:
+                improvements[n] = side, polished
+                item["after_side"] = side
+                item["score_gain"] = (item["before_side"] - side) / math.sqrt(n)
     report.update({"input": str(args.input), "record_donors": len(donors) - len(sampled),
                    "public_donors": len(sampled), "max_dim": args.max_dim,
                    "variants_per_signature": args.variants,
+                   "polish_rounds": args.polish_rounds,
                    "baseline_score": math.fsum(
                        incumbents[n] / math.sqrt(n) - 1 for n in range(1, 1001))})
     report["candidate_score"] = report["baseline_score"] - math.fsum(
