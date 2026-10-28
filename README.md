@@ -8,7 +8,10 @@ python3 packing_solution.py
 
 Скрипт создаёт `submission_improved.csv`, проверяет его и печатает локальный
 балл Kaggle. Исходный `submission.csv` не перезаписывается. Решение использует
-математические укладки для 5, 27 и 52 квадратов и дополнительные плотные
+публичный портфель 22.264 и даёт локальный балл `22.264019444925` при полном
+прогоне с проверкой всех 1000 раскладок. Публичный файл сам по себе даёт
+`22.264019443846`; различие порядка `10⁻⁹` связано с численным экспортом.
+Также используются математические укладки для 5, 27 и 52 квадратов и дополнительные плотные
 раскладки из `record_seeds.json`, взятые из
 [каталога Squares in Squares](https://kingbird.myphotos.cc/packing/squares_in_squares.html)
 и [набора Ryan Xu](https://github.com/ry-xu/square_packing)
@@ -40,8 +43,9 @@ python3 packing_solution.py
 Для одного `n` сохраняется лучшая из импортированных исходных раскладок.
 Источники и точные снимки перечислены в
 [published_sources/README.md](published_sources/README.md). По умолчанию
-используется сжатый снимок [публичного ноутбука 22.268681355](https://www.kaggle.com/code/ntumlnoob/first-22-268681355-public-code-with-explanation).
-В нём 547 нерешёточных раскладок. Снимки Neighbour Transfer + Squeeze
+используются сжатые снимки [публичного ноутбука 22.268681355](https://www.kaggle.com/code/ntumlnoob/first-22-268681355-public-code-with-explanation)
+и [более нового ноутбука 22.264](https://www.kaggle.com/code/ntumlnoob/22-264-with-rectangles-ftmc-milp-fq-cpu-gpu).
+В первом 547 нерешёточных раскладок; из второго сохранены 73 улучшения. Снимки Neighbour Transfer + Squeeze
 версий 34 и 36 сохранены для воспроизводимости. До сборки прямоугольных фрагментов локальный
 балл полного CSV был `23.599766565302`; с версией 34 он снизился до
 `22.933179036779`. Сравнение версии 36 с нашим прежним решением по всем
@@ -50,6 +54,11 @@ python3 packing_solution.py
 раскладки `n=976` снизило итоговый локальный балл до `22.285049815087`.
 Новый снимок снизил локальный балл до `22.268681355242`; сравнение с прежним
 решением записано в [отчёте](reports/portfolio_2268_comparison.md).
+Более новый снимок улучшил 73 размера и снизил балл нашего решения после
+прямоугольной сборки и полировки с `22.268558791844` до
+`22.264019444925`; [сравнение по всем n](reports/portfolio_2264_comparison.md)
+показывает вклад каждого размера. Сохранены только 73 улучшающие раскладки,
+остальные берутся из прежнего портфеля и генератора.
 Балл прежних
 собственных конструкций без публичного
 портфеля и без новой сборки — `24.280283249947`; его можно воспроизвести командой
@@ -103,7 +112,7 @@ python3 packing_solution.py --portfolio other_submission.csv \
 `0.00249288`, чтобы устранить пересечение. Координаты сохранены в
 [`rectangle_pair_candidates.csv`](rectangle_pair_candidates.csv), а статистика
 в [`reports/rectangle_pair_extended.json`](reports/rectangle_pair_extended.json).
-Полный submission собирается командой
+До подключения портфеля 22.264 полный submission собирался командой
 `python3 packing_solution.py --portfolio rectangle_pair_candidates.csv`;
 валидатор подтвердил локальный балл `22.268559132307` вместо
 `22.268681355242`.
@@ -117,7 +126,9 @@ python3 packing_solution.py --portfolio other_submission.csv \
 Воспроизвести полный поиск можно так:
 
 ```bash
-python3 packing_solution.py --no-fault-dp --output /tmp/submission_before_rectangles.csv
+python3 packing_solution.py --no-public-portfolio --no-fault-dp \
+  --portfolio published_sources/ntumlnoob_2268_partial.csv.gz \
+  --output /tmp/submission_before_rectangles.csv
 python3 rectangle_pair_search.py --input /tmp/submission_before_rectangles.csv \
   --public-donors 96 --max-dim 28 --variants 4 --polish-rounds 8 \
   --report reports/rectangle_pair_polished.json

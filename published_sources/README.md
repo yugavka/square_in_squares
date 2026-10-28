@@ -1,6 +1,23 @@
 # Источники импортированных раскладок
 
-`ntumlnoob_2268_partial.csv.gz` — используемый по умолчанию снимок
+`ntumlnoob_2264_delta.csv.gz` — 73 раскладки (57 002 строки) из
+[публичного ноутбука 22.264 With rectangles/FTMC/MILP/FQ/cpu+gpu](https://www.kaggle.com/code/ntumlnoob/22-264-with-rectangles-ftmc-milp-fq-cpu-gpu?scriptVersionId=363062691),
+которые улучшали наш полный файл с локальным баллом `22.268558791844`.
+Исходный опубликованный `submission.csv` содержит 500 500 строк, прошёл
+локальный валидатор и имеет SHA-256
+`821b0389409faa5fb369be8f0f995e72b08a840926c619884f54b661a64b5355`.
+Этот хеш также указан в самом ноутбуке. Сжатый снимок сохраняет исходные
+десятичные координаты; SHA-256 архива:
+`cace59eb9c1e81158d327c6851b043e87f0b3fd164414ebabef24ac4febe4826`.
+Сам ноутбук описывает сборку прямоугольных фрагментов, FTMC/MILP/FQ и
+объединение публичных портфелей. Его итоговый файл включает результаты
+нескольких авторов; опубликованные
+[`SOURCE_NOTICES.md`](ntumlnoob_2264_SOURCE_NOTICES.md) и
+[метки происхождения для выбранных 73 размеров](ntumlnoob_2264_provenance.csv)
+сохранены рядом с координатами. Из них 38 помечены CPU FTMC/FQ, 12 — GPU/FQ,
+две — сборкой прямоугольников и FQ, остальные 21 — публичными донорами.
+
+`ntumlnoob_2268_partial.csv.gz` — базовый снимок, также используемый по умолчанию,
 [публичного ноутбука First 22.268681355 Public Code With Explanation](https://www.kaggle.com/code/ntumlnoob/first-22-268681355-public-code-with-explanation).
 Он получен из опубликованного `submission.csv` с SHA-256
 `30dded7f9b2ab419c87daceb6d72f53502edbe23238caea3301dac9110720a7b`.
