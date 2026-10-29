@@ -25,7 +25,7 @@ from pathlib import Path
 from optimal_locks import proven_optimal
 from projected_search import (load_selected, normalized, restore_lp,
                               strict_side, write_partial)
-from validate_submission import validate_submission
+from validate_submission import make_square, measure_packing, validate_submission
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "gpu_kernel" / "soft_gpu.py"
@@ -44,7 +44,9 @@ def build(ns: list[int], targets: list[float] | None, deltas: list[float] | None
     jobs = []
     for n in ns:
         incumbent = normalized(layouts[n])
-        side = strict_side(incumbent)
+        # Public layouts may touch exactly, which strict_side rejects.
+        side = measure_packing(n, [make_square(i, *row)
+                                   for i, row in enumerate(incumbent)]).side
         boxes = targets if targets else [round(side - delta, 9) for delta in deltas]
         jobs.append({"n": n, "targets": boxes, "incumbent_side": side,
                      "incumbent": [list(map(float, row)) for row in incumbent]})

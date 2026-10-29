@@ -23,21 +23,43 @@ CONFIG = {"jobs": [{"n": 3, "targets": [2.0], "incumbent": [], "incumbent_side":
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def energy(points, side, size, i, j):
-    """Per-layout penalty: squared wall excess plus squared SAT penetration."""
+def energy(points, side, size, pairs):
+    """Per-layout penalty: squared wall excess plus squared SAT penetration.
+
+    ``size`` is one edge length or a (layout, square) tensor of them; ``pairs``
+    holds flat (layout, i, j) index tensors of nearby squares.
+    """
     x, y, a = points.unbind(-1)
+    size = torch.as_tensor(size, dtype=points.dtype, device=points.device).expand_as(x)
     cos, sin = torch.cos(a), torch.sin(a)
     reach = size / 2 * (cos.abs() + sin.abs())
-    wall = (torch.relu(reach - x) ** 2 + torch.relu(x + reach - side) ** 2 +
-            torch.relu(reach - y) ** 2 + torch.relu(y + reach - side) ** 2).sum(-1)
-    dx, dy = x[:, j] - x[:, i], y[:, j] - y[:, i]
-    delta = a[:, j] - a[:, i]
-    half = size / 2 * (torch.cos(delta).abs() + torch.sin(delta).abs())
-    ci, si, cj, sj = cos[:, i], sin[:, i], cos[:, j], sin[:, j]
+    total = (torch.relu(reach - x) ** 2 + torch.relu(x + reach - side) ** 2 +
+             torch.relu(reach - y) ** 2 + torch.relu(y + reach - side) ** 2).sum(-1)
+    b, i, j = pairs
+    dx, dy = x[b, j] - x[b, i], y[b, j] - y[b, i]
+    delta = a[b, j] - a[b, i]
+    spread = torch.cos(delta).abs() + torch.sin(delta).abs()
+    size_i, size_j = size[b, i] / 2, size[b, j] / 2
+    # On an axis of square i its own half width is size_i/2; square j
+    # projects to size_j/2 * spread, and symmetrically for j's axes.
+    on_i, on_j = size_i + size_j * spread, size_j + size_i * spread
+    ci, si, cj, sj = cos[b, i], sin[b, i], cos[b, j], sin[b, j]
     proj = torch.stack([dx * ci + dy * si, -dx * si + dy * ci,
                         dx * cj + dy * sj, -dx * sj + dy * cj], -1).abs()
-    depth = torch.relu((size / 2 + half).unsqueeze(-1) - proj).amin(-1)
-    return .5 * (wall + (depth ** 2).sum(-1))
+    limit = torch.stack([on_i, on_i, on_j, on_j], -1)
+    depth = torch.relu(limit - proj).amin(-1)
+    total = total.index_add(0, b, depth ** 2)
+    return .5 * total
+
+
+def neighbours(points, cutoff):
+    """Flat (layout, i, j) indices of square pairs closer than ``cutoff``."""
+    with torch.no_grad():
+        centres = points[..., :2]
+        close = torch.cdist(centres, centres) < cutoff
+        close = torch.triu(close, diagonal=1)
+        b, i, j = close.nonzero(as_tuple=True)
+    return b, i, j
 
 
 def grid_outside(side, keep):
@@ -93,34 +115,70 @@ def seed(kind, job, side, rng):
     return fill_to(tilted + grid, n, side, rng)
 
 
-def run_batch(kind, job, side, rng, i, j):
+def destroy(job, side, rng):
+    """Incumbent with every square in a random window thrown in at random."""
+    scale = side / job["incumbent_side"]
+    width = rng.uniform(2.5, min(6.0, side))
+    x0, y0 = rng.uniform(0, side - width), rng.uniform(0, side - width)
+    points, inside = [], []
+    for x, y, a in job["incumbent"]:
+        x, y = x * scale, y * scale
+        hit = x0 <= x <= x0 + width and y0 <= y <= y0 + width
+        if hit:
+            x, y, a = (rng.uniform(x0, x0 + width), rng.uniform(y0, y0 + width),
+                       rng.uniform(0, math.pi / 2))
+        points.append((x, y, a))
+        inside.append(hit)
+    return points, inside
+
+
+def descend(points, optimiser, side, size, lr, steps, refresh, margin):
+    for group in optimiser.param_groups:
+        group["lr"] = lr
+    for step in range(steps):
+        if step % refresh == 0:
+            # Squares move at most about lr per step under Adam, so pairs
+            # beyond the margin cannot meet before the next refresh.
+            pairs = neighbours(points, float(torch.as_tensor(size).max()) * math.sqrt(2) + margin)
+        optimiser.zero_grad()
+        energy(points, side, size, pairs).sum().backward()
+        optimiser.step()
+
+
+def run_batch(kind, job, side, rng):
     batch = CONFIG["batch"]
     # float32: consumer GPUs such as the T4 run float64 about 30 times slower,
-    # and the LP repair after download removes the remaining residual.
-    start = np.array([seed(kind, job, side, rng) for _ in range(batch)], dtype=np.float32)
+    # and the local L-BFGS polish after download removes the residual.
+    if kind == "lns":
+        built = [destroy(job, side, rng) for _ in range(batch)]
+        start = np.array([b for b, _ in built], dtype=np.float32)
+        inside = torch.tensor([m for _, m in built], device=DEVICE)
+    else:
+        start = np.array([seed(kind, job, side, rng) for _ in range(batch)], dtype=np.float32)
     points = torch.tensor(start, device=DEVICE, requires_grad=True)
     optimiser = torch.optim.Adam([points], lr=2e-2)
-    stages = [(.6 + .4 * k / 40, 2e-2 * (1 - k / 40) + 2e-3) for k in range(41)]
-    for size, lr in stages:
-        for group in optimiser.param_groups:
-            group["lr"] = lr
-        for _ in range(60):
-            optimiser.zero_grad()
-            energy(points, side, size, i, j).sum().backward()
-            optimiser.step()
+    if kind == "lns":
+        # Thrown-in squares grow from half size and alone are shaken while
+        # the rest of the incumbent stays at full size around them.
+        low, rounds, lr0, shaken = .5, 30, 1e-2, inside.float()
+    elif kind == "incumbent":
+        # The incumbent keeps its structure: shake it at nearly full size.
+        low, rounds, lr0, shaken = .97, 10, 2e-2, torch.ones_like(points[..., 0])
+    else:
+        # Other seeds organise while all squares grow from 0.6.
+        low, rounds, lr0, shaken = .6, 40, 2e-2, torch.ones_like(points[..., 0])
+    for k in range(rounds + 1):
+        grow = low + (1 - low) * k / rounds
+        size = torch.where(inside, grow, 1.0) if kind == "lns" else grow
+        descend(points, optimiser, side, size, lr0 * (1 - k / rounds) + lr0 / 10, 60, 10, .6)
         with torch.no_grad():
-            amplitude = .03 * (1 - size) / .4
-            points[..., :2] += amplitude * torch.randn_like(points[..., :2])
-            points[..., 2] += amplitude * torch.randn_like(points[..., 2])
+            amplitude = .03 * (1 - k / rounds) * shaken
+            for axis in range(3):
+                points[..., axis] += amplitude * torch.randn_like(amplitude)
     for lr in (1e-3, 3e-4, 1e-4, 3e-5, 1e-5):
-        for group in optimiser.param_groups:
-            group["lr"] = lr
-        for _ in range(1500):
-            optimiser.zero_grad()
-            energy(points, side, 1.0, i, j).sum().backward()
-            optimiser.step()
+        descend(points, optimiser, side, 1.0, lr, 1500, 50, .3)
     with torch.no_grad():
-        final = energy(points, side, 1.0, i, j).cpu().numpy()
+        final = energy(points, side, 1.0, neighbours(points, 1.5)).cpu().numpy()
     return points.detach().cpu().numpy(), final
 
 
@@ -129,8 +187,6 @@ def main():
     name = torch.cuda.get_device_name(0) if DEVICE == "cuda" else "cpu"
     print(json.dumps({"device": DEVICE, "name": name}), flush=True)
     rng = np.random.default_rng(CONFIG["seed"])
-    pairs = {job["n"]: torch.triu_indices(job["n"], job["n"], 1, device=DEVICE)
-             for job in CONFIG["jobs"]}
     tasks = [(job, side, kind) for job in CONFIG["jobs"]
              for side in job["targets"] for kind in CONFIG["kinds"]]
     candidates, summary = [], []
@@ -140,7 +196,7 @@ def main():
             if time.time() - started >= CONFIG["minutes"] * 60:
                 break
             n = job["n"]
-            layouts, final = run_batch(kind, job, side, rng, *pairs[n])
+            layouts, final = run_batch(kind, job, side, rng)
             order = np.argsort(final)
             summary.append({"round": round_index, "n": n, "side": side, "kind": kind,
                             "min": float(final[order[0]]),
