@@ -79,6 +79,12 @@ def extract_corner_crops(donors: Iterable[Packing],
                 # A square appears in crop (w,h) iff both integer thresholds
                 # are met. The 2D prefix sum counts crops before rebuilding any.
                 buckets = [[0] * (limit + 1) for _ in range(limit + 1)]
+                # Prefix extremes of the true bounds give each crop's width
+                # and height without rebuilding its squares.
+                low_x = [[math.inf] * (limit + 1) for _ in range(limit + 1)]
+                low_y = [[math.inf] * (limit + 1) for _ in range(limit + 1)]
+                high_x = [[-math.inf] * (limit + 1) for _ in range(limit + 1)]
+                high_y = [[-math.inf] * (limit + 1) for _ in range(limit + 1)]
                 required = []
                 for square in geometry:
                     rw = max(1, math.ceil(square.max_x - full_f - 1e-9))
@@ -86,27 +92,40 @@ def extract_corner_crops(donors: Iterable[Packing],
                     required.append((rw, rh))
                     if rw <= limit and rh <= limit:
                         buckets[rw][rh] += 1
+                        low_x[rw][rh] = min(low_x[rw][rh], square.min_x)
+                        low_y[rw][rh] = min(low_y[rw][rh], square.min_y)
+                        high_x[rw][rh] = max(high_x[rw][rh], square.max_x)
+                        high_y[rw][rh] = max(high_y[rw][rh], square.max_y)
                 for w in range(1, limit + 1):
                     for h in range(1, limit + 1):
                         buckets[w][h] += (buckets[w - 1][h] +
                                           buckets[w][h - 1] - buckets[w - 1][h - 1])
+                        low_x[w][h] = min(low_x[w][h], low_x[w - 1][h], low_x[w][h - 1])
+                        low_y[w][h] = min(low_y[w][h], low_y[w - 1][h], low_y[w][h - 1])
+                        high_x[w][h] = max(high_x[w][h], high_x[w - 1][h], high_x[w][h - 1])
+                        high_y[w][h] = max(high_y[w][h], high_y[w - 1][h], high_y[w][h - 1])
                         if w < 2 or h < 2:
                             continue
                         surplus = buckets[w][h] - w * h
                         if surplus <= 0:
                             continue
-                        picked = tuple(row for row, (rw, rh) in zip(rows, required)
-                                       if rw <= w and rh <= h)
-                        crop, width, height = normalize(picked)
+                        width = high_x[w][h] - low_x[w][h]
+                        height = high_y[w][h] - low_y[w][h]
                         f = max(width - w, height - h, 0.0)
                         if f >= 1 or f < 1e-10:
                             continue
-                        gadget = Gadget(w, h, surplus, f, crop)
                         if variants_per_signature == 1:
                             key = (w, h, surplus, True)
                             previous = best.get(key)
-                            if previous is None or f < previous[0].overhang - 1e-8:
-                                best[key] = [gadget]
+                            if previous is not None and f >= previous[0].overhang - 1e-8:
+                                continue
+                        min_x, min_y = low_x[w][h], low_y[w][h]
+                        crop = tuple((x - min_x, y - min_y, angle)
+                                     for (x, y, angle), (rw, rh) in zip(rows, required)
+                                     if rw <= w and rh <= h)
+                        gadget = Gadget(w, h, surplus, f, crop)
+                        if variants_per_signature == 1:
+                            best[key] = [gadget]
                             continue
                         # Both seam classes matter: a slightly wider crop with
                         # an empty upper tip may join where the narrowest one

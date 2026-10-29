@@ -1,0 +1,686 @@
+{
+  "kernel": "borisbezmenov/soft-gpu-147-v2",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "config": {
+    "n": 147,
+    "targets": [
+      12.657,
+      12.654,
+      12.651
+    ],
+    "minutes": 60.0,
+    "batch": 256,
+    "seed": 0,
+    "kinds": [
+      "incumbent",
+      "block",
+      "band",
+      "mixed",
+      "random"
+    ],
+    "keep": 0.0001,
+    "top": 8,
+    "incumbent_side": 12.656854249492426
+  },
+  "batches": [
+    {
+      "round": 0,
+      "side": 12.657,
+      "kind": "incumbent",
+      "min": 0.00022894793073646724,
+      "median": 0.05352843180298805,
+      "below_keep": 0,
+      "seconds": 381
+    },
+    {
+      "round": 0,
+      "side": 12.657,
+      "kind": "block",
+      "min": 0.019713573157787323,
+      "median": 0.07823505997657776,
+      "below_keep": 0,
+      "seconds": 758
+    },
+    {
+      "round": 0,
+      "side": 12.657,
+      "kind": "band",
+      "min": 0.0362490713596344,
+      "median": 0.15458723902702332,
+      "below_keep": 0,
+      "seconds": 1136
+    },
+    {
+      "round": 0,
+      "side": 12.657,
+      "kind": "mixed",
+      "min": 0.06347785145044327,
+      "median": 0.23864734172821045,
+      "below_keep": 0,
+      "seconds": 1514
+    },
+    {
+      "round": 0,
+      "side": 12.657,
+      "kind": "random",
+      "min": 0.05842752009630203,
+      "median": 0.246130108833313,
+      "below_keep": 0,
+      "seconds": 1891
+    },
+    {
+      "round": 0,
+      "side": 12.654,
+      "kind": "incumbent",
+      "min": 6.874195150885498e-06,
+      "median": 0.06029684841632843,
+      "below_keep": 2,
+      "seconds": 2268
+    },
+    {
+      "round": 0,
+      "side": 12.654,
+      "kind": "block",
+      "min": 0.02408396266400814,
+      "median": 0.0804734081029892,
+      "below_keep": 0,
+      "seconds": 2645
+    },
+    {
+      "round": 0,
+      "side": 12.654,
+      "kind": "band",
+      "min": 0.03640991449356079,
+      "median": 0.15948376059532166,
+      "below_keep": 0,
+      "seconds": 3022
+    },
+    {
+      "round": 0,
+      "side": 12.654,
+      "kind": "mixed",
+      "min": 0.056589800864458084,
+      "median": 0.23503029346466064,
+      "below_keep": 0,
+      "seconds": 3400
+    },
+    {
+      "round": 0,
+      "side": 12.654,
+      "kind": "random",
+      "min": 0.07007536292076111,
+      "median": 0.244879812002182,
+      "below_keep": 0,
+      "seconds": 3778
+    }
+  ],
+  "results": {
+    "147": {
+      "incumbent_side": 12.656854249492426,
+      "checked": [
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 6.874195150885498e-06,
+          "polished": 6.8508360500151185e-06,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 7.217820893856697e-06,
+          "polished": 7.19370065620257e-06,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.0003883480094373226,
+          "polished": 0.0003882465289951658,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.00039106124313548207,
+          "polished": 0.0003839532348497415,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.00042149960063397884,
+          "polished": 0.00042137915113454774,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.00043674916378222406,
+          "polished": 0.0004366421833277436,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.0006495192646980286,
+          "polished": 0.00064936827361898,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "incumbent",
+          "energy": 0.0008098313119262457,
+          "polished": 0.0008096782360103163,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.02408396266400814,
+          "polished": 0.02408227489681598,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.02576204016804695,
+          "polished": 0.025760887724941464,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.02634255588054657,
+          "polished": 0.026341421444968992,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.028193358331918716,
+          "polished": 0.028191898105137038,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.02931526117026806,
+          "polished": 0.029314073513714352,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.029640045017004013,
+          "polished": 0.029638292326832762,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.02990487404167652,
+          "polished": 0.029903383461877712,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "block",
+          "energy": 0.030875859782099724,
+          "polished": 0.030874279650549077,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.03640991449356079,
+          "polished": 0.036408252948114776,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.038469307124614716,
+          "polished": 0.038467889270667535,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.042970333248376846,
+          "polished": 0.04296847055480881,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.04672427475452423,
+          "polished": 0.04672293472628321,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.049132708460092545,
+          "polished": 0.049130550530350675,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.05539082735776901,
+          "polished": 0.05522160843355356,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.056589800864458084,
+          "polished": 0.056588261024874444,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.0630388855934143,
+          "polished": 0.06218865492835676,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "band",
+          "energy": 0.06665752083063126,
+          "polished": 0.06586442089808178,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.07007536292076111,
+          "polished": 0.07007350924804424,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.08391227573156357,
+          "polished": 0.07398682954672502,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.08441103249788284,
+          "polished": 0.08393728689393554,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.08599898964166641,
+          "polished": 0.08599656559526467,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.08609011769294739,
+          "polished": 0.08608714982168718,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.0864313617348671,
+          "polished": 0.08642870157337959,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.08681365847587585,
+          "polished": 0.0868111788336527,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.08719054609537125,
+          "polished": 0.03212416324753941,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "mixed",
+          "energy": 0.09016814827919006,
+          "polished": 0.06011347962700081,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.09501414000988007,
+          "polished": 0.09501203149424968,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.09905952215194702,
+          "polished": 0.09905747060146745,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.10818483680486679,
+          "polished": 0.1081820206819113,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.11076482385396957,
+          "polished": 0.11076214299925388,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.11282846331596375,
+          "polished": 0.11042411419089083,
+          "side": null
+        },
+        {
+          "side_target": 12.654,
+          "kind": "random",
+          "energy": 0.11288609355688095,
+          "polished": 0.11288351879079495,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.00022894793073646724,
+          "polished": 0.0002288928870849302,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.0003159065672662109,
+          "polished": 0.00031577854686808826,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.00034176482586190104,
+          "polished": 0.00034164855472262174,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.00037715991493314505,
+          "polished": 0.0003770443974246371,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.00047146889846771955,
+          "polished": 0.00047132354247775196,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.000494066218379885,
+          "polished": 0.0004939517994702343,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.0005788367125205696,
+          "polished": 0.0005787038848045084,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "incumbent",
+          "energy": 0.0006937517318874598,
+          "polished": 0.0006935579115039138,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.019713573157787323,
+          "polished": 0.019712553588451684,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.02058301493525505,
+          "polished": 0.020581525876876262,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.02093876525759697,
+          "polished": 0.020937303220641003,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.02277025207877159,
+          "polished": 0.022769041098273483,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.02385067380964756,
+          "polished": 0.023849171058411216,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.027135653421282768,
+          "polished": 0.027134479129605194,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.02787134051322937,
+          "polished": 0.027869922679293318,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "block",
+          "energy": 0.027979424223303795,
+          "polished": 0.02797776436574401,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.0362490713596344,
+          "polished": 0.03445480347818572,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.037107303738594055,
+          "polished": 0.0274126408942511,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.04442191496491432,
+          "polished": 0.04442006315234748,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.053928785026073456,
+          "polished": 0.0539263965928693,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.057942911982536316,
+          "polished": 0.05794096347488503,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.05842752009630203,
+          "polished": 0.0573005055178515,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.059224121272563934,
+          "polished": 0.059005103434199985,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.05923505127429962,
+          "polished": 0.059232476113653995,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "band",
+          "energy": 0.061025384813547134,
+          "polished": 0.061023346348296974,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.06347785145044327,
+          "polished": 0.06342428264192587,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.07150472700595856,
+          "polished": 0.06692000035210036,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.07587739080190659,
+          "polished": 0.0628949484127225,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.0817989930510521,
+          "polished": 0.06971549810634138,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.0852404460310936,
+          "polished": 0.08523787631847139,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.08870218694210052,
+          "polished": 0.08869982973643203,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.09163156151771545,
+          "polished": 0.09162904333989003,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.0918465331196785,
+          "polished": 0.09184412339343953,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.09805558621883392,
+          "polished": 0.09805341020455945,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.10022993385791779,
+          "polished": 0.10022691845108171,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "random",
+          "energy": 0.10206850618124008,
+          "polished": 0.07694884617176931,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.10236434638500214,
+          "polished": 0.10236161163932261,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.10407404601573944,
+          "polished": 0.10391507309382877,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.10580155998468399,
+          "polished": 0.10069502185267666,
+          "side": null
+        },
+        {
+          "side_target": 12.657,
+          "kind": "mixed",
+          "energy": 0.10742741823196411,
+          "polished": 0.10742441496081168,
+          "side": null
+        }
+      ],
+      "best_side": null
+    }
+  }
+}

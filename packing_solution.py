@@ -184,13 +184,26 @@ def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
     return best
 
 
-def slab_candidates(squares: list[SquarePlacement],
-                    max_removed: int | None = None) -> Iterator[tuple[int, Packing]]:
-    """Remove a unit-wide vertical or horizontal strip and close the gap.
+def _running_bounds(boxes: list[tuple[float, float, float, float]]
+                    ) -> list[tuple[float, float, float, float]]:
+    """Bounds of every prefix: entry k covers boxes[:k]."""
+    min_x = min_y = math.inf
+    max_x = max_y = -math.inf
+    out = [(min_x, max_x, min_y, max_y)]
+    for lo_x, hi_x, lo_y, hi_y in boxes:
+        min_x, max_x = min(min_x, lo_x), max(max_x, hi_x)
+        min_y, max_y = min(min_y, lo_y), max(max_y, hi_y)
+        out.append((min_x, max_x, min_y, max_y))
+    return out
 
-    Every square touching the strip is removed; squares on opposite sides are
-    separated by at least one unit before the translation. Candidate positions
-    come from square edges, including strips flush with tilted blocks.
+
+def slab_sides(squares: list[SquarePlacement], max_removed: int | None = None
+               ) -> Iterator[tuple[int, float, str, float]]:
+    """Kept count and side of every slab removal, as (kept, side, axis, cut).
+
+    Prefix bounds of the squares left of a cut and suffix bounds of the
+    shifted squares right of it give each side in constant time, so callers
+    build the layout with slab_layout only when the side is useful.
     """
     n = len(squares)
     if max_removed is None:
@@ -200,6 +213,17 @@ def slab_candidates(squares: list[SquarePlacement],
         lower = [getattr(square, f"min_{axis}") for square in geometry]
         upper = [getattr(square, f"max_{axis}") for square in geometry]
         sorted_lower, sorted_upper = sorted(lower), sorted(upper)
+        shift_x, shift_y = (1, 0) if axis == "x" else (0, 1)
+        by_upper = sorted(range(n), key=upper.__getitem__)
+        by_lower = sorted(range(n), key=lower.__getitem__, reverse=True)
+        left = _running_bounds([(geometry[i].min_x, geometry[i].max_x,
+                                 geometry[i].min_y, geometry[i].max_y)
+                                for i in by_upper])
+        right = _running_bounds([(geometry[i].min_x - shift_x,
+                                  geometry[i].max_x - shift_x,
+                                  geometry[i].min_y - shift_y,
+                                  geometry[i].max_y - shift_y)
+                                 for i in by_lower])
         positions = sorted(set(lower) | set(upper) |
                            {value - 1 for value in lower} |
                            {value - 1 for value in upper})
@@ -211,26 +235,41 @@ def slab_candidates(squares: list[SquarePlacement],
             kept = left_count + right_count
             if kept < 2 or n - kept > max_removed:
                 continue
-            packed: list[SquarePlacement] = []
-            min_x = min_y = math.inf
-            max_x = max_y = -math.inf
-            for i, (x, y, angle) in enumerate(squares):
-                shift_x = shift_y = 0
-                if upper[i] <= cut:
-                    packed.append((x, y, angle))
-                elif lower[i] >= cut + 1:
-                    shift_x, shift_y = (1, 0) if axis == "x" else (0, 1)
-                    packed.append((x - shift_x, y - shift_y, angle))
-                else:
-                    continue
-                square = geometry[i]
-                min_x = min(min_x, square.min_x - shift_x)
-                max_x = max(max_x, square.max_x - shift_x)
-                min_y = min(min_y, square.min_y - shift_y)
-                max_y = max(max_y, square.max_y - shift_y)
-            if len(packed) != kept:
-                raise AssertionError("slab classification disagrees with counts")
-            yield kept, (max(max_x - min_x, max_y - min_y), packed)
+            a, b = left[left_count], right[right_count]
+            side = max(max(a[1], b[1]) - min(a[0], b[0]),
+                       max(a[3], b[3]) - min(a[2], b[2]))
+            yield kept, side, axis, cut
+
+
+def slab_layout(squares: list[SquarePlacement], axis: str,
+                cut: float) -> list[SquarePlacement]:
+    """Squares left of the strip stay; those right of it shift by one unit."""
+    shift_x, shift_y = (1, 0) if axis == "x" else (0, 1)
+    packed = []
+    for i, (x, y, angle) in enumerate(squares):
+        square = make_square(i, x, y, angle)
+        lower, upper = ((square.min_x, square.max_x) if axis == "x"
+                        else (square.min_y, square.max_y))
+        if upper <= cut:
+            packed.append((x, y, angle))
+        elif lower >= cut + 1:
+            packed.append((x - shift_x, y - shift_y, angle))
+    return packed
+
+
+def slab_candidates(squares: list[SquarePlacement],
+                    max_removed: int | None = None) -> Iterator[tuple[int, Packing]]:
+    """Remove a unit-wide vertical or horizontal strip and close the gap.
+
+    Every square touching the strip is removed; squares on opposite sides are
+    separated by at least one unit before the translation. Candidate positions
+    come from square edges, including strips flush with tilted blocks.
+    """
+    for kept, side, axis, cut in slab_sides(squares, max_removed):
+        packed = slab_layout(squares, axis, cut)
+        if len(packed) != kept:
+            raise AssertionError("slab classification disagrees with counts")
+        yield kept, (side, packed)
 
 
 def improved_packings(max_n: int = 1000,
@@ -298,13 +337,15 @@ def improved_packings(max_n: int = 1000,
     slab_donors = [(n, squares, trace.get(n) if trace is not None else None)
                    for n, (_, squares) in improved.items()]
     for donor_n, donor_squares, donor_trace in slab_donors:
-        for n, candidate in slab_candidates(donor_squares):
+        for n, side, axis, cut in slab_sides(donor_squares):
             if n > max_n or proven_optimal(n) is not None:
                 continue
-            side = candidate[0]
             previous = improved.get(n)
             grid_side = math.isqrt(n - 1) + 1
             if side < grid_side and (previous is None or side < previous[0] - 1e-9):
+                candidate = (side, slab_layout(donor_squares, axis, cut))
+                if len(candidate[1]) != n:
+                    raise AssertionError("slab classification disagrees with counts")
                 measured = measure_packing(
                     n, [make_square(i, *row) for i, row in enumerate(candidate[1])]
                 ).side
