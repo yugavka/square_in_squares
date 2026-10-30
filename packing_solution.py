@@ -45,12 +45,15 @@ PUBLIC_PORTFOLIO_22262 = (Path(__file__).with_name("published_sources") /
 # written with 45 digits after separating contacts by a factor 1 + 1e-30.
 COUZO_CERTIFICATES = (Path(__file__).with_name("published_sources") /
                       "couzo_certs.csv.gz")
+# Our basin hopping with Evan Daniel's packer on Kaggle (kernel packer-hop-gpu).
+PACKER_HOP = (Path(__file__).with_name("published_sources") /
+              "packer_hop_20261030.csv.gz")
 
 
 def fixed_public_portfolios() -> tuple[Path, ...]:
     """Hand-imported public snapshots, oldest first."""
     return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262,
-            COUZO_CERTIFICATES)
+            COUZO_CERTIFICATES, PACKER_HOP)
 
 
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
