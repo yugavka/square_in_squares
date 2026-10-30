@@ -2,7 +2,7 @@
 
 The script lists competition notebooks by public score, skips runs that are
 not complete, downloads each notebook's submission.csv and checks it with the
-local validator. Partial files are accepted: Kaggle scores missing n as grids. Layouts whose side is strictly smaller than every snapshot already
+local validator and an exact check of their decimal text. Partial files are accepted: Kaggle scores missing n as grids. Layouts whose side is strictly smaller than every snapshot already
 used by the generator are copied with their original decimal rows into a
 deterministic gzip archive in published_sources/auto. The import log
 published_sources/auto/imports.json records the notebook run time, file
@@ -25,6 +25,7 @@ from collections.abc import Iterable
 from datetime import datetime, timezone
 from pathlib import Path
 
+from exact_overlap import overlapping, read_text
 from optimal_locks import proven_optimal
 from validate_submission import ValidationError, total_score, validate_submission
 
@@ -172,6 +173,12 @@ def main() -> None:
                 continue
             sides = {result.n: result.side for result in results}
             keep = select_better(sides, baseline)
+            # The validator tolerates 1e-9 overlaps; Kaggle certifies text.
+            rejected = overlapping(read_text(path), only=keep)
+            if rejected:
+                print(f"{label}: {len(rejected)} layouts overlap in exact "
+                      f"decimal arithmetic, dropped")
+                keep = [n for n in keep if n not in rejected]
             gain = sum((min(baseline.get(n, math.inf), math.isqrt(n - 1) + 1)
                         - sides[n]) / math.sqrt(n) for n in keep)
             score = total_score(results)

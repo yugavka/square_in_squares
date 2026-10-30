@@ -25,6 +25,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from fault_line_dp import Gadget
 
+from exact_overlap import overlapping, read_text
 from optimal_locks import (SAFETY_SCALE, SQRT2, check_locked_sides,
                            fixed_packing, five_square_seed, proven_optimal,
                            write_lock_manifest)
@@ -272,6 +273,44 @@ def slab_candidates(squares: list[SquarePlacement],
         yield kept, (side, packed)
 
 
+def portfolio_sources(portfolio_paths: Iterable[Path], include_public: bool,
+                      max_n: int) -> list[Path]:
+    """Portfolio CSVs in priority order: bundled snapshots, imports, extras."""
+    sources = list(portfolio_paths)
+    if include_public and max_n == 1000:
+        from auto_import_public import imported_archives
+
+        sources[0:0] = (*fixed_public_portfolios(), *imported_archives())
+    return sources
+
+
+def source_texts(paths: Iterable[Path], improved: dict[int, Packing]
+                 ) -> dict[int, list[tuple[str, str, str]]]:
+    """Original decimal text of every chosen layout copied from a portfolio.
+
+    Kaggle certifies the submitted text, and public files carry more digits
+    than a double holds, so a float64 round trip can turn a tight contact
+    into an overlap of about 1e-15. A layout whose parsed rows equal the
+    chosen ones is written with its source text instead.
+    """
+    texts: dict[int, list[tuple[str, str, str]]] = {}
+    for path in paths:
+        groups: dict[int, dict[int, tuple[str, str, str]]] = {}
+        opener = gzip.open if path.suffix == ".gz" else Path.open
+        with opener(path, mode="rt", newline="", encoding="utf-8-sig") as source:
+            for row in csv.DictReader(source):
+                n = int(row["n"])
+                if n in improved:
+                    groups.setdefault(n, {})[int(row["square_id"])] = (
+                        row["x"].strip(), row["y"].strip(), row["angle"].strip())
+        for n, rows in groups.items():
+            ordered = [rows[k] for k in sorted(rows)]
+            parsed = [tuple(float(v) for v in row) for row in ordered]
+            if len(ordered) == n and parsed == improved[n][1]:
+                texts[n] = ordered
+    return texts
+
+
 def improved_packings(max_n: int = 1000,
                       portfolio_paths: Iterable[Path] = (),
                       include_public: bool = True,
@@ -305,12 +344,8 @@ def improved_packings(max_n: int = 1000,
             side, squares = extend_by_outer_l(side, squares, k)
             k += 1
 
-    sources = list(portfolio_paths)
-    if include_public and max_n == 1000:
-        from auto_import_public import imported_archives
-
-        sources[0:0] = (*fixed_public_portfolios(), *imported_archives())
-    source_packings = portfolio_packings(sources, max_n)
+    source_packings = portfolio_packings(
+        portfolio_sources(portfolio_paths, include_public, max_n), max_n)
     for n, candidate in source_packings.items():
         previous = improved.get(n)
         if previous is None or candidate[0] < previous[0]:
@@ -394,8 +429,11 @@ def write_submission(path: Path, max_n: int = 1000,
                      include_public: bool = True,
                      include_fault_dp: bool = True) -> int:
     """Write a complete submission, always preserving proof-backed layouts."""
+    portfolio_paths = list(portfolio_paths)
     improved = improved_packings(max_n, portfolio_paths, include_public,
                                  include_fault_dp)
+    texts = source_texts(portfolio_sources(portfolio_paths, include_public,
+                                           max_n), improved)
     with path.open("w", newline="", encoding="utf-8") as target:
         writer = csv.writer(target)
         writer.writerow(["id", "n", "square_id", "x", "y", "angle"])
@@ -409,10 +447,12 @@ def write_submission(path: Path, max_n: int = 1000,
                 k = math.isqrt(n - 1) + 1
                 squares = [(i % k + 0.5, i // k + 0.5, 0.0)
                            for i in range(n)]
-            for square_id, (x, y, angle) in enumerate(squares):
-                writer.writerow([row_id, n, square_id,
-                                 format(x, ".17g"), format(y, ".17g"),
-                                 format(angle, ".17g")])
+            text = texts.get(n) if n in improved and proven_optimal(n) is None else None
+            if text is None:
+                text = [(format(x, ".17g"), format(y, ".17g"), format(angle, ".17g"))
+                        for x, y, angle in squares]
+            for square_id, (x, y, angle) in enumerate(text):
+                writer.writerow([row_id, n, square_id, x, y, angle])
                 row_id += 1
     locked_improvements = sum(
         fixed_packing(n)[0] < math.isqrt(n - 1) + 1
@@ -440,6 +480,9 @@ def main() -> None:
     lock_count = write_lock_manifest(Path(__file__).with_name("locked_optimal.csv"))
     results = validate_submission(args.output)
     check_locked_sides(results)
+    bad = overlapping(read_text(args.output))
+    if bad:
+        raise SystemExit(f"exact decimal check: overlaps at n={sorted(bad)}")
     print(f"Wrote {args.output} with {improved_count} improved puzzles")
     print(f"Fixed proof-backed layouts: {lock_count}")
     print(f"Local Kaggle score: {total_score(results):.12f}")

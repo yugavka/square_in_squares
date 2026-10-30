@@ -13,7 +13,7 @@ from import_published_packings import checked_side, import_entries
 from optimal_locks import check_locked_sides, fixed_packing, proven_optimal
 from packing_solution import (five_square_seed, goebel_strip_seed,
                               improved_packings, portfolio_packings, record_seeds,
-                              slab_candidates,
+                              slab_candidates, source_texts,
                               write_submission)
 from validate_submission import Result, make_square, measure_packing
 
@@ -109,6 +109,24 @@ class ConstructivePackingTests(unittest.TestCase):
             self.assertLess(sides[1], sides[0])
             self.assertLess(sides[0] - sides[1], 1e-9)
             self.assertEqual(portfolio_packings(paths, max_n=11)[11][0], sides[1])
+
+    def test_portfolio_layout_keeps_its_decimal_text(self):
+        seed = next(squares for _, squares in record_seeds()
+                    if len(squares) == 11)
+        texts = [(f"{x:.17f}000000000001", f"{y:.17f}000000000001", repr(angle))
+                 for x, y, angle in seed]
+        parsed = [tuple(float(v) for v in row) for row in texts]
+        with tempfile.TemporaryDirectory() as temp:
+            source = Path(temp) / "source.csv"
+            with source.open('w', newline='') as target:
+                writer = csv.writer(target)
+                writer.writerow(('id', 'n', 'square_id', 'x', 'y', 'angle'))
+                for i, row in enumerate(texts):
+                    writer.writerow((i, 11, i, *row))
+            chosen = source_texts([source], {11: (12.0, parsed)})
+            other = source_texts([source], {11: (12.0, list(seed[::-1]))})
+        self.assertEqual(chosen, {11: texts})
+        self.assertEqual(other, {})
 
     def test_proof_registry_does_not_assume_k_squared_minus_2(self):
         for n in (23, 34, 47, 62):
