@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from fault_line_dp import (Gadget, compose, extract_corner_crops,
+from fault_line_dp import (COLUMN_GAP, ROW_GAP, Gadget, compose, extract_corner_crops,
                            has_empty_upper_tip, load_gadget_overrides,
                            orient, seam_compatible)
 from packing_solution import five_square_seed, record_seeds
@@ -46,6 +46,14 @@ class FaultLineTests(unittest.TestCase):
         self.assertEqual(len(packed), 27)
         self.assertLess(packed_side, 6)
         self.assertAlmostEqual(packed_side, 5 + first.overhang, places=5)
+
+    def test_lattice_gaps_free_an_overhanging_seam(self):
+        side, rows = five_square_seed()
+        full = Gadget(2, 2, 1, side - 2, tuple(rows))
+        self.assertFalse(has_empty_upper_tip(full))
+        packed_side, packed = compose((full, COLUMN_GAP, full, ROW_GAP, full))
+        self.assertEqual(len(packed), 7 * 7 + 3)
+        self.assertAlmostEqual(packed_side, 7 + full.overhang, places=6)
 
     def test_symmetry_preserves_validity(self):
         side, rows = five_square_seed()

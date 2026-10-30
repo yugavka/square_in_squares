@@ -230,6 +230,13 @@ def compose(gadgets: Iterable[Gadget], clearance: float = 1e-8) -> Packing:
     return measured.side, safe
 
 
+# One upright lattice column or row on the fault between two gadgets. The
+# column moves the next gadget one unit right, beyond the upper-right tip of
+# the previous one, so that gadget may overhang its seam corner.
+COLUMN_GAP = Gadget(1, 0, 0, 0.0, ())
+ROW_GAP = Gadget(0, 1, 0, 0.0, ())
+
+
 def has_empty_upper_tip(gadget: Gadget) -> bool:
     """An empty upper-right seam guarantees compatibility on that side."""
     return not any((square := make_square(i, *row)).max_x > gadget.w and
@@ -245,8 +252,8 @@ def fault_line_compositions(donors: Iterable[Packing],
                             ) -> dict[int, Packing]:
     """Minimax DP over diagonal chains of rectangular gadgets.
 
-    Every nonterminal gadget has an empty upper seam, so any terminal gadget
-    can be joined without a buffer row. DP states record the columns,
+    A nonterminal gadget either has an empty upper seam or is followed by a
+    lattice column or row, so the next gadget cannot meet its tip. DP states record the columns,
     rows and surplus already used, retaining the smallest maximum overhang.
     """
     extracted = extract_corner_crops(donors)
@@ -259,7 +266,14 @@ def fault_line_compositions(donors: Iterable[Packing],
                 raise ValueError(f"gadget override closes upper seam: {key}")
             by_key[key] = override
     all_gadgets = list(by_key.values())
-    gadgets = [g for g in all_gadgets if has_empty_upper_tip(g)]
+    # Pieces are what one DP transition places: a gadget whose upper seam is
+    # empty, or any gadget followed by a lattice column or row.
+    pieces: list[tuple[Gadget, ...]] = [(g,) for g in all_gadgets
+                                        if has_empty_upper_tip(g)]
+    pieces.extend((g, gap) for g in all_gadgets for gap in (COLUMN_GAP, ROW_GAP))
+    piece_size = [(sum(g.w for g in piece), sum(g.h for g in piece),
+                   sum(g.surplus for g in piece), piece[0].overhang)
+                  for piece in pieces]
     max_k = math.isqrt(max_n)
     terminal_by_difference: dict[int, list[Gadget]] = defaultdict(list)
     for gadget in all_gadgets:
@@ -272,13 +286,13 @@ def fault_line_compositions(donors: Iterable[Packing],
     states: list[dict[tuple[int, int, int], tuple[float, tuple[int, ...]]]] = [
         {} for _ in range(2 * max_k + 1)
     ]
-    for index, gadget in enumerate(gadgets):
-        if gadget.w <= max_k - 2 and gadget.h <= max_k - 2:
-            key = (gadget.w, gadget.h, gadget.surplus)
-            bucket = states[gadget.w + gadget.h]
+    for index, (w, h, piece_surplus, overhang) in enumerate(piece_size):
+        if w <= max_k - 2 and h <= max_k - 2:
+            key = (w, h, piece_surplus)
+            bucket = states[w + h]
             previous = bucket.get(key)
-            if previous is None or gadget.overhang < previous[0]:
-                bucket[key] = gadget.overhang, (index,)
+            if previous is None or overhang < previous[0]:
+                bucket[key] = overhang, (index,)
 
     for dimension in range(len(states)):
         for (used_w, used_h, surplus), (old_f, chain) in states[dimension].items():
@@ -302,15 +316,15 @@ def fault_line_compositions(donors: Iterable[Packing],
                 elif item > best[0]:
                     heapq.heapreplace(best, item)
 
-            for index, gadget in enumerate(gadgets):
-                w = used_w + gadget.w
-                h = used_h + gadget.h
+            for index, (piece_w, piece_h, piece_surplus, overhang) in enumerate(piece_size):
+                w = used_w + piece_w
+                h = used_h + piece_h
                 if w > max_k - 2 or h > max_k - 2:
                     continue
-                new_surplus = surplus + gadget.surplus
+                new_surplus = surplus + piece_surplus
                 if (max(w, h) + 2) ** 2 + new_surplus + 1 > max_n:
                     continue
-                f = max(old_f, gadget.overhang)
+                f = max(old_f, overhang)
                 key = (w, h, new_surplus)
                 bucket = states[w + h]
                 previous = bucket.get(key)
@@ -321,13 +335,14 @@ def fault_line_compositions(donors: Iterable[Packing],
     for n, best in options.items():
         limit = incumbents[n][0] if n in incumbents else math.isqrt(n - 1) + 1
         for _, _, chain, final in sorted(best, reverse=True):
+            sequence = [g for index in chain for g in pieces[index]] + [final]
             try:
-                candidate = compose([gadgets[index] for index in chain] + [final])
+                candidate = compose(sequence)
             except ValidationError:
                 continue
             if candidate[0] < limit - 1e-9:
                 improved[n] = candidate
                 if provenance is not None:
-                    provenance[n] = tuple(gadgets[index] for index in chain) + (final,)
+                    provenance[n] = tuple(sequence)
                 break
     return improved
