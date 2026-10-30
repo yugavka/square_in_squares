@@ -41,11 +41,16 @@ PUBLIC_PORTFOLIO_2264 = (Path(__file__).with_name("published_sources") /
                          "ntumlnoob_2264_delta.csv.gz")
 PUBLIC_PORTFOLIO_22262 = (Path(__file__).with_name("published_sources") /
                           "alexchilton_22262_delta.csv.gz")
+# Exact rational certificates from github.com/franciscouzo/square-packing,
+# written with 45 digits after separating contacts by a factor 1 + 1e-30.
+COUZO_CERTIFICATES = (Path(__file__).with_name("published_sources") /
+                      "couzo_certs.csv.gz")
 
 
 def fixed_public_portfolios() -> tuple[Path, ...]:
     """Hand-imported public snapshots, oldest first."""
-    return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262)
+    return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262,
+            COUZO_CERTIFICATES)
 
 
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
