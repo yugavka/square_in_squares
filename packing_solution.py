@@ -48,12 +48,16 @@ COUZO_CERTIFICATES = (Path(__file__).with_name("published_sources") /
 # Our basin hopping with Evan Daniel's packer on Kaggle (kernel packer-hop-gpu).
 PACKER_HOP = (Path(__file__).with_name("published_sources") /
               "packer_hop_20261030.csv.gz")
+# Bottleneck-gadget and slack-gadget hops with the same packer (kernels
+# packer-bneck-*, packer-slack-*): one DP gadget freed, the rest frozen.
+PACKER_BNECK = (Path(__file__).with_name("published_sources") /
+                "packer_bneck_20261101.csv.gz")
 
 
 def fixed_public_portfolios() -> tuple[Path, ...]:
     """Hand-imported public snapshots, oldest first."""
     return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262,
-            COUZO_CERTIFICATES, PACKER_HOP)
+            COUZO_CERTIFICATES, PACKER_HOP, PACKER_BNECK)
 
 
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
