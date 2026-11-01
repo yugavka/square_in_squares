@@ -52,12 +52,14 @@ PACKER_HOP = (Path(__file__).with_name("published_sources") /
 # packer-bneck-*, packer-slack-*): one DP gadget freed, the rest frozen.
 PACKER_BNECK = (Path(__file__).with_name("published_sources") /
                 "packer_bneck_20261101.csv.gz")
+PACKER_BNECK2 = (Path(__file__).with_name("published_sources") /
+                 "packer_bneck2_20261101.csv.gz")
 
 
 def fixed_public_portfolios() -> tuple[Path, ...]:
     """Hand-imported public snapshots, oldest first."""
     return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262,
-            COUZO_CERTIFICATES, PACKER_HOP, PACKER_BNECK)
+            COUZO_CERTIFICATES, PACKER_HOP, PACKER_BNECK, PACKER_BNECK2)
 
 
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
