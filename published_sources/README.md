@@ -109,3 +109,13 @@ SHA-256 исходных файлов и сохранённых снимков:
 | `n-227.json.gz` | `2c4965ed1827d3d5c10f914f00aec1d1ac2e692fd26f2afea8f12bf977e406d4` |
 | `n-229.json.gz` | `21fc6d7596be3a02987e57febb92f19310d7c2e6c1e3bda98444e63ad97b99cb` |
 | `n-260.json.gz` | `cb3dea1d586244cd1bee36cb0a03c7997e5e169f9edc40b41feea1f59f7dc923` |
+
+`evand_certs_20261102.csv.gz` — 5 раскладок (n = 172, 204, 260, 293, 299) из
+точных рациональных сертификатов Evan Daniel в
+[evand/square-packing](https://github.com/evand/square-packing) (коммит
+`0e76d9fe5e48fc2a614e3c132a0a3fd67e0a6a8d`, `search/packer/candidates/s<N>_1028.cert`,
+лицензия MIT, Copyright (c) 2026 Evan Daniel). Сертификаты переведены в
+45-значные десятичные строки после раздвижки контактов множителем `1 + 10⁻³⁰`;
+файл проходит точную проверку `exact_overlap.py`. Ссылки по каждому `n` — в
+[evand_certs_20261102_provenance.csv](evand_certs_20261102_provenance.csv);
+SHA-256 архива: `eee226a23f99d97cc8b212986d67a1259f1366886432e4fd709a9a84afe868aa`.

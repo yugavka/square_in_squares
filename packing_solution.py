@@ -54,12 +54,16 @@ PACKER_BNECK = (Path(__file__).with_name("published_sources") /
                 "packer_bneck_20261101.csv.gz")
 PACKER_BNECK2 = (Path(__file__).with_name("published_sources") /
                  "packer_bneck2_20261101.csv.gz")
+# Exact certificates from github.com/evand/square-packing (MIT, Evan Daniel).
+EVAND_CERTIFICATES = (Path(__file__).with_name("published_sources") /
+                      "evand_certs_20261102.csv.gz")
 
 
 def fixed_public_portfolios() -> tuple[Path, ...]:
     """Hand-imported public snapshots, oldest first."""
     return (PUBLIC_PORTFOLIO, PUBLIC_PORTFOLIO_2264, PUBLIC_PORTFOLIO_22262,
-            COUZO_CERTIFICATES, PACKER_HOP, PACKER_BNECK, PACKER_BNECK2)
+            COUZO_CERTIFICATES, PACKER_HOP, PACKER_BNECK, PACKER_BNECK2,
+            EVAND_CERTIFICATES)
 
 
 TRIM_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1),
@@ -170,8 +174,15 @@ def trim_one_square(squares: list[SquarePlacement],
     return side, remaining
 
 
-def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
-    """Select the best independently validated layout for each n in CSV inputs."""
+def portfolio_packings(paths: Iterable[Path], max_n: int,
+                       superseded: list[Packing] | None = None
+                       ) -> dict[int, Packing]:
+    """Select the best independently validated layout for each n in CSV inputs.
+
+    Layouts replaced by a better one for the same n are appended to
+    superseded when given: their corner crops can still be the better
+    fault-line donors.
+    """
     best: dict[int, Packing] = {}
     for path in paths:
         measured = {result.n: result.side for result in
@@ -195,6 +206,8 @@ def portfolio_packings(paths: Iterable[Path], max_n: int) -> dict[int, Packing]:
             # Validated inputs need no tolerance; a 1e-9 margin used to keep
             # an earlier file whose side was larger by a few 1e-10.
             if previous is None or side < previous[0]:
+                if previous is not None and superseded is not None:
+                    superseded.append(previous)
                 best[n] = side, [row for row in rows if row is not None]
     return best
 
@@ -358,8 +371,10 @@ def improved_packings(max_n: int = 1000,
             side, squares = extend_by_outer_l(side, squares, k)
             k += 1
 
+    superseded: list[Packing] = []
     source_packings = portfolio_packings(
-        portfolio_sources(portfolio_paths, include_public, max_n), max_n)
+        portfolio_sources(portfolio_paths, include_public, max_n), max_n,
+        superseded)
     for n, candidate in source_packings.items():
         previous = improved.get(n)
         if previous is None or candidate[0] < previous[0]:
@@ -370,6 +385,7 @@ def improved_packings(max_n: int = 1000,
 
         donors = [packing for _, packing in candidates]
         donors.extend(source_packings.values())
+        donors.extend(superseded)
         locked = (n for n in range(1, max_n + 1)
                   if proven_optimal(n) is not None)
         provenance: dict[int, tuple[Gadget, ...]] | None = ({}

@@ -91,6 +91,10 @@ class ConstructivePackingTests(unittest.TestCase):
             ).side
             self.assertAlmostEqual(chosen[11][0], expected)
             self.assertEqual(len(chosen[11][1]), 11)
+            superseded = []
+            portfolio_packings(paths, max_n=11, superseded=superseded)
+            self.assertEqual(len(superseded), 1)
+            self.assertGreater(superseded[0][0], expected)
 
     def test_portfolio_keeps_sub_nanometre_improvements(self):
         seed = next(squares for _, squares in record_seeds()
