@@ -1,11 +1,15 @@
-"""Exact overlap check on the decimal text of a submission, as Kaggle does it.
+"""Exact overlap check on a submission as the Kaggle metric sees it.
 
-The Kaggle metric certifies the submitted text with interval arithmetic, so a
+The Kaggle metric certifies its input text with interval arithmetic, so a
 pair that overlaps by 1e-16 fails there while validate_submission.py, which
-allows OVERLAP_TOLERANCE, accepts it. This check redoes the separating-axis
-test with 45-digit decimals on the text itself and reports every puzzle whose
-worst pair penetrates by more than zero. Exact contacts (penetration 0, as
-in the grid) are allowed, as in the metric.
+allows OVERLAP_TOLERANCE, accepts it. Kaggle first loads the CSV into a
+pandas DataFrame with float64 columns and writes it back to text, so the
+metric sees each value rounded to the nearest double, not the submitted
+digits: a 45-digit layout whose gaps are 1e-30 fails there. This check
+rounds every value the same way (``as_float``), redoes the separating-axis
+test with 45-digit decimals and reports every puzzle whose worst pair
+penetrates by more than zero. Exact contacts (penetration 0, as in the grid)
+are allowed, as in the metric.
 """
 
 from __future__ import annotations
@@ -71,14 +75,18 @@ def worst_penetration(rows: list[TextRow]) -> Decimal:
         return worst
 
 
-def read_text(path: Path) -> dict[int, list[TextRow]]:
-    """Decimal text rows per n, ordered by square_id."""
+def read_text(path: Path, as_float: bool = True) -> dict[int, list[TextRow]]:
+    """Decimal text rows per n, ordered by square_id.
+
+    With as_float, each value is the float64 text Kaggle passes to the metric.
+    """
     groups: dict[int, dict[int, TextRow]] = {}
+    clean = (lambda text: repr(float(text))) if as_float else str.strip
     opener = gzip.open if path.suffix == ".gz" else Path.open
     with opener(path, mode="rt", newline="", encoding="utf-8-sig") as source:
         for row in csv.DictReader(source):
             groups.setdefault(int(row["n"]), {})[int(row["square_id"])] = (
-                row["x"].strip(), row["y"].strip(), row["angle"].strip())
+                clean(row["x"]), clean(row["y"]), clean(row["angle"]))
     return {n: [rows[k] for k in sorted(rows)] for n, rows in groups.items()}
 
 
@@ -107,7 +115,8 @@ def main() -> None:
     parser.add_argument("path", type=Path, help="submission CSV or .csv.gz")
     args = parser.parse_args()
     bad = overlapping(read_text(args.path))
-    print(f"{len(bad)} puzzles overlap in exact decimal arithmetic")
+    print(f"{len(bad)} puzzles overlap in exact decimal arithmetic "
+          "after float64 parsing")
     for n, penetration in sorted(bad.items()):
         print(f"n={n}: penetration {penetration:.3e}")
     raise SystemExit(1 if bad else 0)

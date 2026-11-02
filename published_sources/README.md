@@ -115,7 +115,7 @@ SHA-256 исходных файлов и сохранённых снимков:
 [evand/square-packing](https://github.com/evand/square-packing) (коммит
 `0e76d9fe5e48fc2a614e3c132a0a3fd67e0a6a8d`, `search/packer/candidates/s<N>_1028.cert`,
 лицензия MIT, Copyright (c) 2026 Evan Daniel). Сертификаты переведены в
-45-значные десятичные строки после раздвижки контактов множителем `1 + 10⁻³⁰`;
+45-значные десятичные строки после раздвижки контактов множителем `1 + 10⁻¹²` (более узкие зазоры теряются, когда Kaggle читает CSV как float64);
 файл проходит точную проверку `exact_overlap.py`. Ссылки по каждому `n` — в
 [evand_certs_20261102_provenance.csv](evand_certs_20261102_provenance.csv);
-SHA-256 архива: `eee226a23f99d97cc8b212986d67a1259f1366886432e4fd709a9a84afe868aa`.
+SHA-256 архива: `8873b2357bee8de0c7ab2c52829e61c4a26fb0c726e892f3ea8a185f3c91d36c`.
